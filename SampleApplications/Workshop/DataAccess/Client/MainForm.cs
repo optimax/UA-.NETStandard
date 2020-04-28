@@ -29,13 +29,19 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
+using System.Threading;
+using DataAccessClient;
+using Newtonsoft.Json;
 using Opc.Ua;
 using Opc.Ua.Client;
 using Opc.Ua.Client.Controls;
+using TypeInfo = Opc.Ua.TypeInfo;
 
 namespace Quickstarts.DataAccessClient
 {
@@ -44,6 +50,8 @@ namespace Quickstarts.DataAccessClient
     /// </summary>
     public partial class MainForm : Form
     {
+        private const string DEFAULT_OBJECTS_NAME = "Objects";
+
         #region Constructors
         /// <summary>
         /// Creates an empty form.
@@ -62,14 +70,16 @@ namespace Quickstarts.DataAccessClient
         {
             InitializeComponent();
             this.Icon = ClientUtils.GetAppIcon();
-
             ConnectServerCTRL.Configuration = m_configuration = configuration;
             ConnectServerCTRL.ServerUrl = "opc.tcp://localhost:62548/Quickstarts/DataAccessServer";
+
             this.Text = m_configuration.ApplicationName;
+            labelNodeName.Text = DEFAULT_OBJECTS_NAME;
 
             // create the callback.
             m_MonitoredItem_Notification = new MonitoredItemNotificationEventHandler(MonitoredItem_Notification);
         }
+
         #endregion
 
         #region Private Fields
@@ -141,9 +151,15 @@ namespace Quickstarts.DataAccessClient
                 if (m_session == null)
                 {
                     MonitoredItemsLV.Items.Clear();
+                    AttributesLV.Items.Clear();
                     BrowseNodesTV.Nodes.Clear();
                     BrowseNodesTV.Enabled = false;
                     MonitoredItemsLV.Enabled = false;
+                    AttributesLV.Enabled = false;
+                    saveAddressSpaceToolStripMenuItem.Enabled = false;
+                    panelServer.BackColor = SystemColors.AppWorkspace;
+                    panelObjects.BackColor = SystemColors.AppWorkspace;
+                    labelServerName.Text = "Server";
                     return;
                 }
 
@@ -158,6 +174,15 @@ namespace Quickstarts.DataAccessClient
 
                 BrowseNodesTV.Enabled = true;
                 MonitoredItemsLV.Enabled = true;
+                AttributesLV.Enabled = true;
+                saveAddressSpaceToolStripMenuItem.Enabled = true;
+                panelServer.BackColor = Color.DarkGreen;
+                panelObjects.BackColor = Color.Black;
+
+                var serverName = m_session.ConfiguredEndpoint.EndpointUrl.ToString();
+                if (serverName.StartsWith("opc-tcp://"))
+                    serverName = serverName.Substring(10);
+                labelServerName.Text = serverName;
             }
             catch (Exception exception)
             {
@@ -260,7 +285,7 @@ namespace Quickstarts.DataAccessClient
                     ReferenceDescription target = references[ii];
 
                     // add node.
-                    TreeNode child = new TreeNode(Utils.Format("{0}", target));
+                    TreeNode child = new TreeNode(Utils.Format($"{target}"));
                     child.Tag = target;
                     child.Nodes.Add(new TreeNode());
                     nodes.Add(child);
@@ -533,6 +558,8 @@ namespace Quickstarts.DataAccessClient
                 {
                     return;
                 }
+
+                labelNodeName.Text = e.Node.Text;
 
                 // populate children.
                 PopulateBranch((NodeId)reference.NodeId, e.Node.Nodes);
@@ -1181,10 +1208,88 @@ namespace Quickstarts.DataAccessClient
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Exit the application?", "UA Sample Client", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            Application.Exit();
+            //if (MessageBox.Show("Exit the application?", "UA Sample Client", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            //{
+            //}
+        }
+
+        private void saveAddressSpaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveAddressSpaceObjects(ObjectIds.ObjectsFolder);
+        }
+
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var treeNode = BrowseNodesTV.SelectedNode;
+            var reference = treeNode.Tag as ReferenceDescription;
+            if (reference == null || reference.NodeId.IsAbsolute)
             {
-                Application.Exit();
+                return;
             }
+            var nodeId = (NodeId)reference.NodeId;
+            SaveAddressSpaceObjects(nodeId, treeNode.FullPath);
+        }
+
+
+        private bool alreadySaving;
+        private void SaveAddressSpaceObjects(NodeId nodeId, string path = "")
+        {
+            if (nodeId == null || alreadySaving)
+                return;
+
+            var dlg = new SaveFileDialog {
+                DefaultExt = ".json",
+                Filter = "JSON Files (*.json)|*.json|All files|*",
+                AddExtension = true,
+                Title = "Save Address Space Objects As JSON",
+                OverwritePrompt = true,
+            };
+            var serverUrl = ConnectServerCTRL.ServerUrl.Substring(10);
+            dlg.FileName = Path.ChangeExtension(serverUrl.Replace("/", "-")
+                .Replace(":", "-"), ".json");
+
+            if (dlg.ShowDialog() != DialogResult.OK)
+                return;
+
+            var fileName = dlg.FileName;
+
+            var oldCursor = Cursor.Current;
+            saveProgressBar.Visible = true;
+            alreadySaving = true;
+            Application.DoEvents();
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                var space = new OpcAddressSpaceInfo(m_session)
+                    .Populate(nodeId, path, () => Application.DoEvents());
+
+
+                var txt = JsonConvert.SerializeObject(space, Formatting.Indented);
+                File.WriteAllText(fileName, txt);
+
+                StatusBar.Text = $"Address space nodes saved to {fileName}";
+            }
+            catch (Exception ex)
+            {
+                ClientUtils.HandleException(this.Text, ex);
+            }
+            finally
+            {
+                saveProgressBar.Visible = false;
+                Cursor.Current = oldCursor;
+                alreadySaving = false;
+            }
+        }
+
+        private void labelServerName_MouseClick(object sender, MouseEventArgs e)
+        {
+            BrowseNodesTV.SelectedNode = null;
+            labelNodeName.Text = DEFAULT_OBJECTS_NAME;
+            if (m_session != null) 
+                PopulateBranch(ObjectIds.ObjectsFolder, BrowseNodesTV.Nodes);
+
         }
     }
 }

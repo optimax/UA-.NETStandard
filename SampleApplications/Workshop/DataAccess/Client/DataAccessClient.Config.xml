@@ -4,7 +4,7 @@
   xmlns:ua="http://opcfoundation.org/UA/2008/02/Types.xsd"
   xmlns="http://opcfoundation.org/UA/SDK/Configuration.xsd"
 >
-  <ApplicationName>Quickstart DataAccess Client</ApplicationName>
+  <ApplicationName>OPC-UA DataAccess Client</ApplicationName>
   <ApplicationUri>urn:localhost:UA:DataAccessClient</ApplicationUri>
   <ProductUri>http://opcfoundation.org/UA/DataAccessClient</ProductUri>
   <ApplicationType>Client_1</ApplicationType>
@@ -15,7 +15,7 @@
     <ApplicationCertificate>
       <StoreType>Directory</StoreType>
       <StorePath>%CommonApplicationData%\OPC Foundation\pki\own</StorePath>
-      <SubjectName>CN=Quickstart DataAccess Client, C=US, S=Arizona, O=OPC Foundation, DC=localhost</SubjectName>
+      <SubjectName>CN=MillSystemOPC, C=US, S=Wisconsin, O=Green Bay Packaging, DC=localhost</SubjectName>
     </ApplicationCertificate>
 
     <!-- Where the issuer certificate are stored (certificate authorities) -->

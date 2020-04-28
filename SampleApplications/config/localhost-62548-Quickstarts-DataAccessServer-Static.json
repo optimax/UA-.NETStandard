@@ -1,0 +1,5893 @@
+{
+  "ServerUri": "opc.tcp://localhost:62548/Quickstarts/DataAccessServer",
+  "DumpStamp": "2020-04-28T16:54:27.0098225-05:00",
+  "RootPath": "\\TestData\\Static",
+  "Nodes": [
+    {
+      "Path": "FC1001",
+      "DisplayName": "FC1001",
+      "Id": "ns=2;s=1:FC1001",
+      "Type": "0",
+      "Attributes": [
+        {
+          "Name": "NodeClass",
+          "Type": "Int32",
+          "Value": "1"
+        },
+        {
+          "Name": "BrowseName",
+          "Type": "QualifiedName",
+          "Value": "2:FC1001"
+        },
+        {
+          "Name": "DisplayName",
+          "Type": "LocalizedText",
+          "Value": "FC1001"
+        },
+        {
+          "Name": "Description",
+          "Type": "Null",
+          "Value": ""
+        },
+        {
+          "Name": "WriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "UserWriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "EventNotifier",
+          "Type": "Byte",
+          "Value": "0"
+        }
+      ],
+      "Nodes": [
+        {
+          "Path": "FC1001/SetPoint",
+          "DisplayName": "SetPoint",
+          "Id": "ns=2;s=1:FC1001?SetPoint",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:SetPoint"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "SetPoint"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "FC1001/SetPoint/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:FC1001?SetPoint/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "FC1001/SetPoint/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:FC1001?SetPoint/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "FC1001/Measurement",
+          "DisplayName": "Measurement",
+          "Id": "ns=2;s=1:FC1001?Measurement",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Measurement"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Measurement"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "FC1001/Measurement/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:FC1001?Measurement/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "FC1001/Measurement/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:FC1001?Measurement/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "FC1001/Output",
+          "DisplayName": "Output",
+          "Id": "ns=2;s=1:FC1001?Output",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Output"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Output"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "FC1001/Output/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:FC1001?Output/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "FC1001/Output/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:FC1001?Output/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "FC1001/Status",
+          "DisplayName": "Status",
+          "Id": "ns=2;s=1:FC1001?Status",
+          "Type": "2376",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Status"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Status"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "An enumerated value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Int32",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=6"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "EnumStrings",
+              "Type": "LocalizedText[]",
+              "Value": "Opc.Ua.LocalizedText[]"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "FC1001/Status/EnumStrings",
+              "DisplayName": "EnumStrings",
+              "Id": "ns=2;s=1:FC1001?Status/EnumStrings",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "EnumStrings"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "EnumStrings"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "LocalizedText[]",
+                  "Value": "Opc.Ua.LocalizedText[]"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=21"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "UInt32[]",
+                  "Value": "System.UInt32[]"
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Path": "LC1001",
+      "DisplayName": "LC1001",
+      "Id": "ns=2;s=1:LC1001",
+      "Type": "0",
+      "Attributes": [
+        {
+          "Name": "NodeClass",
+          "Type": "Int32",
+          "Value": "1"
+        },
+        {
+          "Name": "BrowseName",
+          "Type": "QualifiedName",
+          "Value": "2:LC1001"
+        },
+        {
+          "Name": "DisplayName",
+          "Type": "LocalizedText",
+          "Value": "LC1001"
+        },
+        {
+          "Name": "Description",
+          "Type": "Null",
+          "Value": ""
+        },
+        {
+          "Name": "WriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "UserWriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "EventNotifier",
+          "Type": "Byte",
+          "Value": "0"
+        }
+      ],
+      "Nodes": [
+        {
+          "Path": "LC1001/SetPoint",
+          "DisplayName": "SetPoint",
+          "Id": "ns=2;s=1:LC1001?SetPoint",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:SetPoint"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "SetPoint"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "LC1001/SetPoint/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:LC1001?SetPoint/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "LC1001/SetPoint/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:LC1001?SetPoint/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "LC1001/Measurement",
+          "DisplayName": "Measurement",
+          "Id": "ns=2;s=1:LC1001?Measurement",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Measurement"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Measurement"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "LC1001/Measurement/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:LC1001?Measurement/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "LC1001/Measurement/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:LC1001?Measurement/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "LC1001/Output",
+          "DisplayName": "Output",
+          "Id": "ns=2;s=1:LC1001?Output",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Output"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Output"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "LC1001/Output/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:LC1001?Output/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "LC1001/Output/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:LC1001?Output/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "LC1001/Status",
+          "DisplayName": "Status",
+          "Id": "ns=2;s=1:LC1001?Status",
+          "Type": "2376",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Status"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Status"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "An enumerated value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Int32",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=6"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "EnumStrings",
+              "Type": "LocalizedText[]",
+              "Value": "Opc.Ua.LocalizedText[]"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "LC1001/Status/EnumStrings",
+              "DisplayName": "EnumStrings",
+              "Id": "ns=2;s=1:LC1001?Status/EnumStrings",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "EnumStrings"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "EnumStrings"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "LocalizedText[]",
+                  "Value": "Opc.Ua.LocalizedText[]"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=21"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "UInt32[]",
+                  "Value": "System.UInt32[]"
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Path": "CC1001",
+      "DisplayName": "CC1001",
+      "Id": "ns=2;s=1:CC1001",
+      "Type": "0",
+      "Attributes": [
+        {
+          "Name": "NodeClass",
+          "Type": "Int32",
+          "Value": "1"
+        },
+        {
+          "Name": "BrowseName",
+          "Type": "QualifiedName",
+          "Value": "2:CC1001"
+        },
+        {
+          "Name": "DisplayName",
+          "Type": "LocalizedText",
+          "Value": "CC1001"
+        },
+        {
+          "Name": "Description",
+          "Type": "Null",
+          "Value": ""
+        },
+        {
+          "Name": "WriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "UserWriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "EventNotifier",
+          "Type": "Byte",
+          "Value": "0"
+        }
+      ],
+      "Nodes": [
+        {
+          "Path": "CC1001/Input1",
+          "DisplayName": "Input1",
+          "Id": "ns=2;s=1:CC1001?Input1",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Input1"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Input1"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "CC1001/Input1/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:CC1001?Input1/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "CC1001/Input1/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:CC1001?Input1/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "CC1001/Input2",
+          "DisplayName": "Input2",
+          "Id": "ns=2;s=1:CC1001?Input2",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Input2"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Input2"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "CC1001/Input2/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:CC1001?Input2/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "CC1001/Input2/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:CC1001?Input2/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "CC1001/Input3",
+          "DisplayName": "Input3",
+          "Id": "ns=2;s=1:CC1001?Input3",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Input3"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Input3"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "CC1001/Input3/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:CC1001?Input3/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "CC1001/Input3/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:CC1001?Input3/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "CC1001/Output",
+          "DisplayName": "Output",
+          "Id": "ns=2;s=1:CC1001?Output",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Output"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Output"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "CC1001/Output/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:CC1001?Output/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "CC1001/Output/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:CC1001?Output/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Path": "FC2001",
+      "DisplayName": "FC2001",
+      "Id": "ns=2;s=1:FC2001",
+      "Type": "0",
+      "Attributes": [
+        {
+          "Name": "NodeClass",
+          "Type": "Int32",
+          "Value": "1"
+        },
+        {
+          "Name": "BrowseName",
+          "Type": "QualifiedName",
+          "Value": "2:FC2001"
+        },
+        {
+          "Name": "DisplayName",
+          "Type": "LocalizedText",
+          "Value": "FC2001"
+        },
+        {
+          "Name": "Description",
+          "Type": "Null",
+          "Value": ""
+        },
+        {
+          "Name": "WriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "UserWriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "EventNotifier",
+          "Type": "Byte",
+          "Value": "0"
+        }
+      ],
+      "Nodes": [
+        {
+          "Path": "FC2001/SetPoint",
+          "DisplayName": "SetPoint",
+          "Id": "ns=2;s=1:FC2001?SetPoint",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:SetPoint"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "SetPoint"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "FC2001/SetPoint/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:FC2001?SetPoint/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "FC2001/SetPoint/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:FC2001?SetPoint/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "FC2001/Measurement",
+          "DisplayName": "Measurement",
+          "Id": "ns=2;s=1:FC2001?Measurement",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Measurement"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Measurement"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "FC2001/Measurement/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:FC2001?Measurement/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "FC2001/Measurement/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:FC2001?Measurement/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "FC2001/Output",
+          "DisplayName": "Output",
+          "Id": "ns=2;s=1:FC2001?Output",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Output"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Output"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "FC2001/Output/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:FC2001?Output/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "FC2001/Output/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:FC2001?Output/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "FC2001/Status",
+          "DisplayName": "Status",
+          "Id": "ns=2;s=1:FC2001?Status",
+          "Type": "2376",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Status"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Status"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "An enumerated value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Int32",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=6"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "EnumStrings",
+              "Type": "LocalizedText[]",
+              "Value": "Opc.Ua.LocalizedText[]"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "FC2001/Status/EnumStrings",
+              "DisplayName": "EnumStrings",
+              "Id": "ns=2;s=1:FC2001?Status/EnumStrings",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "EnumStrings"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "EnumStrings"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "LocalizedText[]",
+                  "Value": "Opc.Ua.LocalizedText[]"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=21"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "UInt32[]",
+                  "Value": "System.UInt32[]"
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Path": "LC2001",
+      "DisplayName": "LC2001",
+      "Id": "ns=2;s=1:LC2001",
+      "Type": "0",
+      "Attributes": [
+        {
+          "Name": "NodeClass",
+          "Type": "Int32",
+          "Value": "1"
+        },
+        {
+          "Name": "BrowseName",
+          "Type": "QualifiedName",
+          "Value": "2:LC2001"
+        },
+        {
+          "Name": "DisplayName",
+          "Type": "LocalizedText",
+          "Value": "LC2001"
+        },
+        {
+          "Name": "Description",
+          "Type": "Null",
+          "Value": ""
+        },
+        {
+          "Name": "WriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "UserWriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "EventNotifier",
+          "Type": "Byte",
+          "Value": "0"
+        }
+      ],
+      "Nodes": [
+        {
+          "Path": "LC2001/SetPoint",
+          "DisplayName": "SetPoint",
+          "Id": "ns=2;s=1:LC2001?SetPoint",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:SetPoint"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "SetPoint"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "LC2001/SetPoint/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:LC2001?SetPoint/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "LC2001/SetPoint/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:LC2001?SetPoint/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "LC2001/Measurement",
+          "DisplayName": "Measurement",
+          "Id": "ns=2;s=1:LC2001?Measurement",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Measurement"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Measurement"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "LC2001/Measurement/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:LC2001?Measurement/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "LC2001/Measurement/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:LC2001?Measurement/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "LC2001/Output",
+          "DisplayName": "Output",
+          "Id": "ns=2;s=1:LC2001?Output",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Output"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Output"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "LC2001/Output/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:LC2001?Output/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "LC2001/Output/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:LC2001?Output/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "LC2001/Status",
+          "DisplayName": "Status",
+          "Id": "ns=2;s=1:LC2001?Status",
+          "Type": "2376",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Status"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Status"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "An enumerated value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Int32",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=6"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "EnumStrings",
+              "Type": "LocalizedText[]",
+              "Value": "Opc.Ua.LocalizedText[]"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "LC2001/Status/EnumStrings",
+              "DisplayName": "EnumStrings",
+              "Id": "ns=2;s=1:LC2001?Status/EnumStrings",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "EnumStrings"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "EnumStrings"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "LocalizedText[]",
+                  "Value": "Opc.Ua.LocalizedText[]"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=21"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "UInt32[]",
+                  "Value": "System.UInt32[]"
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Path": "CC2001",
+      "DisplayName": "CC2001",
+      "Id": "ns=2;s=1:CC2001",
+      "Type": "0",
+      "Attributes": [
+        {
+          "Name": "NodeClass",
+          "Type": "Int32",
+          "Value": "1"
+        },
+        {
+          "Name": "BrowseName",
+          "Type": "QualifiedName",
+          "Value": "2:CC2001"
+        },
+        {
+          "Name": "DisplayName",
+          "Type": "LocalizedText",
+          "Value": "CC2001"
+        },
+        {
+          "Name": "Description",
+          "Type": "Null",
+          "Value": ""
+        },
+        {
+          "Name": "WriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "UserWriteMask",
+          "Type": "UInt32",
+          "Value": "0"
+        },
+        {
+          "Name": "EventNotifier",
+          "Type": "Byte",
+          "Value": "0"
+        }
+      ],
+      "Nodes": [
+        {
+          "Path": "CC2001/Input1",
+          "DisplayName": "Input1",
+          "Id": "ns=2;s=1:CC2001?Input1",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Input1"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Input1"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "CC2001/Input1/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:CC2001?Input1/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "CC2001/Input1/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:CC2001?Input1/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "CC2001/Input2",
+          "DisplayName": "Input2",
+          "Id": "ns=2;s=1:CC2001?Input2",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Input2"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Input2"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "CC2001/Input2/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:CC2001?Input2/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "CC2001/Input2/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:CC2001?Input2/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "CC2001/Input3",
+          "DisplayName": "Input3",
+          "Id": "ns=2;s=1:CC2001?Input3",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Input3"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Input3"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "3"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "CC2001/Input3/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:CC2001?Input3/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "CC2001/Input3/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:CC2001?Input3/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        },
+        {
+          "Path": "CC2001/Output",
+          "DisplayName": "Output",
+          "Id": "ns=2;s=1:CC2001?Output",
+          "Type": "2365",
+          "Attributes": [
+            {
+              "Name": "NodeClass",
+              "Type": "Int32",
+              "Value": "2"
+            },
+            {
+              "Name": "BrowseName",
+              "Type": "QualifiedName",
+              "Value": "2:Output"
+            },
+            {
+              "Name": "DisplayName",
+              "Type": "LocalizedText",
+              "Value": "Output"
+            },
+            {
+              "Name": "Description",
+              "Type": "LocalizedText",
+              "Value": "A generic value."
+            },
+            {
+              "Name": "WriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "UserWriteMask",
+              "Type": "UInt32",
+              "Value": "0"
+            },
+            {
+              "Name": "Value",
+              "Type": "Float",
+              "Value": "0"
+            },
+            {
+              "Name": "DataType",
+              "Type": "NodeId",
+              "Value": "i=10"
+            },
+            {
+              "Name": "ValueRank",
+              "Type": "Int32",
+              "Value": "-1"
+            },
+            {
+              "Name": "ArrayDimensions",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "AccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "UserAccessLevel",
+              "Type": "Byte",
+              "Value": "1"
+            },
+            {
+              "Name": "MinimumSamplingInterval",
+              "Type": "Double",
+              "Value": "0"
+            },
+            {
+              "Name": "Historizing",
+              "Type": "Boolean",
+              "Value": "False"
+            },
+            {
+              "Name": "Definition",
+              "Type": "Null",
+              "Value": ""
+            },
+            {
+              "Name": "ValuePrecision",
+              "Type": "Double",
+              "Value": "0"
+            }
+          ],
+          "Nodes": [
+            {
+              "Path": "CC2001/Output/Definition",
+              "DisplayName": "Definition",
+              "Id": "ns=2;s=1:CC2001?Output/Definition",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Definition"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=12"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            },
+            {
+              "Path": "CC2001/Output/ValuePrecision",
+              "DisplayName": "ValuePrecision",
+              "Id": "ns=2;s=1:CC2001?Output/ValuePrecision",
+              "Type": "68",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "ValuePrecision"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=11"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                }
+              ],
+              "Nodes": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

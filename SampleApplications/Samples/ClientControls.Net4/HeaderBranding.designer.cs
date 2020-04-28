@@ -33,7 +33,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.appName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,7 +56,7 @@
             this.linkLabel1.BackColor = System.Drawing.Color.White;
             this.linkLabel1.Location = new System.Drawing.Point(200, 22);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(236, 25);
+            this.linkLabel1.Size = new System.Drawing.Size(120, 13);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "www.opcfoundation.org";
@@ -71,38 +70,26 @@
             this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(200, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(389, 32);
+            this.label1.Size = new System.Drawing.Size(277, 16);
             this.label1.TabIndex = 3;
-            this.label1.Text = "OPC UA Technology Sample";
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(230, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Unified Architecture demonstration app";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Text = "OPC UA Technology Sample - GBP Mod";
             // 
             // appName
             // 
             this.appName.BackColor = System.Drawing.Color.White;
             this.appName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appName.Location = new System.Drawing.Point(203, 44);
+            this.appName.Location = new System.Drawing.Point(200, 44);
+            this.appName.Margin = new System.Windows.Forms.Padding(0);
             this.appName.Name = "appName";
-            this.appName.Size = new System.Drawing.Size(306, 19);
+            this.appName.Size = new System.Drawing.Size(369, 19);
             this.appName.TabIndex = 8;
             this.appName.Text = "Sample Application";
-            this.appName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // HeaderBranding
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.pictureBox1);
@@ -124,7 +111,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label appName;
     }

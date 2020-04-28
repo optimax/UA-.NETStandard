@@ -88,12 +88,13 @@ namespace Opc.Ua.Client.Controls
             // 
             // UrlCB
             // 
-            this.UrlCB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.UrlCB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UrlCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UrlCB.FormattingEnabled = true;
             this.UrlCB.Location = new System.Drawing.Point(0, 1);
             this.UrlCB.Name = "UrlCB";
-            this.UrlCB.Size = new System.Drawing.Size(327, 21);
+            this.UrlCB.Size = new System.Drawing.Size(327, 24);
             this.UrlCB.TabIndex = 0;
             // 
             // ConnectServerCtrl
