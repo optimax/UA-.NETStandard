@@ -126,7 +126,9 @@ namespace Quickstarts.DataAccessServer
             "TestData/Static/CC1001",
             "TestData/Static/FC2001",
             "TestData/Static/LC2001",
-            "TestData/Static/CC2001"
+            "TestData/Static/CC2001",
+
+            "GBP/GreenBay/Winder",
         };
 
         /// <summary>
@@ -152,7 +154,8 @@ namespace Quickstarts.DataAccessServer
             "CC1001/CustomController",  
             "FC2001/Controller",  
             "LC2001/Controller",  
-            "CC2001/CustomController"
+            "CC2001/CustomController",
+            "Winder/Controller",
         };
 
         /// <summary>
