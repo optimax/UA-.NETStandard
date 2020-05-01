@@ -101,6 +101,11 @@ namespace Opc.Ua
             get { return m_sourceFilePath; }
         }
 
+
+        public string UnderlyingConfigurationFilePath { get; set; }
+
+
+
         public CertificateValidator CertificateValidator
         {
             get { return m_certificateValidator; }

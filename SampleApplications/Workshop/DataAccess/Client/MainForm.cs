@@ -76,6 +76,8 @@ namespace Quickstarts.DataAccessClient
             this.Text = m_configuration.ApplicationName;
             labelNodeName.Text = DEFAULT_OBJECTS_NAME;
 
+            
+
             // create the callback.
             m_MonitoredItem_Notification = new MonitoredItemNotificationEventHandler(MonitoredItem_Notification);
         }
@@ -157,8 +159,10 @@ namespace Quickstarts.DataAccessClient
                     MonitoredItemsLV.Enabled = false;
                     AttributesLV.Enabled = false;
                     saveAddressSpaceToolStripMenuItem.Enabled = false;
-                    panelServer.BackColor = SystemColors.AppWorkspace;
-                    panelObjects.BackColor = SystemColors.AppWorkspace;
+
+                    panelServer.BackColor = labelServerName.BackColor = SystemColors.AppWorkspace;
+                    panelObjects.BackColor = labelNodeName.BackColor = SystemColors.AppWorkspace;
+
                     labelServerName.Text = "Server";
                     return;
                 }
@@ -176,8 +180,9 @@ namespace Quickstarts.DataAccessClient
                 MonitoredItemsLV.Enabled = true;
                 AttributesLV.Enabled = true;
                 saveAddressSpaceToolStripMenuItem.Enabled = true;
-                panelServer.BackColor = Color.DarkGreen;
-                panelObjects.BackColor = Color.Black;
+
+                panelServer.BackColor = labelServerName.BackColor = Color.DarkGreen;
+                panelObjects.BackColor = labelNodeName.BackColor = Color.Black;
 
                 var serverName = m_session.ConfiguredEndpoint.EndpointUrl.ToString();
                 if (serverName.StartsWith("opc-tcp://"))

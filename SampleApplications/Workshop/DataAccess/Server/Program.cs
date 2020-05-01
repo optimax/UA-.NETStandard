@@ -29,6 +29,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using System.Security.Cryptography.X509Certificates;
 using Opc.Ua;
@@ -44,7 +45,7 @@ namespace Quickstarts.DataAccessServer
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             // Initialize the user interface.
             Application.EnableVisualStyles();
@@ -63,21 +64,33 @@ namespace Quickstarts.DataAccessServer
                     return;
                 }
 
-                // check if running as a service.
-                if (!Environment.UserInteractive)
-                {
-                    application.StartAsService(new DataAccessServer());
-                    return;
-                }
-
                 // load the application configuration.
                 application.LoadApplicationConfiguration(false).Wait();
 
+
+                //////////////////////
+                //var underlyingSystem = new UnderlyingSystem();
+
+                var configFilePath = Directory.GetCurrentDirectory();
+                configFilePath = Path.Combine(configFilePath, "underlying-system.config.json");
+
+                var underlyingSystem = new UnderlyingSystemConfigurable(configFilePath);
+                var server = new DataAccessServer(underlyingSystem);
+                /////////////////////
+                
+                // check if running as a service.
+                if (!Environment.UserInteractive)
+                {
+                    application.StartAsService(server);
+                    return;
+                }
+
+                
                 // check the application certificate.
                 application.CheckApplicationInstanceCertificate(false, 0).Wait();
 
                 // start the server.
-                application.Start(new DataAccessServer()).Wait();
+                application.Start(server).Wait();
 
                 // run the application interactively.
                 Application.Run(new ServerForm(application));

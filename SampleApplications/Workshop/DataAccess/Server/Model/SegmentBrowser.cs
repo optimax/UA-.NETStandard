@@ -89,7 +89,7 @@ namespace Quickstarts.DataAccessServer
         /// <returns>The next reference that meets the browse criteria.</returns>
         public override IReference Next()
         {
-            UnderlyingSystem system = (UnderlyingSystem)this.SystemContext.SystemHandle;
+            var system = (IUnderlyingSystem)this.SystemContext.SystemHandle;
 
             lock (DataLock)
             {
@@ -164,7 +164,7 @@ namespace Quickstarts.DataAccessServer
         /// </summary>
         private IReference NextChild()
         {
-            UnderlyingSystem system = (UnderlyingSystem)this.SystemContext.SystemHandle;
+            var system = (IUnderlyingSystem)this.SystemContext.SystemHandle;
 
             NodeId targetId = null;
 

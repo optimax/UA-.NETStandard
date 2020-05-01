@@ -1,34 +1,6 @@
-/* ========================================================================
- * Copyright (c) 2005-2019 The OPC Foundation, Inc. All rights reserved.
- *
- * OPC Foundation MIT License 1.00
- * 
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
- * 
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
- *
- * The complete license agreement can be found here:
- * http://opcfoundation.org/License/MIT/1.00/
- * ======================================================================*/
-
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using Newtonsoft.Json;
@@ -36,56 +8,38 @@ using Opc.Ua;
 
 namespace Quickstarts.DataAccessServer
 {
-    /// <summary>
-    /// An object that provides access to the underlying system.
-    /// </summary>
-    public class UnderlyingSystem : IUnderlyingSystem
+    public class UnderlyingSystemConfigurable : IUnderlyingSystem
     {
         #region Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="UnderlyingSystem"/> class.
         /// </summary>
-        public UnderlyingSystem()
+        public UnderlyingSystemConfigurable(string configFileName)
         {
             m_blocks = new Dictionary<string, UnderlyingSystemBlock>();
+            LoadConfig(configFileName);
         }
-        #endregion
-        
-        #region IDisposable Members
-        /// <summary>
-        /// The finializer implementation.
-        /// </summary>
-        ~UnderlyingSystem() 
+
+
+        private void LoadConfig(string configFileName)
         {
-            Dispose(false);
-        }
-        
-        /// <summary>
-        /// Frees any unmanaged reblocks.
-        /// </summary>
-        public void Dispose()
-        {   
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            if (!File.Exists(configFileName))
+                throw new Exception($"Configuration file '{configFileName}' does not exist.");
+
+            var json = File.ReadAllText(configFileName);
+            var config = JsonConvert.DeserializeObject<UnderlyingSystemConfig>(json);
+
+            BlockPathDatabase = config.Segments;
+            BlockDatabase = config.Blocks;
         }
 
-        /// <summary>
-        /// An overrideable version of the Dispose.
-        /// </summary>
-        protected virtual void Dispose(bool disposing)
-        {  
-            if (disposing)
-            {
-                if (m_simulationTimer != null)
-                {
-                    m_simulationTimer.Dispose();
-                    m_simulationTimer = null;
-                }
-            }
-        }
         #endregion
 
-        #region Public Members
+
+        #region Private Fields
+
+
         /// <summary>
         /// A database which stores all known block paths.
         /// </summary>
@@ -97,41 +51,8 @@ namespace Quickstarts.DataAccessServer
         /// The same block can have many paths.
         /// Each preceding element is a segment.
         /// </remarks>
-        private string[] s_BlockPathDatabase = new string[]
-        {
-            "Factory/East/Boiler1/Pipe1001",  
-            "Factory/East/Boiler1/Drum1002",     
-            "Factory/East/Boiler1/Pipe1002", 
-            "Factory/East/Boiler1/FC1001",
-            "Factory/East/Boiler1/LC1001",
-            "Factory/East/Boiler1/CC1001",
-            "Factory/West/Boiler2/Pipe2001",  
-            "Factory/West/Boiler2/Drum2002",     
-            "Factory/West/Boiler2/Pipe2002", 
-            "Factory/West/Boiler2/FC2001",
-            "Factory/West/Boiler2/LC2001",
-            "Factory/West/Boiler2/CC2001",
-            "Assets/Sensors/Flow/Pipe1001",  
-            "Assets/Sensors/Level/Drum1002",     
-            "Assets/Sensors/Flow/Pipe1002", 
-            "Assets/Controllers/Flow/FC1001",
-            "Assets/Controllers/Level/LC1001",
-            "Assets/Controllers/Custom/CC1001",
-            "Assets/Sensors/Flow/Pipe2001",  
-            "Assets/Sensors/Level/Drum2002",     
-            "Assets/Sensors/Flow/Pipe2002", 
-            "Assets/Controllers/Flow/FC2001",
-            "Assets/Controllers/Level/LC2001",
-            "Assets/Controllers/Custom/CC2001",
-            "TestData/Static/FC1001",
-            "TestData/Static/LC1001",
-            "TestData/Static/CC1001",
-            "TestData/Static/FC2001",
-            "TestData/Static/LC2001",
-            "TestData/Static/CC2001",
+        private List<string> BlockPathDatabase;
 
-            "GBP/GreenBay/Winder",
-        };
 
         /// <summary>
         /// A database which stores all known blocks.
@@ -143,82 +64,23 @@ namespace Quickstarts.DataAccessServer
         /// The name of the block is the first element.
         /// The type of block is the second element.
         /// </remarks>
-        private string[] s_BlockDatabase = new string[]
-        {
-            "Pipe1001/FlowSensor",  
-            "Drum1002/LevelSensor",  
-            "Pipe1002/FlowSensor",  
-            "Pipe2001/FlowSensor",  
-            "Drum2002/LevelSensor",  
-            "Pipe2002/FlowSensor",  
-            "FC1001/Controller",  
-            "LC1001/Controller",  
-            "CC1001/CustomController",  
-            "FC2001/Controller",  
-            "LC2001/Controller",  
-            "CC2001/CustomController",
-            "Winder/Controller",
-        };
+        private List<string> BlockDatabase;
 
 
-        /// <summary>
-        /// Returns the segment
-        /// </summary>
-        /// <param name="segmentPath">The path to the segment.</param>
-        /// <returns>The segment. Null if the segment path does not exist.</returns>
-        public UnderlyingSystemSegment FindSegment(string segmentPath)
-        {
-            lock (m_lock)
-            {
-                // check for invalid path.
-                if (string.IsNullOrEmpty(segmentPath))
-                {
-                    return null;
-                }
 
-                // extract the seqment name from the path.
-                string segmentName = segmentPath;
+        private object m_lock = new object();
 
-                int index = segmentPath.LastIndexOf('/');
+        private Dictionary<string, UnderlyingSystemSegment> m_segments;
+        private Dictionary<string, UnderlyingSystemBlock> m_blocks;
 
-                if (index != -1)
-                {
-                    segmentName = segmentName.Substring(index+1);
-                }
+        private Timer m_simulationTimer;
+        private long m_simulationCounter;
+        private Opc.Ua.Test.DataGenerator m_generator;
 
-                if (string.IsNullOrEmpty(segmentName))
-                {
-                    return null;
-                }
+        #endregion
 
-                // see if there is a block path that includes the segment.
-                index = segmentPath.Length;
 
-                for (int ii = 0; ii < s_BlockPathDatabase.Length; ii++)
-                {
-                    string blockPath = s_BlockPathDatabase[ii];
-
-                    if (index >= blockPath.Length || blockPath[index] != '/')
-                    {
-                        continue;
-                    }
-
-                    // segment found - return the info.
-                    if (blockPath.StartsWith(segmentPath))
-                    {
-                        UnderlyingSystemSegment segment = new UnderlyingSystemSegment();
-                        
-                        segment.Id = segmentPath;
-                        segment.Name = segmentName;
-                        segment.SegmentType = null;
-
-                        return segment;
-                    }
-                }
-
-                return null;
-            }
-        }
+        #region Public Methods
 
         /// <summary>
         /// Finds the segments belonging to the specified segment.
@@ -235,14 +97,14 @@ namespace Quickstarts.DataAccessServer
                     segmentPath = String.Empty;
                 }
 
-                Dictionary<string,UnderlyingSystemSegment> segments = new Dictionary<string, UnderlyingSystemSegment>();
+                Dictionary<string, UnderlyingSystemSegment> segments = new Dictionary<string, UnderlyingSystemSegment>();
 
                 // find all block paths that start with the specified segment.
                 int length = segmentPath.Length;
 
-                for (int ii = 0; ii < s_BlockPathDatabase.Length; ii++)
+                for (int ii = 0; ii < BlockPathDatabase.Count; ii++)
                 {
-                    string blockPath = s_BlockPathDatabase[ii];
+                    string blockPath = BlockPathDatabase[ii];
 
                     // check for segment path prefix in block path.
                     if (length > 0)
@@ -257,7 +119,7 @@ namespace Quickstarts.DataAccessServer
                             continue;
                         }
 
-                        blockPath = blockPath.Substring(length+1);
+                        blockPath = blockPath.Substring(length + 1);
                     }
 
                     // extract segment name.
@@ -294,6 +156,102 @@ namespace Quickstarts.DataAccessServer
             }
         }
 
+
+        /// <summary>
+        /// Returns the segment
+        /// </summary>
+        /// <param name="segmentPath">The path to the segment.</param>
+        /// <returns>The segment. Null if the segment path does not exist.</returns>
+        public UnderlyingSystemSegment FindSegment(string segmentPath)
+        {
+            lock (m_lock)
+            {
+                Debug.WriteLine($"UNDERLYING: {nameof(FindSegment)}");
+
+                // check for invalid path.
+                if (string.IsNullOrEmpty(segmentPath))
+                {
+                    return null;
+                }
+
+                // extract the seqment name from the path.
+                string segmentName = segmentPath;
+
+                int index = segmentPath.LastIndexOf('/');
+
+                if (index != -1)
+                {
+                    segmentName = segmentName.Substring(index + 1);
+                }
+
+                if (string.IsNullOrEmpty(segmentName))
+                {
+                    return null;
+                }
+
+                // see if there is a block path that includes the segment.
+                index = segmentPath.Length;
+
+                for (int ii = 0; ii < BlockPathDatabase.Count; ii++)
+                {
+                    string blockPath = BlockPathDatabase[ii];
+
+                    if (index >= blockPath.Length || blockPath[index] != '/')
+                    {
+                        continue;
+                    }
+
+                    // segment found - return the info.
+                    if (blockPath.StartsWith(segmentPath))
+                    {
+                        UnderlyingSystemSegment segment = new UnderlyingSystemSegment();
+
+                        segment.Id = segmentPath;
+                        segment.Name = segmentName;
+                        segment.SegmentType = null;
+
+                        return segment;
+                    }
+                }
+
+                return null;
+            }
+        }
+
+
+
+
+        private static string SegmentNameFromPath(string segmentPath)
+        {
+            string segmentName = segmentPath;
+            int index = segmentPath.LastIndexOf('/');
+            if (index != -1)
+                segmentName = segmentName.Substring(index + 1);
+            if (string.IsNullOrEmpty(segmentName))
+                return null;
+            return segmentName;
+        }
+
+
+        private static UnderlyingSystemSegment CreateSegment(string segmentPath, string name)
+        {
+            var segmentName = name;
+            string segmentId = segmentName;
+            if (!String.IsNullOrEmpty(segmentPath))
+            {
+                segmentId = segmentPath;
+                segmentId += "/";
+                segmentId += segmentName;
+            }
+
+            var segment = new UnderlyingSystemSegment {Id = "", Name = "", SegmentType = null,};
+            segment.Id = segmentId;
+            segment.Name = segmentName;
+            segment.SegmentType = null;
+            return segment;
+        }
+
+
         /// <summary>
         /// Finds the blocks belonging to the specified segment.
         /// </summary>
@@ -314,9 +272,9 @@ namespace Quickstarts.DataAccessServer
                 // look up the segment in the "DB".
                 int length = segmentPath.Length;
 
-                for (int ii = 0; ii < s_BlockPathDatabase.Length; ii++)
+                for (int ii = 0; ii < BlockPathDatabase.Count; ii++)
                 {
-                    string blockPath = s_BlockPathDatabase[ii];
+                    string blockPath = BlockPathDatabase[ii];
 
                     // check for segment path prefix in block path.
                     if (length > 0)
@@ -331,7 +289,7 @@ namespace Quickstarts.DataAccessServer
                             continue;
                         }
 
-                        blockPath = blockPath.Substring(length+1);
+                        blockPath = blockPath.Substring(length + 1);
                     }
 
                     // check if there are no more segments in the path.
@@ -339,7 +297,7 @@ namespace Quickstarts.DataAccessServer
 
                     if (index == -1)
                     {
-                        blockPath = blockPath.Substring(index+1);
+                        blockPath = blockPath.Substring(index + 1);
 
                         if (!blocks.Contains(blockPath))
                         {
@@ -352,6 +310,7 @@ namespace Quickstarts.DataAccessServer
             }
         }
 
+
         /// <summary>
         /// Finds the parent segment for the specified segment.
         /// </summary>
@@ -361,6 +320,7 @@ namespace Quickstarts.DataAccessServer
         {
             lock (m_lock)
             {
+                Debug.WriteLine($"UNDERLYING: {nameof(FindParentForSegment)}");
                 // check for invalid segment.
                 UnderlyingSystemSegment segment = FindSegment(segmentPath);
 
@@ -376,7 +336,7 @@ namespace Quickstarts.DataAccessServer
                 {
                     return null;
                 }
-                
+
                 // construct the parent.
                 UnderlyingSystemSegment parent = new UnderlyingSystemSegment();
 
@@ -399,6 +359,7 @@ namespace Quickstarts.DataAccessServer
             }
         }
 
+
         /// <summary>
         /// Finds a block.
         /// </summary>
@@ -410,6 +371,8 @@ namespace Quickstarts.DataAccessServer
 
             lock (m_lock)
             {
+                Debug.WriteLine($"UNDERLYING: {nameof(FindBlock)}");
+
                 // check for invalid name.
                 if (String.IsNullOrEmpty(blockId))
                 {
@@ -426,9 +389,9 @@ namespace Quickstarts.DataAccessServer
                 string blockType = null;
                 int length = blockId.Length;
 
-                for (int ii = 0; ii < s_BlockDatabase.Length; ii++)
+                for (int ii = 0; ii < BlockDatabase.Count; ii++)
                 {
-                    blockType = s_BlockDatabase[ii];
+                    blockType = BlockDatabase[ii];
 
                     if (length >= blockType.Length || blockType[length] != '/')
                     {
@@ -437,7 +400,7 @@ namespace Quickstarts.DataAccessServer
 
                     if (blockType.StartsWith(blockId))
                     {
-                        blockType = blockType.Substring(length+1);
+                        blockType = blockType.Substring(length + 1);
                         break;
                     }
 
@@ -449,7 +412,7 @@ namespace Quickstarts.DataAccessServer
                 {
                     return null;
                 }
-                
+
                 // create a new block.
                 block = new UnderlyingSystemBlock();
 
@@ -467,33 +430,45 @@ namespace Quickstarts.DataAccessServer
                 {
                     case "FlowSensor":
                     {
-                        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog, "liters/sec", false);
-                        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital, null, false);
+                        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog,
+                            "liters/sec", false);
+                        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital,
+                            null, false);
                         break;
                     }
 
                     case "LevelSensor":
                     {
-                        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog, "liters", false);
-                        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital, null, false);
+                        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog,
+                            "liters", false);
+                        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital,
+                            null, false);
                         break;
                     }
 
                     case "Controller":
                     {
-                        block.CreateTag("SetPoint", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
-                        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, false);
-                        block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, false);
-                        block.CreateTag("Status", UnderlyingSystemDataType.Integer4, UnderlyingSystemTagType.Enumerated, null, false);
+                        block.CreateTag("SetPoint", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal,
+                            null, true);
+                        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal,
+                            null, false);
+                        block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                            false);
+                        block.CreateTag("Status", UnderlyingSystemDataType.Integer4, UnderlyingSystemTagType.Enumerated,
+                            null, false);
                         break;
                     }
 
                     case "CustomController":
                     {
-                        block.CreateTag("Input1", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
-                        block.CreateTag("Input2", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
-                        block.CreateTag("Input3", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
-                        block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, false);
+                        block.CreateTag("Input1", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                            true);
+                        block.CreateTag("Input2", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                            true);
+                        block.CreateTag("Input3", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                            true);
+                        block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                            false);
                         break;
                     }
                 }
@@ -502,6 +477,7 @@ namespace Quickstarts.DataAccessServer
             // return the new block.
             return block;
         }
+
 
         /// <summary>
         /// Finds the segments for block.
@@ -512,6 +488,9 @@ namespace Quickstarts.DataAccessServer
         {
             lock (m_lock)
             {
+                Debug.WriteLine($"UNDERLYING: {nameof(FindSegmentsForBlock)}");
+
+
                 // check for invalid path.
                 if (String.IsNullOrEmpty(blockId))
                 {
@@ -523,11 +502,11 @@ namespace Quickstarts.DataAccessServer
                 // look up the segment in the block path database.
                 int length = blockId.Length;
 
-                for (int ii = 0; ii < s_BlockPathDatabase.Length; ii++)
+                for (int ii = 0; ii < BlockPathDatabase.Count; ii++)
                 {
-                    string blockPath = s_BlockPathDatabase[ii];
+                    string blockPath = BlockPathDatabase[ii];
 
-                    if (length >= blockPath.Length || blockPath[blockPath.Length-length] != '/')
+                    if (length >= blockPath.Length || blockPath[blockPath.Length - length] != '/')
                     {
                         continue;
                     }
@@ -537,7 +516,7 @@ namespace Quickstarts.DataAccessServer
                         continue;
                     }
 
-                    string segmentPath = blockPath.Substring(0, blockPath.Length-length-1);
+                    string segmentPath = blockPath.Substring(0, blockPath.Length - length - 1);
 
                     // construct segment.
                     UnderlyingSystemSegment segment = new UnderlyingSystemSegment();
@@ -563,6 +542,11 @@ namespace Quickstarts.DataAccessServer
             }
         }
 
+        #endregion
+
+
+        #region Simulation
+
         /// <summary>
         /// Starts a simulation which causes the tag states to change.
         /// </summary>
@@ -576,14 +560,6 @@ namespace Quickstarts.DataAccessServer
         {
             lock (m_lock)
             {
-
-                //#region TEST
-
-                //var json = JsonConvert.SerializeObject(this);
-                //File.WriteAllText(@"c:\temp\UnderlyingSystem.json",json);
-
-                //#endregion
-
                 if (m_simulationTimer != null)
                 {
                     m_simulationTimer.Dispose();
@@ -594,6 +570,7 @@ namespace Quickstarts.DataAccessServer
                 m_simulationTimer = new Timer(DoSimulation, null, 1000, 1000);
             }
         }
+
 
         /// <summary>
         /// Stops the simulation.
@@ -609,9 +586,8 @@ namespace Quickstarts.DataAccessServer
                 }
             }
         }
-        #endregion
 
-        #region Private Methods
+
         /// <summary>
         /// Simulates a block by updating the state of the tags belonging to the condition.
         /// </summary>
@@ -639,24 +615,16 @@ namespace Quickstarts.DataAccessServer
                 Utils.Trace(e, "Unexpected error running simulation for system");
             }
         }
+
         #endregion
 
-        #region Private Fields
-        private object m_lock = new object();
-        public Dictionary<string,UnderlyingSystemBlock> m_blocks;
-        private Timer m_simulationTimer;
-        private long m_simulationCounter;
-        private Opc.Ua.Test.DataGenerator m_generator;
+
+        #region IDisposable
+
+        public void Dispose()
+        {
+        }
+
         #endregion
     }
-
-    /// <summary>
-    /// USed to received notifications when a tag value changes.
-    /// </summary>
-    delegate void TagValueChangedEventHandler(string tagName, Variant value, DateTime timestamp);
-
-    /// <summary>
-    /// USed to received notifications when the tag metadata changes.
-    /// </summary>
-    delegate void TagMetadataChangedEventHandler(UnderlyingSystemTag tag);
 }

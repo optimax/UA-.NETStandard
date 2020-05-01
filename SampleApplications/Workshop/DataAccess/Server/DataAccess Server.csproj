@@ -62,6 +62,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\.nuget\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -72,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IUnderlyingSystem.cs" />
     <Compile Include="Model\BlockState.cs" />
     <Compile Include="Model\ModelUtils.cs" />
     <Compile Include="DataAccessNodeManager.cs" />
@@ -89,6 +93,10 @@
     </EmbeddedResource>
     <Content Include="App.config">
     </Content>
+    <Content Include="GBPServer.config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +112,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="DataAccessServer.cs" />
+    <Compile Include="UnderlyingSystem\UnderlyingSystemConfig.cs" />
+    <Compile Include="UnderlyingSystem\UnderlyingSystemConfigurable.cs" />
     <Compile Include="UnderlyingSystem\UnderlyingSystemSegment.cs" />
     <Compile Include="UnderlyingSystem\UnderlyingSystemDataType.cs" />
     <Compile Include="UnderlyingSystem\UnderlyingSystem.cs" />

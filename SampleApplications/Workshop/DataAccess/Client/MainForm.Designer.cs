@@ -76,6 +76,7 @@ namespace Quickstarts.DataAccessClient
             this.HelpMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Help_ContentsMI = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
+            this.saveProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.MainPN = new System.Windows.Forms.SplitContainer();
             this.TopPN = new System.Windows.Forms.SplitContainer();
             this.BrowseNodesTV = new System.Windows.Forms.TreeView();
@@ -83,14 +84,14 @@ namespace Quickstarts.DataAccessClient
             this.Browse_MonitorMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Browse_WriteMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Browse_ReadHistoryMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelServer = new System.Windows.Forms.Panel();
-            this.labelServerName = new System.Windows.Forms.Label();
             this.AttributesLV = new System.Windows.Forms.ListView();
             this.AttributeNameCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttributeDataTypeCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttributeValueCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelObjects = new System.Windows.Forms.Panel();
-            this.labelNodeName = new System.Windows.Forms.Label();
             this.MonitoredItemsLV = new System.Windows.Forms.ListView();
             this.MonitoredItemIdCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.VariableNameCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -125,9 +126,8 @@ namespace Quickstarts.DataAccessClient
             this.Monitoring_Deadband_Percentage_10MI = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ConnectServerCTRL = new Opc.Ua.Client.Controls.ConnectServerCtrl();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.labelServerName = new WinFormsControls.TransparentLabel();
+            this.labelNodeName = new WinFormsControls.TransparentLabel();
             this.MenuBar.SuspendLayout();
             this.StatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainPN)).BeginInit();
@@ -287,6 +287,14 @@ namespace Quickstarts.DataAccessClient
             this.StatusBar.Size = new System.Drawing.Size(1018, 22);
             this.StatusBar.TabIndex = 2;
             // 
+            // saveProgressBar
+            // 
+            this.saveProgressBar.ForeColor = System.Drawing.Color.Lime;
+            this.saveProgressBar.Name = "saveProgressBar";
+            this.saveProgressBar.Size = new System.Drawing.Size(200, 16);
+            this.saveProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.saveProgressBar.Visible = false;
+            // 
             // MainPN
             // 
             this.MainPN.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -374,6 +382,18 @@ namespace Quickstarts.DataAccessClient
             this.Browse_ReadHistoryMI.Text = "Read History...";
             this.Browse_ReadHistoryMI.Click += new System.EventHandler(this.Browse_ReadHistoryMI_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(147, 6);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As...";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
             // panelServer
             // 
             this.panelServer.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -384,22 +404,6 @@ namespace Quickstarts.DataAccessClient
             this.panelServer.Size = new System.Drawing.Size(450, 27);
             this.panelServer.TabIndex = 1;
             this.panelServer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelServerName_MouseClick);
-            // 
-            // labelServerName
-            // 
-            this.labelServerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelServerName.AutoSize = true;
-            this.labelServerName.BackColor = System.Drawing.Color.Transparent;
-            this.labelServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelServerName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelServerName.Location = new System.Drawing.Point(0, 5);
-            this.labelServerName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.labelServerName.Name = "labelServerName";
-            this.labelServerName.Size = new System.Drawing.Size(55, 20);
-            this.labelServerName.TabIndex = 1;
-            this.labelServerName.Text = "Server";
-            this.labelServerName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelServerName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelServerName_MouseClick);
             // 
             // AttributesLV
             // 
@@ -442,19 +446,6 @@ namespace Quickstarts.DataAccessClient
             this.panelObjects.Name = "panelObjects";
             this.panelObjects.Size = new System.Drawing.Size(564, 27);
             this.panelObjects.TabIndex = 2;
-            // 
-            // labelNodeName
-            // 
-            this.labelNodeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelNodeName.AutoSize = true;
-            this.labelNodeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNodeName.Location = new System.Drawing.Point(0, 5);
-            this.labelNodeName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.labelNodeName.Name = "labelNodeName";
-            this.labelNodeName.Size = new System.Drawing.Size(63, 20);
-            this.labelNodeName.TabIndex = 0;
-            this.labelNodeName.Text = "Objects";
-            this.labelNodeName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // MonitoredItemsLV
             // 
@@ -720,25 +711,36 @@ namespace Quickstarts.DataAccessClient
             this.ConnectServerCTRL.ReconnectComplete += new System.EventHandler(this.Server_ReconnectComplete);
             this.ConnectServerCTRL.ConnectComplete += new System.EventHandler(this.Server_ConnectComplete);
             // 
-            // toolStripMenuItem1
+            // labelServerName
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(147, 6);
+            this.labelServerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelServerName.AutoSize = true;
+            this.labelServerName.BackColor = System.Drawing.Color.DarkGray;
+            this.labelServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelServerName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelServerName.Location = new System.Drawing.Point(3, 6);
+            this.labelServerName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labelServerName.Name = "labelServerName";
+            this.labelServerName.Size = new System.Drawing.Size(97, 20);
+            this.labelServerName.TabIndex = 1;
+            this.labelServerName.TabStop = false;
+            this.labelServerName.Text = "Server";
+            this.labelServerName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.labelServerName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelServerName_MouseClick);
             // 
-            // saveAsToolStripMenuItem
+            // labelNodeName
             // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.saveAsToolStripMenuItem.Text = "Save As...";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
-            // 
-            // saveProgressBar
-            // 
-            this.saveProgressBar.ForeColor = System.Drawing.Color.Lime;
-            this.saveProgressBar.Name = "saveProgressBar";
-            this.saveProgressBar.Size = new System.Drawing.Size(200, 16);
-            this.saveProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.saveProgressBar.Visible = false;
+            this.labelNodeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelNodeName.AutoSize = true;
+            this.labelNodeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNodeName.Location = new System.Drawing.Point(0, 5);
+            this.labelNodeName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labelNodeName.Name = "labelNodeName";
+            this.labelNodeName.Size = new System.Drawing.Size(61, 20);
+            this.labelNodeName.TabIndex = 0;
+            this.labelNodeName.TabStop = false;
+            this.labelNodeName.Text = "Objects";
+            this.labelNodeName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // MainForm
             // 
@@ -842,11 +844,11 @@ namespace Quickstarts.DataAccessClient
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.Panel panelServer;
         private System.Windows.Forms.Panel panelObjects;
-        private System.Windows.Forms.Label labelNodeName;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Label labelServerName;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripProgressBar saveProgressBar;
+        private WinFormsControls.TransparentLabel labelNodeName;
+        private WinFormsControls.TransparentLabel labelServerName;
     }
 }

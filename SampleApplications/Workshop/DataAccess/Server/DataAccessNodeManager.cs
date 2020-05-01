@@ -49,13 +49,13 @@ namespace Quickstarts.DataAccessServer
         /// <summary>
         /// Initializes the node manager.
         /// </summary>
-        public DataAccessServerNodeManager(IServerInternal server, ApplicationConfiguration configuration)
+        public DataAccessServerNodeManager(IServerInternal server, ApplicationConfiguration configuration, IUnderlyingSystem underlyingSystem)
         :
             base(server, configuration, Namespaces.DataAccess)
         {
             this.AliasRoot = "DA";
 
-            SystemContext.SystemHandle = m_system = new UnderlyingSystem();
+            SystemContext.SystemHandle = m_system = underlyingSystem;
             SystemContext.NodeIdFactory = this;
 
             // get the configuration for the node manager.
@@ -397,7 +397,7 @@ namespace Quickstarts.DataAccessServer
         #endregion
 
         #region Private Fields
-        private UnderlyingSystem m_system;
+        private IUnderlyingSystem m_system;
         private DataAccessServerConfiguration m_configuration;
         private Dictionary<NodeId,BlockState> m_blocks;
         #endregion

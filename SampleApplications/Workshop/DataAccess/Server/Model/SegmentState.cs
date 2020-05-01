@@ -126,7 +126,7 @@ namespace Quickstarts.DataAccessServer
             // check if the parent segments need to be returned.
             if (browser.IsRequired(ReferenceTypeIds.Organizes, true))
             {
-                UnderlyingSystem system = context.SystemHandle as UnderlyingSystem;
+                var system = context.SystemHandle as IUnderlyingSystem;
 
                 if (system == null)
                 {

@@ -1,33 +1,33 @@
 {
   "ServerUri": "opc.tcp://localhost:62548/Quickstarts/DataAccessServer",
-  "DumpStamp": "2020-04-28T16:19:51.505213-05:00",
-  "Path": "GBP\\GreenBay\\Winder",
+  "DumpStamp": "2020-05-01T10:56:50.2324006-05:00",
+  "RootPath": "\\GBP",
   "Nodes": [
     {
-      "Path": "SetPoint",
-      "DisplayName": "SetPoint",
-      "Id": "ns=2;s=1:Winder?SetPoint",
-      "Type": "2365",
+      "Path": "GreenBay",
+      "DisplayName": "GreenBay",
+      "Id": "ns=2;s=0:GBP/GreenBay",
+      "Type": "61",
       "Attributes": [
         {
           "Name": "NodeClass",
           "Type": "Int32",
-          "Value": "2"
+          "Value": "1"
         },
         {
           "Name": "BrowseName",
           "Type": "QualifiedName",
-          "Value": "2:SetPoint"
+          "Value": "2:GreenBay"
         },
         {
           "Name": "DisplayName",
           "Type": "LocalizedText",
-          "Value": "SetPoint"
+          "Value": "GreenBay"
         },
         {
           "Name": "Description",
-          "Type": "LocalizedText",
-          "Value": "A generic value."
+          "Type": "Null",
+          "Value": ""
         },
         {
           "Name": "WriteMask",
@@ -40,77 +40,32 @@
           "Value": "0"
         },
         {
-          "Name": "Value",
-          "Type": "Float",
-          "Value": "0"
-        },
-        {
-          "Name": "DataType",
-          "Type": "NodeId",
-          "Value": "i=10"
-        },
-        {
-          "Name": "ValueRank",
-          "Type": "Int32",
-          "Value": "-1"
-        },
-        {
-          "Name": "ArrayDimensions",
-          "Type": "Null",
-          "Value": ""
-        },
-        {
-          "Name": "AccessLevel",
+          "Name": "EventNotifier",
           "Type": "Byte",
-          "Value": "3"
-        },
-        {
-          "Name": "UserAccessLevel",
-          "Type": "Byte",
-          "Value": "3"
-        },
-        {
-          "Name": "MinimumSamplingInterval",
-          "Type": "Double",
-          "Value": "0"
-        },
-        {
-          "Name": "Historizing",
-          "Type": "Boolean",
-          "Value": "False"
-        },
-        {
-          "Name": "Definition",
-          "Type": "Null",
-          "Value": ""
-        },
-        {
-          "Name": "ValuePrecision",
-          "Type": "Double",
           "Value": "0"
         }
       ],
       "Nodes": [
         {
-          "Path": "SetPoint/Definition",
-          "DisplayName": "Definition",
-          "Id": "ns=2;s=1:Winder?SetPoint/Definition",
-          "Type": "68",
+          "Path": "GreenBay/Winder",
+          "DisplayName": "Winder",
+          "Id": "ns=2;s=1:Winder",
+          "Type": "0",
           "Attributes": [
             {
               "Name": "NodeClass",
               "Type": "Int32",
-              "Value": "2"
+              "Value": "1"
             },
             {
               "Name": "BrowseName",
               "Type": "QualifiedName",
-              "Value": "Definition"
+              "Value": "2:Winder"
             },
             {
               "Name": "DisplayName",
               "Type": "LocalizedText",
-              "Value": "Definition"
+              "Value": "Winder"
             },
             {
               "Name": "Description",
@@ -128,786 +83,921 @@
               "Value": "0"
             },
             {
-              "Name": "Value",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "DataType",
-              "Type": "NodeId",
-              "Value": "i=12"
-            },
-            {
-              "Name": "ValueRank",
-              "Type": "Int32",
-              "Value": "-1"
-            },
-            {
-              "Name": "ArrayDimensions",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "AccessLevel",
+              "Name": "EventNotifier",
               "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "UserAccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "MinimumSamplingInterval",
-              "Type": "Double",
               "Value": "0"
-            },
-            {
-              "Name": "Historizing",
-              "Type": "Boolean",
-              "Value": "False"
             }
           ],
-          "Nodes": []
-        },
-        {
-          "Path": "SetPoint/ValuePrecision",
-          "DisplayName": "ValuePrecision",
-          "Id": "ns=2;s=1:Winder?SetPoint/ValuePrecision",
-          "Type": "68",
-          "Attributes": [
+          "Nodes": [
             {
-              "Name": "NodeClass",
-              "Type": "Int32",
-              "Value": "2"
+              "Path": "GreenBay/Winder/SetPoint",
+              "DisplayName": "SetPoint",
+              "Id": "ns=2;s=1:Winder?SetPoint",
+              "Type": "2365",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "2:SetPoint"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "SetPoint"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "LocalizedText",
+                  "Value": "A generic value."
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Float",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=10"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "3"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "3"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                },
+                {
+                  "Name": "Definition",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "ValuePrecision",
+                  "Type": "Double",
+                  "Value": "0"
+                }
+              ],
+              "Nodes": [
+                {
+                  "Path": "GreenBay/Winder/SetPoint/Definition",
+                  "DisplayName": "Definition",
+                  "Id": "ns=2;s=1:Winder?SetPoint/Definition",
+                  "Type": "68",
+                  "Attributes": [
+                    {
+                      "Name": "NodeClass",
+                      "Type": "Int32",
+                      "Value": "2"
+                    },
+                    {
+                      "Name": "BrowseName",
+                      "Type": "QualifiedName",
+                      "Value": "Definition"
+                    },
+                    {
+                      "Name": "DisplayName",
+                      "Type": "LocalizedText",
+                      "Value": "Definition"
+                    },
+                    {
+                      "Name": "Description",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "WriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "UserWriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Value",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "DataType",
+                      "Type": "NodeId",
+                      "Value": "i=12"
+                    },
+                    {
+                      "Name": "ValueRank",
+                      "Type": "Int32",
+                      "Value": "-1"
+                    },
+                    {
+                      "Name": "ArrayDimensions",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "AccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "UserAccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "MinimumSamplingInterval",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Historizing",
+                      "Type": "Boolean",
+                      "Value": "False"
+                    }
+                  ],
+                  "Nodes": []
+                },
+                {
+                  "Path": "GreenBay/Winder/SetPoint/ValuePrecision",
+                  "DisplayName": "ValuePrecision",
+                  "Id": "ns=2;s=1:Winder?SetPoint/ValuePrecision",
+                  "Type": "68",
+                  "Attributes": [
+                    {
+                      "Name": "NodeClass",
+                      "Type": "Int32",
+                      "Value": "2"
+                    },
+                    {
+                      "Name": "BrowseName",
+                      "Type": "QualifiedName",
+                      "Value": "ValuePrecision"
+                    },
+                    {
+                      "Name": "DisplayName",
+                      "Type": "LocalizedText",
+                      "Value": "ValuePrecision"
+                    },
+                    {
+                      "Name": "Description",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "WriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "UserWriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Value",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "DataType",
+                      "Type": "NodeId",
+                      "Value": "i=11"
+                    },
+                    {
+                      "Name": "ValueRank",
+                      "Type": "Int32",
+                      "Value": "-1"
+                    },
+                    {
+                      "Name": "ArrayDimensions",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "AccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "UserAccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "MinimumSamplingInterval",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Historizing",
+                      "Type": "Boolean",
+                      "Value": "False"
+                    }
+                  ],
+                  "Nodes": []
+                }
+              ]
             },
             {
-              "Name": "BrowseName",
-              "Type": "QualifiedName",
-              "Value": "ValuePrecision"
+              "Path": "GreenBay/Winder/Measurement",
+              "DisplayName": "Measurement",
+              "Id": "ns=2;s=1:Winder?Measurement",
+              "Type": "2365",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "2:Measurement"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Measurement"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "LocalizedText",
+                  "Value": "A generic value."
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Float",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=10"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                },
+                {
+                  "Name": "Definition",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "ValuePrecision",
+                  "Type": "Double",
+                  "Value": "0"
+                }
+              ],
+              "Nodes": [
+                {
+                  "Path": "GreenBay/Winder/Measurement/Definition",
+                  "DisplayName": "Definition",
+                  "Id": "ns=2;s=1:Winder?Measurement/Definition",
+                  "Type": "68",
+                  "Attributes": [
+                    {
+                      "Name": "NodeClass",
+                      "Type": "Int32",
+                      "Value": "2"
+                    },
+                    {
+                      "Name": "BrowseName",
+                      "Type": "QualifiedName",
+                      "Value": "Definition"
+                    },
+                    {
+                      "Name": "DisplayName",
+                      "Type": "LocalizedText",
+                      "Value": "Definition"
+                    },
+                    {
+                      "Name": "Description",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "WriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "UserWriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Value",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "DataType",
+                      "Type": "NodeId",
+                      "Value": "i=12"
+                    },
+                    {
+                      "Name": "ValueRank",
+                      "Type": "Int32",
+                      "Value": "-1"
+                    },
+                    {
+                      "Name": "ArrayDimensions",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "AccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "UserAccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "MinimumSamplingInterval",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Historizing",
+                      "Type": "Boolean",
+                      "Value": "False"
+                    }
+                  ],
+                  "Nodes": []
+                },
+                {
+                  "Path": "GreenBay/Winder/Measurement/ValuePrecision",
+                  "DisplayName": "ValuePrecision",
+                  "Id": "ns=2;s=1:Winder?Measurement/ValuePrecision",
+                  "Type": "68",
+                  "Attributes": [
+                    {
+                      "Name": "NodeClass",
+                      "Type": "Int32",
+                      "Value": "2"
+                    },
+                    {
+                      "Name": "BrowseName",
+                      "Type": "QualifiedName",
+                      "Value": "ValuePrecision"
+                    },
+                    {
+                      "Name": "DisplayName",
+                      "Type": "LocalizedText",
+                      "Value": "ValuePrecision"
+                    },
+                    {
+                      "Name": "Description",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "WriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "UserWriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Value",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "DataType",
+                      "Type": "NodeId",
+                      "Value": "i=11"
+                    },
+                    {
+                      "Name": "ValueRank",
+                      "Type": "Int32",
+                      "Value": "-1"
+                    },
+                    {
+                      "Name": "ArrayDimensions",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "AccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "UserAccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "MinimumSamplingInterval",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Historizing",
+                      "Type": "Boolean",
+                      "Value": "False"
+                    }
+                  ],
+                  "Nodes": []
+                }
+              ]
             },
             {
-              "Name": "DisplayName",
-              "Type": "LocalizedText",
-              "Value": "ValuePrecision"
+              "Path": "GreenBay/Winder/Output",
+              "DisplayName": "Output",
+              "Id": "ns=2;s=1:Winder?Output",
+              "Type": "2365",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "2:Output"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Output"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "LocalizedText",
+                  "Value": "A generic value."
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Float",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=10"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                },
+                {
+                  "Name": "Definition",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "ValuePrecision",
+                  "Type": "Double",
+                  "Value": "0"
+                }
+              ],
+              "Nodes": [
+                {
+                  "Path": "GreenBay/Winder/Output/Definition",
+                  "DisplayName": "Definition",
+                  "Id": "ns=2;s=1:Winder?Output/Definition",
+                  "Type": "68",
+                  "Attributes": [
+                    {
+                      "Name": "NodeClass",
+                      "Type": "Int32",
+                      "Value": "2"
+                    },
+                    {
+                      "Name": "BrowseName",
+                      "Type": "QualifiedName",
+                      "Value": "Definition"
+                    },
+                    {
+                      "Name": "DisplayName",
+                      "Type": "LocalizedText",
+                      "Value": "Definition"
+                    },
+                    {
+                      "Name": "Description",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "WriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "UserWriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Value",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "DataType",
+                      "Type": "NodeId",
+                      "Value": "i=12"
+                    },
+                    {
+                      "Name": "ValueRank",
+                      "Type": "Int32",
+                      "Value": "-1"
+                    },
+                    {
+                      "Name": "ArrayDimensions",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "AccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "UserAccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "MinimumSamplingInterval",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Historizing",
+                      "Type": "Boolean",
+                      "Value": "False"
+                    }
+                  ],
+                  "Nodes": []
+                },
+                {
+                  "Path": "GreenBay/Winder/Output/ValuePrecision",
+                  "DisplayName": "ValuePrecision",
+                  "Id": "ns=2;s=1:Winder?Output/ValuePrecision",
+                  "Type": "68",
+                  "Attributes": [
+                    {
+                      "Name": "NodeClass",
+                      "Type": "Int32",
+                      "Value": "2"
+                    },
+                    {
+                      "Name": "BrowseName",
+                      "Type": "QualifiedName",
+                      "Value": "ValuePrecision"
+                    },
+                    {
+                      "Name": "DisplayName",
+                      "Type": "LocalizedText",
+                      "Value": "ValuePrecision"
+                    },
+                    {
+                      "Name": "Description",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "WriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "UserWriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Value",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "DataType",
+                      "Type": "NodeId",
+                      "Value": "i=11"
+                    },
+                    {
+                      "Name": "ValueRank",
+                      "Type": "Int32",
+                      "Value": "-1"
+                    },
+                    {
+                      "Name": "ArrayDimensions",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "AccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "UserAccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "MinimumSamplingInterval",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Historizing",
+                      "Type": "Boolean",
+                      "Value": "False"
+                    }
+                  ],
+                  "Nodes": []
+                }
+              ]
             },
             {
-              "Name": "Description",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "WriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "UserWriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "Value",
-              "Type": "Double",
-              "Value": "0"
-            },
-            {
-              "Name": "DataType",
-              "Type": "NodeId",
-              "Value": "i=11"
-            },
-            {
-              "Name": "ValueRank",
-              "Type": "Int32",
-              "Value": "-1"
-            },
-            {
-              "Name": "ArrayDimensions",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "AccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "UserAccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "MinimumSamplingInterval",
-              "Type": "Double",
-              "Value": "0"
-            },
-            {
-              "Name": "Historizing",
-              "Type": "Boolean",
-              "Value": "False"
+              "Path": "GreenBay/Winder/Status",
+              "DisplayName": "Status",
+              "Id": "ns=2;s=1:Winder?Status",
+              "Type": "2376",
+              "Attributes": [
+                {
+                  "Name": "NodeClass",
+                  "Type": "Int32",
+                  "Value": "2"
+                },
+                {
+                  "Name": "BrowseName",
+                  "Type": "QualifiedName",
+                  "Value": "2:Status"
+                },
+                {
+                  "Name": "DisplayName",
+                  "Type": "LocalizedText",
+                  "Value": "Status"
+                },
+                {
+                  "Name": "Description",
+                  "Type": "LocalizedText",
+                  "Value": "An enumerated value."
+                },
+                {
+                  "Name": "WriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "UserWriteMask",
+                  "Type": "UInt32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Value",
+                  "Type": "Int32",
+                  "Value": "0"
+                },
+                {
+                  "Name": "DataType",
+                  "Type": "NodeId",
+                  "Value": "i=6"
+                },
+                {
+                  "Name": "ValueRank",
+                  "Type": "Int32",
+                  "Value": "-1"
+                },
+                {
+                  "Name": "ArrayDimensions",
+                  "Type": "Null",
+                  "Value": ""
+                },
+                {
+                  "Name": "AccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "UserAccessLevel",
+                  "Type": "Byte",
+                  "Value": "1"
+                },
+                {
+                  "Name": "MinimumSamplingInterval",
+                  "Type": "Double",
+                  "Value": "0"
+                },
+                {
+                  "Name": "Historizing",
+                  "Type": "Boolean",
+                  "Value": "False"
+                },
+                {
+                  "Name": "EnumStrings",
+                  "Type": "LocalizedText[]",
+                  "Value": "Opc.Ua.LocalizedText[]"
+                }
+              ],
+              "Nodes": [
+                {
+                  "Path": "GreenBay/Winder/Status/EnumStrings",
+                  "DisplayName": "EnumStrings",
+                  "Id": "ns=2;s=1:Winder?Status/EnumStrings",
+                  "Type": "68",
+                  "Attributes": [
+                    {
+                      "Name": "NodeClass",
+                      "Type": "Int32",
+                      "Value": "2"
+                    },
+                    {
+                      "Name": "BrowseName",
+                      "Type": "QualifiedName",
+                      "Value": "EnumStrings"
+                    },
+                    {
+                      "Name": "DisplayName",
+                      "Type": "LocalizedText",
+                      "Value": "EnumStrings"
+                    },
+                    {
+                      "Name": "Description",
+                      "Type": "Null",
+                      "Value": ""
+                    },
+                    {
+                      "Name": "WriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "UserWriteMask",
+                      "Type": "UInt32",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Value",
+                      "Type": "LocalizedText[]",
+                      "Value": "Opc.Ua.LocalizedText[]"
+                    },
+                    {
+                      "Name": "DataType",
+                      "Type": "NodeId",
+                      "Value": "i=21"
+                    },
+                    {
+                      "Name": "ValueRank",
+                      "Type": "Int32",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "ArrayDimensions",
+                      "Type": "UInt32[]",
+                      "Value": "System.UInt32[]"
+                    },
+                    {
+                      "Name": "AccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "UserAccessLevel",
+                      "Type": "Byte",
+                      "Value": "1"
+                    },
+                    {
+                      "Name": "MinimumSamplingInterval",
+                      "Type": "Double",
+                      "Value": "0"
+                    },
+                    {
+                      "Name": "Historizing",
+                      "Type": "Boolean",
+                      "Value": "False"
+                    }
+                  ],
+                  "Nodes": []
+                }
+              ]
             }
-          ],
-          "Nodes": []
-        }
-      ]
-    },
-    {
-      "Path": "Measurement",
-      "DisplayName": "Measurement",
-      "Id": "ns=2;s=1:Winder?Measurement",
-      "Type": "2365",
-      "Attributes": [
-        {
-          "Name": "NodeClass",
-          "Type": "Int32",
-          "Value": "2"
-        },
-        {
-          "Name": "BrowseName",
-          "Type": "QualifiedName",
-          "Value": "2:Measurement"
-        },
-        {
-          "Name": "DisplayName",
-          "Type": "LocalizedText",
-          "Value": "Measurement"
-        },
-        {
-          "Name": "Description",
-          "Type": "LocalizedText",
-          "Value": "A generic value."
-        },
-        {
-          "Name": "WriteMask",
-          "Type": "UInt32",
-          "Value": "0"
-        },
-        {
-          "Name": "UserWriteMask",
-          "Type": "UInt32",
-          "Value": "0"
-        },
-        {
-          "Name": "Value",
-          "Type": "Float",
-          "Value": "0"
-        },
-        {
-          "Name": "DataType",
-          "Type": "NodeId",
-          "Value": "i=10"
-        },
-        {
-          "Name": "ValueRank",
-          "Type": "Int32",
-          "Value": "-1"
-        },
-        {
-          "Name": "ArrayDimensions",
-          "Type": "Null",
-          "Value": ""
-        },
-        {
-          "Name": "AccessLevel",
-          "Type": "Byte",
-          "Value": "1"
-        },
-        {
-          "Name": "UserAccessLevel",
-          "Type": "Byte",
-          "Value": "1"
-        },
-        {
-          "Name": "MinimumSamplingInterval",
-          "Type": "Double",
-          "Value": "0"
-        },
-        {
-          "Name": "Historizing",
-          "Type": "Boolean",
-          "Value": "False"
-        },
-        {
-          "Name": "Definition",
-          "Type": "Null",
-          "Value": ""
-        },
-        {
-          "Name": "ValuePrecision",
-          "Type": "Double",
-          "Value": "0"
-        }
-      ],
-      "Nodes": [
-        {
-          "Path": "Measurement/Definition",
-          "DisplayName": "Definition",
-          "Id": "ns=2;s=1:Winder?Measurement/Definition",
-          "Type": "68",
-          "Attributes": [
-            {
-              "Name": "NodeClass",
-              "Type": "Int32",
-              "Value": "2"
-            },
-            {
-              "Name": "BrowseName",
-              "Type": "QualifiedName",
-              "Value": "Definition"
-            },
-            {
-              "Name": "DisplayName",
-              "Type": "LocalizedText",
-              "Value": "Definition"
-            },
-            {
-              "Name": "Description",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "WriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "UserWriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "Value",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "DataType",
-              "Type": "NodeId",
-              "Value": "i=12"
-            },
-            {
-              "Name": "ValueRank",
-              "Type": "Int32",
-              "Value": "-1"
-            },
-            {
-              "Name": "ArrayDimensions",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "AccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "UserAccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "MinimumSamplingInterval",
-              "Type": "Double",
-              "Value": "0"
-            },
-            {
-              "Name": "Historizing",
-              "Type": "Boolean",
-              "Value": "False"
-            }
-          ],
-          "Nodes": []
-        },
-        {
-          "Path": "Measurement/ValuePrecision",
-          "DisplayName": "ValuePrecision",
-          "Id": "ns=2;s=1:Winder?Measurement/ValuePrecision",
-          "Type": "68",
-          "Attributes": [
-            {
-              "Name": "NodeClass",
-              "Type": "Int32",
-              "Value": "2"
-            },
-            {
-              "Name": "BrowseName",
-              "Type": "QualifiedName",
-              "Value": "ValuePrecision"
-            },
-            {
-              "Name": "DisplayName",
-              "Type": "LocalizedText",
-              "Value": "ValuePrecision"
-            },
-            {
-              "Name": "Description",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "WriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "UserWriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "Value",
-              "Type": "Double",
-              "Value": "0"
-            },
-            {
-              "Name": "DataType",
-              "Type": "NodeId",
-              "Value": "i=11"
-            },
-            {
-              "Name": "ValueRank",
-              "Type": "Int32",
-              "Value": "-1"
-            },
-            {
-              "Name": "ArrayDimensions",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "AccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "UserAccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "MinimumSamplingInterval",
-              "Type": "Double",
-              "Value": "0"
-            },
-            {
-              "Name": "Historizing",
-              "Type": "Boolean",
-              "Value": "False"
-            }
-          ],
-          "Nodes": []
-        }
-      ]
-    },
-    {
-      "Path": "Output",
-      "DisplayName": "Output",
-      "Id": "ns=2;s=1:Winder?Output",
-      "Type": "2365",
-      "Attributes": [
-        {
-          "Name": "NodeClass",
-          "Type": "Int32",
-          "Value": "2"
-        },
-        {
-          "Name": "BrowseName",
-          "Type": "QualifiedName",
-          "Value": "2:Output"
-        },
-        {
-          "Name": "DisplayName",
-          "Type": "LocalizedText",
-          "Value": "Output"
-        },
-        {
-          "Name": "Description",
-          "Type": "LocalizedText",
-          "Value": "A generic value."
-        },
-        {
-          "Name": "WriteMask",
-          "Type": "UInt32",
-          "Value": "0"
-        },
-        {
-          "Name": "UserWriteMask",
-          "Type": "UInt32",
-          "Value": "0"
-        },
-        {
-          "Name": "Value",
-          "Type": "Float",
-          "Value": "0"
-        },
-        {
-          "Name": "DataType",
-          "Type": "NodeId",
-          "Value": "i=10"
-        },
-        {
-          "Name": "ValueRank",
-          "Type": "Int32",
-          "Value": "-1"
-        },
-        {
-          "Name": "ArrayDimensions",
-          "Type": "Null",
-          "Value": ""
-        },
-        {
-          "Name": "AccessLevel",
-          "Type": "Byte",
-          "Value": "1"
-        },
-        {
-          "Name": "UserAccessLevel",
-          "Type": "Byte",
-          "Value": "1"
-        },
-        {
-          "Name": "MinimumSamplingInterval",
-          "Type": "Double",
-          "Value": "0"
-        },
-        {
-          "Name": "Historizing",
-          "Type": "Boolean",
-          "Value": "False"
-        },
-        {
-          "Name": "Definition",
-          "Type": "Null",
-          "Value": ""
-        },
-        {
-          "Name": "ValuePrecision",
-          "Type": "Double",
-          "Value": "0"
-        }
-      ],
-      "Nodes": [
-        {
-          "Path": "Output/Definition",
-          "DisplayName": "Definition",
-          "Id": "ns=2;s=1:Winder?Output/Definition",
-          "Type": "68",
-          "Attributes": [
-            {
-              "Name": "NodeClass",
-              "Type": "Int32",
-              "Value": "2"
-            },
-            {
-              "Name": "BrowseName",
-              "Type": "QualifiedName",
-              "Value": "Definition"
-            },
-            {
-              "Name": "DisplayName",
-              "Type": "LocalizedText",
-              "Value": "Definition"
-            },
-            {
-              "Name": "Description",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "WriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "UserWriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "Value",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "DataType",
-              "Type": "NodeId",
-              "Value": "i=12"
-            },
-            {
-              "Name": "ValueRank",
-              "Type": "Int32",
-              "Value": "-1"
-            },
-            {
-              "Name": "ArrayDimensions",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "AccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "UserAccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "MinimumSamplingInterval",
-              "Type": "Double",
-              "Value": "0"
-            },
-            {
-              "Name": "Historizing",
-              "Type": "Boolean",
-              "Value": "False"
-            }
-          ],
-          "Nodes": []
-        },
-        {
-          "Path": "Output/ValuePrecision",
-          "DisplayName": "ValuePrecision",
-          "Id": "ns=2;s=1:Winder?Output/ValuePrecision",
-          "Type": "68",
-          "Attributes": [
-            {
-              "Name": "NodeClass",
-              "Type": "Int32",
-              "Value": "2"
-            },
-            {
-              "Name": "BrowseName",
-              "Type": "QualifiedName",
-              "Value": "ValuePrecision"
-            },
-            {
-              "Name": "DisplayName",
-              "Type": "LocalizedText",
-              "Value": "ValuePrecision"
-            },
-            {
-              "Name": "Description",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "WriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "UserWriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "Value",
-              "Type": "Double",
-              "Value": "0"
-            },
-            {
-              "Name": "DataType",
-              "Type": "NodeId",
-              "Value": "i=11"
-            },
-            {
-              "Name": "ValueRank",
-              "Type": "Int32",
-              "Value": "-1"
-            },
-            {
-              "Name": "ArrayDimensions",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "AccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "UserAccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "MinimumSamplingInterval",
-              "Type": "Double",
-              "Value": "0"
-            },
-            {
-              "Name": "Historizing",
-              "Type": "Boolean",
-              "Value": "False"
-            }
-          ],
-          "Nodes": []
-        }
-      ]
-    },
-    {
-      "Path": "Status",
-      "DisplayName": "Status",
-      "Id": "ns=2;s=1:Winder?Status",
-      "Type": "2376",
-      "Attributes": [
-        {
-          "Name": "NodeClass",
-          "Type": "Int32",
-          "Value": "2"
-        },
-        {
-          "Name": "BrowseName",
-          "Type": "QualifiedName",
-          "Value": "2:Status"
-        },
-        {
-          "Name": "DisplayName",
-          "Type": "LocalizedText",
-          "Value": "Status"
-        },
-        {
-          "Name": "Description",
-          "Type": "LocalizedText",
-          "Value": "An enumerated value."
-        },
-        {
-          "Name": "WriteMask",
-          "Type": "UInt32",
-          "Value": "0"
-        },
-        {
-          "Name": "UserWriteMask",
-          "Type": "UInt32",
-          "Value": "0"
-        },
-        {
-          "Name": "Value",
-          "Type": "Int32",
-          "Value": "0"
-        },
-        {
-          "Name": "DataType",
-          "Type": "NodeId",
-          "Value": "i=6"
-        },
-        {
-          "Name": "ValueRank",
-          "Type": "Int32",
-          "Value": "-1"
-        },
-        {
-          "Name": "ArrayDimensions",
-          "Type": "Null",
-          "Value": ""
-        },
-        {
-          "Name": "AccessLevel",
-          "Type": "Byte",
-          "Value": "1"
-        },
-        {
-          "Name": "UserAccessLevel",
-          "Type": "Byte",
-          "Value": "1"
-        },
-        {
-          "Name": "MinimumSamplingInterval",
-          "Type": "Double",
-          "Value": "0"
-        },
-        {
-          "Name": "Historizing",
-          "Type": "Boolean",
-          "Value": "False"
-        },
-        {
-          "Name": "EnumStrings",
-          "Type": "LocalizedText[]",
-          "Value": "Opc.Ua.LocalizedText[]"
-        }
-      ],
-      "Nodes": [
-        {
-          "Path": "Status/EnumStrings",
-          "DisplayName": "EnumStrings",
-          "Id": "ns=2;s=1:Winder?Status/EnumStrings",
-          "Type": "68",
-          "Attributes": [
-            {
-              "Name": "NodeClass",
-              "Type": "Int32",
-              "Value": "2"
-            },
-            {
-              "Name": "BrowseName",
-              "Type": "QualifiedName",
-              "Value": "EnumStrings"
-            },
-            {
-              "Name": "DisplayName",
-              "Type": "LocalizedText",
-              "Value": "EnumStrings"
-            },
-            {
-              "Name": "Description",
-              "Type": "Null",
-              "Value": ""
-            },
-            {
-              "Name": "WriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "UserWriteMask",
-              "Type": "UInt32",
-              "Value": "0"
-            },
-            {
-              "Name": "Value",
-              "Type": "LocalizedText[]",
-              "Value": "Opc.Ua.LocalizedText[]"
-            },
-            {
-              "Name": "DataType",
-              "Type": "NodeId",
-              "Value": "i=21"
-            },
-            {
-              "Name": "ValueRank",
-              "Type": "Int32",
-              "Value": "1"
-            },
-            {
-              "Name": "ArrayDimensions",
-              "Type": "UInt32[]",
-              "Value": "System.UInt32[]"
-            },
-            {
-              "Name": "AccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "UserAccessLevel",
-              "Type": "Byte",
-              "Value": "1"
-            },
-            {
-              "Name": "MinimumSamplingInterval",
-              "Type": "Double",
-              "Value": "0"
-            },
-            {
-              "Name": "Historizing",
-              "Type": "Boolean",
-              "Value": "False"
-            }
-          ],
-          "Nodes": []
+          ]
         }
       ]
     }

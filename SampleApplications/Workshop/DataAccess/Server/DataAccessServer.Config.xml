@@ -4,7 +4,7 @@
   xmlns:ua="http://opcfoundation.org/UA/2008/02/Types.xsd"
   xmlns="http://opcfoundation.org/UA/SDK/Configuration.xsd"
 >
-  <ApplicationName>Quickstart DataAccess Server</ApplicationName>
+  <ApplicationName>Quickstart DataAccess Server (Optimax Mod)</ApplicationName>
   <ApplicationUri>urn:localhost:UA:DataAccessServer</ApplicationUri>
   <ProductUri>http://opcfoundation.org/UA/DataAccessServer</ProductUri>
   <ApplicationType>Server_0</ApplicationType>
@@ -50,11 +50,11 @@
     <SecurityTokenLifetime>3600000</SecurityTokenLifetime>
   </TransportQuotas>
   <ServerConfiguration>
-    <BaseAddresses>
+      <BaseAddresses>
       <ua:String>https://localhost:62547/Quickstarts/DataAccessServer</ua:String>
       <ua:String>opc.tcp://localhost:62548/Quickstarts/DataAccessServer</ua:String>
     </BaseAddresses>
-    <SecurityPolicies>
+      <SecurityPolicies>
       <ServerSecurityPolicy>
         <SecurityMode>SignAndEncrypt_3</SecurityMode>
         <SecurityPolicyUri>http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256</SecurityPolicyUri>

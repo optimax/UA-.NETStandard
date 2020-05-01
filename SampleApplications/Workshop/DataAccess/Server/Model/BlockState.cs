@@ -67,7 +67,7 @@ namespace Quickstarts.DataAccessServer
             this.UserWriteMask = 0;
             this.EventNotifier = EventNotifiers.None;
 
-            UnderlyingSystem system = nodeManager.SystemContext.SystemHandle as UnderlyingSystem;
+            var system = nodeManager.SystemContext.SystemHandle as IUnderlyingSystem;
 
             if (system != null)
             {
@@ -92,7 +92,7 @@ namespace Quickstarts.DataAccessServer
         {
             if (m_monitoringCount == 0)
             {
-                UnderlyingSystem system = context.SystemHandle as UnderlyingSystem;
+                var system = context.SystemHandle as IUnderlyingSystem;
 
                 if (system != null)
                 {
@@ -118,9 +118,7 @@ namespace Quickstarts.DataAccessServer
 
             if (m_monitoringCount == 0)
             {
-                UnderlyingSystem system = context.SystemHandle as UnderlyingSystem;
-
-                if (system != null)
+                if (context.SystemHandle is IUnderlyingSystem system)
                 {
                     UnderlyingSystemBlock block = system.FindBlock(m_blockId);
 
@@ -142,7 +140,7 @@ namespace Quickstarts.DataAccessServer
             NodeState node,
             ref object value)
         {
-            UnderlyingSystem system = context.SystemHandle as UnderlyingSystem;
+            var system = context.SystemHandle as IUnderlyingSystem;
 
             if (system == null)
             {
@@ -201,7 +199,7 @@ namespace Quickstarts.DataAccessServer
             // check if the parent segments need to be returned.
             if (browser.IsRequired(ReferenceTypeIds.Organizes, true))
             {
-                UnderlyingSystem system = context.SystemHandle as UnderlyingSystem;
+                var system = context.SystemHandle as IUnderlyingSystem;
 
                 if (system == null)
                 {
