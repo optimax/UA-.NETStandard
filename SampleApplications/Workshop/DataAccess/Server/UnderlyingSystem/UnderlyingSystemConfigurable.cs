@@ -55,6 +55,8 @@ namespace Quickstarts.DataAccessServer
 
             BlockPathDatabase = config.Segments;
             BlockDatabase = config.Blocks;
+            BlockTypeDatabase = config.BlockTypes;
+
         }
 
         #endregion
@@ -88,6 +90,12 @@ namespace Quickstarts.DataAccessServer
         /// The type of block is the second element.
         /// </remarks>
         private List<string> BlockDatabase;
+
+
+        /// <summary>
+        /// A database that stores block type definitions along with their tags
+        /// </summary>
+        private IDictionary<string, BlockType> BlockTypeDatabase;
 
 
 
@@ -409,9 +417,9 @@ namespace Quickstarts.DataAccessServer
                 }
 
                 // lookup block in database.
-                string blockType = LookupBlockType(blockId);
+                string blockTypeName = LookupBlockTypeName(blockId);
                 // block not found.
-                if (blockType == null)
+                if (blockTypeName == null)
                     return null;
                 
 
@@ -421,59 +429,72 @@ namespace Quickstarts.DataAccessServer
                 // create the block.
                 block.Id = blockId;
                 block.Name = blockId;
-                block.BlockType = blockType;
+                block.BlockType = blockTypeName;
 
                 m_blocks.Add(blockId, block);
+
+
+                if (!BlockTypeDatabase.TryGetValue(block.BlockType, out var blockType))
+                    throw new Exception($"Block Type {blockTypeName} is not defined.");
+
 
                 // add the tags based on the block type.
                 // note that the block and tag types used here are types defined by the underlying system.
                 // the node manager will need to map these types to UA defined types.
-                switch (block.BlockType)
+
+                foreach (var tag in blockType.Tags)
                 {
-                    case "FlowSensor":
-                    {
-                        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog,
-                            "liters/sec", false);
-                        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital,
-                            null, false);
-                        break;
-                    }
-
-                    case "LevelSensor":
-                    {
-                        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog,
-                            "liters", false);
-                        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital,
-                            null, false);
-                        break;
-                    }
-
-                    case "Controller":
-                    {
-                        block.CreateTag("SetPoint", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal,
-                            null, true);
-                        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal,
-                            null, false);
-                        block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
-                            false);
-                        block.CreateTag("Status", UnderlyingSystemDataType.Integer4, UnderlyingSystemTagType.Enumerated,
-                            null, false);
-                        break;
-                    }
-
-                    case "CustomController":
-                    {
-                        block.CreateTag("Input1", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
-                            true);
-                        block.CreateTag("Input2", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
-                            true);
-                        block.CreateTag("Input3", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
-                            true);
-                        block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
-                            false);
-                        break;
-                    }
+                    var dataType = ParseUnderlyingDataType(tag.DataType);
+                    var tagType = ParseUnderlyingTagType(tag.TagType);
+                    block.CreateTag(tag.Name, dataType, tagType, tag.Units, tag.Writable);
                 }
+
+                //switch (block.BlockType)
+                //{
+                //    case "FlowSensor":
+                //    {
+                //        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog,
+                //            "liters/sec", false);
+                //        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital,
+                //            null, false);
+                //        break;
+                //    }
+
+                //    case "LevelSensor":
+                //    {
+                //        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog,
+                //            "liters", false);
+                //        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital,
+                //            null, false);
+                //        break;
+                //    }
+
+                //    case "Controller":
+                //    {
+                //        block.CreateTag("SetPoint", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal,
+                //            null, true);
+                //        block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal,
+                //            null, false);
+                //        block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                //            false);
+                //        block.CreateTag("Status", UnderlyingSystemDataType.Integer4, UnderlyingSystemTagType.Enumerated,
+                //            null, false);
+                //        break;
+                //    }
+
+                //    case "CustomController":
+                //    {
+                //        block.CreateTag("Input1", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                //            true);
+                //        block.CreateTag("Input2", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                //            true);
+                //        block.CreateTag("Input3", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                //            true);
+                //        block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null,
+                //            false);
+                //        break;
+                //    }
+                //}
             }
 
             // return the new block.
@@ -481,7 +502,23 @@ namespace Quickstarts.DataAccessServer
         }
 
 
-        private string LookupBlockType(string blockId)
+        private UnderlyingSystemTagType ParseUnderlyingTagType(string tagTagType)
+        {
+            if (!Enum.TryParse<UnderlyingSystemTagType>(tagTagType, out var dataType))
+                return UnderlyingSystemTagType.Normal;
+            return dataType;
+        }
+
+
+        private UnderlyingSystemDataType ParseUnderlyingDataType(string tagDataType)
+        {
+            if (!Enum.TryParse<UnderlyingSystemDataType>(tagDataType, out var dataType))
+                return UnderlyingSystemDataType.Undefined;
+            return dataType;
+        }
+
+
+        private string LookupBlockTypeName(string blockId)
         {
             string blockType = null;
             int length = blockId.Length;

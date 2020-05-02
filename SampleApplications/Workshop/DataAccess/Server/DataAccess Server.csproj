@@ -75,7 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IUnderlyingSystem.cs" />
+    <Compile Include="UnderlyingSystem\IUnderlyingSystem.cs" />
     <Compile Include="Model\BlockState.cs" />
     <Compile Include="Model\ModelUtils.cs" />
     <Compile Include="DataAccessNodeManager.cs" />

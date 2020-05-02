@@ -38,28 +38,33 @@ namespace Quickstarts.DataAccessServer
     public enum UnderlyingSystemDataType
     {
         /// <summary>
+        /// An unknown value
+        /// </summary>
+        Undefined = 0,
+
+        /// <summary>
         /// A 1-byte integer value.
         /// </summary>
-        Integer1 = 0,
+        Integer1 = 1,
 
         /// <summary>
         /// A 2-byte integer value.
         /// </summary>
-        Integer2 = 1,
+        Integer2 = 2,
 
         /// <summary>
         /// A 4-byte integer value.
         /// </summary>
-        Integer4 = 2,
+        Integer4 = 3,
 
         /// <summary>
         /// A 4-byte floating point value.
         /// </summary>
-        Real4 = 3,
+        Real4 = 4,
 
         /// <summary>
         /// A string value.
         /// </summary>
-        String = 4
+        String = 5
     }
 }

@@ -1,4 +1,5 @@
 {
+  // Paths
   "Segments": [
     "Factory/East/Boiler1/Pipe1001",
     "Factory/East/Boiler1/Drum1002",
@@ -31,9 +32,13 @@
     "TestData/Static/FC2001",
     "TestData/Static/LC2001",
     "TestData/Static/CC2001",
-    "GBP/Wisconsin/Winder",
-    "GBP/Arkansas/Winder"
+    "GBP/Wisconsin/SlitterWinder",
+    "GBP/Arkansas/SlitterWinder",
+    "GBP/Wisconsin/CoreCutter",
+    "GBP/Arkansas/CoreCutter"
   ],
+
+  //BlockTypeName/BlockTypeDefinition
   "Blocks": [
     "Pipe1001/FlowSensor",
     "Drum1002/LevelSensor",
@@ -47,9 +52,11 @@
     "FC2001/Controller",
     "LC2001/Controller",
     "CC2001/CustomController",
-    "Winder/Controller",
-    "Winder/SlitterWinder"
+    "SlitterWinder/WinderController",
+    "CoreCutter/CutterController"
   ],
+
+  // Collections of Tags
   "BlockTypes": {
     "FlowSensor": {
       "Name": "FlowSensor",
@@ -155,8 +162,8 @@
         }
       ]
     },
-    "SlitterWinder": {
-      "Name": "SlitterWinder",
+    "WinderController": {
+      "Name": "WinderController",
       "Tags": [
         {
           "Name": "Input1",
@@ -175,6 +182,32 @@
         {
           "Name": "Output",
           "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": false
+        }
+      ]
+    },
+    "CutterController": {
+      "Name": "CutterController",
+      "Tags": [
+        {
+          "Name": "InputNumCores",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "Speed",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "NumCores",
+          "DataType": "Integer1",
           "TagType": "Normal",
           "Units": null,
           "Writable": false
