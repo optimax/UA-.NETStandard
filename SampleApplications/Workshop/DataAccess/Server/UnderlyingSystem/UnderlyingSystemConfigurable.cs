@@ -8,6 +8,7 @@ using Opc.Ua;
 
 namespace Quickstarts.DataAccessServer
 {
+
     public class UnderlyingSystemConfigurable : IUnderlyingSystem
     {
         #region Constructors
@@ -26,6 +27,28 @@ namespace Quickstarts.DataAccessServer
         {
             if (!File.Exists(configFileName))
                 throw new Exception($"Configuration file '{configFileName}' does not exist.");
+
+            //var conf = new UnderlyingSystemConfig {
+            //    BlockTypes = new Dictionary<string, BlockType> {
+            //        {"First", new BlockType {Name="FirstType",Tags = new List<BlockTag> {
+            //            new BlockTag{Name="Tag1",DataType="Data1"}}
+            //        }},
+            //        {"Second", new BlockType{Name="SecondType",Tags = new List<BlockTag> {
+            //            new BlockTag{Name="Tag2a",DataType="Data2a"},
+            //            new BlockTag{Name="Tag2b",DataType="Data2b"},
+            //        }}},
+            //        {"Third", new BlockType{Name="ThirdType",Tags = new List<BlockTag> {
+            //            new BlockTag{Name="Tag3",DataType="Data3"}
+            //        }}},
+            //        {"Fourth", new BlockType{Name="FourthType",Tags = new List<BlockTag> {
+            //            new BlockTag{Name="Tag4",DataType="Data4"}
+            //        }}},
+            //    }
+            //};
+            //var ser = JsonConvert.SerializeObject(conf,Formatting.Indented);
+            //File.WriteAllText(@"C:\temp\serialization.json",ser);
+            //var des = File.ReadAllText(@"C:\temp\serialization.json");
+            //var result = JsonConvert.DeserializeObject<UnderlyingSystemConfig>(des);
 
             var json = File.ReadAllText(configFileName);
             var config = JsonConvert.DeserializeObject<UnderlyingSystemConfig>(json);
@@ -386,32 +409,11 @@ namespace Quickstarts.DataAccessServer
                 }
 
                 // lookup block in database.
-                string blockType = null;
-                int length = blockId.Length;
-
-                for (int ii = 0; ii < BlockDatabase.Count; ii++)
-                {
-                    blockType = BlockDatabase[ii];
-
-                    if (length >= blockType.Length || blockType[length] != '/')
-                    {
-                        continue;
-                    }
-
-                    if (blockType.StartsWith(blockId))
-                    {
-                        blockType = blockType.Substring(length + 1);
-                        break;
-                    }
-
-                    blockType = null;
-                }
-
+                string blockType = LookupBlockType(blockId);
                 // block not found.
                 if (blockType == null)
-                {
                     return null;
-                }
+                
 
                 // create a new block.
                 block = new UnderlyingSystemBlock();
@@ -476,6 +478,33 @@ namespace Quickstarts.DataAccessServer
 
             // return the new block.
             return block;
+        }
+
+
+        private string LookupBlockType(string blockId)
+        {
+            string blockType = null;
+            int length = blockId.Length;
+
+            for (int ii = 0; ii < BlockDatabase.Count; ii++)
+            {
+                blockType = BlockDatabase[ii];
+
+                if (length >= blockType.Length || blockType[length] != '/')
+                {
+                    continue;
+                }
+
+                if (blockType.StartsWith(blockId))
+                {
+                    blockType = blockType.Substring(length + 1);
+                    break;
+                }
+
+                blockType = null;
+            }
+
+            return blockType;
         }
 
 
@@ -628,3 +657,4 @@ namespace Quickstarts.DataAccessServer
         #endregion
     }
 }
+

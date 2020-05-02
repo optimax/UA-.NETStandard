@@ -93,7 +93,7 @@
     </EmbeddedResource>
     <Content Include="App.config">
     </Content>
-    <Content Include="GBPServer.config.json">
+    <Content Include="underlying-system.config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
