@@ -87,11 +87,13 @@ namespace Quickstarts.DataAccessClient
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelServer = new System.Windows.Forms.Panel();
+            this.labelServerName = new WinFormsControls.TransparentLabel();
             this.AttributesLV = new System.Windows.Forms.ListView();
             this.AttributeNameCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttributeDataTypeCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttributeValueCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelObjects = new System.Windows.Forms.Panel();
+            this.labelNodeName = new WinFormsControls.TransparentLabel();
             this.MonitoredItemsLV = new System.Windows.Forms.ListView();
             this.MonitoredItemIdCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.VariableNameCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -126,8 +128,6 @@ namespace Quickstarts.DataAccessClient
             this.Monitoring_Deadband_Percentage_10MI = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ConnectServerCTRL = new Opc.Ua.Client.Controls.ConnectServerCtrl();
-            this.labelServerName = new WinFormsControls.TransparentLabel();
-            this.labelNodeName = new WinFormsControls.TransparentLabel();
             this.MenuBar.SuspendLayout();
             this.StatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainPN)).BeginInit();
@@ -405,6 +405,23 @@ namespace Quickstarts.DataAccessClient
             this.panelServer.TabIndex = 1;
             this.panelServer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelServerName_MouseClick);
             // 
+            // labelServerName
+            // 
+            this.labelServerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelServerName.AutoSize = true;
+            this.labelServerName.BackColor = System.Drawing.Color.DarkGray;
+            this.labelServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelServerName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelServerName.Location = new System.Drawing.Point(3, 6);
+            this.labelServerName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labelServerName.Name = "labelServerName";
+            this.labelServerName.Size = new System.Drawing.Size(53, 20);
+            this.labelServerName.TabIndex = 1;
+            this.labelServerName.TabStop = false;
+            this.labelServerName.Text = "Server";
+            this.labelServerName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.labelServerName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelServerName_MouseClick);
+            // 
             // AttributesLV
             // 
             this.AttributesLV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -446,6 +463,20 @@ namespace Quickstarts.DataAccessClient
             this.panelObjects.Name = "panelObjects";
             this.panelObjects.Size = new System.Drawing.Size(564, 27);
             this.panelObjects.TabIndex = 2;
+            // 
+            // labelNodeName
+            // 
+            this.labelNodeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelNodeName.AutoSize = true;
+            this.labelNodeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNodeName.Location = new System.Drawing.Point(0, 5);
+            this.labelNodeName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labelNodeName.Name = "labelNodeName";
+            this.labelNodeName.Size = new System.Drawing.Size(61, 20);
+            this.labelNodeName.TabIndex = 0;
+            this.labelNodeName.TabStop = false;
+            this.labelNodeName.Text = "Objects";
+            this.labelNodeName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // MonitoredItemsLV
             // 
@@ -710,37 +741,7 @@ namespace Quickstarts.DataAccessClient
             this.ConnectServerCTRL.ReconnectStarting += new System.EventHandler(this.Server_ReconnectStarting);
             this.ConnectServerCTRL.ReconnectComplete += new System.EventHandler(this.Server_ReconnectComplete);
             this.ConnectServerCTRL.ConnectComplete += new System.EventHandler(this.Server_ConnectComplete);
-            // 
-            // labelServerName
-            // 
-            this.labelServerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelServerName.AutoSize = true;
-            this.labelServerName.BackColor = System.Drawing.Color.DarkGray;
-            this.labelServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelServerName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelServerName.Location = new System.Drawing.Point(3, 6);
-            this.labelServerName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.labelServerName.Name = "labelServerName";
-            this.labelServerName.Size = new System.Drawing.Size(97, 20);
-            this.labelServerName.TabIndex = 1;
-            this.labelServerName.TabStop = false;
-            this.labelServerName.Text = "Server";
-            this.labelServerName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelServerName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelServerName_MouseClick);
-            // 
-            // labelNodeName
-            // 
-            this.labelNodeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelNodeName.AutoSize = true;
-            this.labelNodeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNodeName.Location = new System.Drawing.Point(0, 5);
-            this.labelNodeName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.labelNodeName.Name = "labelNodeName";
-            this.labelNodeName.Size = new System.Drawing.Size(61, 20);
-            this.labelNodeName.TabIndex = 0;
-            this.labelNodeName.TabStop = false;
-            this.labelNodeName.Text = "Objects";
-            this.labelNodeName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.ConnectServerCTRL.Load += new System.EventHandler(this.ConnectServerCTRL_Load);
             // 
             // MainForm
             // 

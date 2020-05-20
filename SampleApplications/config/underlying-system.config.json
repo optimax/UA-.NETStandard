@@ -1,0 +1,239 @@
+{
+  // Paths
+  "Segments": [
+	"FactoryTalkLinxGateway/OPC",
+    "Factory/East/Boiler1/Pipe1001",
+    "Factory/East/Boiler1/Drum1002",
+    "Factory/East/Boiler1/Pipe1002",
+    "Factory/East/Boiler1/FC1001",
+    "Factory/East/Boiler1/LC1001",
+    "Factory/East/Boiler1/CC1001",
+    "Factory/West/Boiler2/Pipe2001",
+    "Factory/West/Boiler2/Drum2002",
+    "Factory/West/Boiler2/Pipe2002",
+    "Factory/West/Boiler2/FC2001",
+    "Factory/West/Boiler2/LC2001",
+    "Factory/West/Boiler2/CC2001",
+    "Factory/GreenBay/Winder",
+    "Assets/Sensors/Flow/Pipe1001",
+    "Assets/Sensors/Level/Drum1002",
+    "Assets/Sensors/Flow/Pipe1002",
+    "Assets/Controllers/Flow/FC1001",
+    "Assets/Controllers/Level/LC1001",
+    "Assets/Controllers/Custom/CC1001",
+    "Assets/Sensors/Flow/Pipe2001",
+    "Assets/Sensors/Level/Drum2002",
+    "Assets/Sensors/Flow/Pipe2002",
+    "Assets/Controllers/Flow/FC2001",
+    "Assets/Controllers/Level/LC2001",
+    "Assets/Controllers/Custom/CC2001",
+    "TestData/Static/FC1001",
+    "TestData/Static/LC1001",
+    "TestData/Static/CC1001",
+    "TestData/Static/FC2001",
+    "TestData/Static/LC2001",
+    "TestData/Static/CC2001",
+    "GBP/Wisconsin/SlitterWinder",
+    "GBP/Arkansas/SlitterWinder",
+    "GBP/Wisconsin/CoreCutter",
+    "GBP/Arkansas/CoreCutter"
+  ],
+
+  //BlockTypeName/BlockTypeDefinition
+  "Blocks": [
+	"OPC/Online",
+    "Pipe1001/FlowSensor",
+    "Drum1002/LevelSensor",
+    "Pipe1002/FlowSensor",
+    "Pipe2001/FlowSensor",
+    "Drum2002/LevelSensor",
+    "Pipe2002/FlowSensor",
+    "FC1001/Controller",
+    "LC1001/Controller",
+    "CC1001/CustomController",
+    "FC2001/Controller",
+    "LC2001/Controller",
+    "CC2001/CustomController",
+    "SlitterWinder/WinderController",
+    "CoreCutter/CutterController"
+  ],
+
+  // Collections of Tags
+  "BlockTypes": {
+    "Online": {
+      "Name": "Online",
+      "Tags": [
+        {
+		  "Name": "Winder_KeepAlive",
+		  "DataType": "Integer4",
+		  "TagType": "Analog",
+		  "Units": null,
+		  "Writable": false
+        },
+		{
+		  "Name": "Mill_KeepAlive",
+		  "DataType": "Integer4",
+		  "TagType": "Analog",
+		  "Units": null,
+		  "Writable": true
+        },		
+      ]
+	},
+    "FlowSensor": {
+      "Name": "FlowSensor",
+      "Tags": [
+        {
+          "Name": "Measurement",
+          "DataType": "Real4",
+          "TagType": "Analog",
+          "Units": "liters/sec",
+          "Writable": false
+        },
+        {
+          "Name": "Online",
+          "DataType": "Integer1",
+          "TagType": "Digital",
+          "Units": null,
+          "Writable": false
+        }
+      ]
+    },
+    "LevelSensor": {
+      "Name": "LevelSensor",
+      "Tags": [
+        {
+          "Name": "Measurement",
+          "DataType": "Real4",
+          "TagType": "Analog",
+          "Units": "liters",
+          "Writable": false
+        },
+        {
+          "Name": "Online",
+          "DataType": "Integer1",
+          "TagType": "Digital",
+          "Units": null,
+          "Writable": false
+        }
+      ]
+    },
+    "Controller": {
+      "Name": "Controller",
+      "Tags": [
+        {
+          "Name": "SetPoint",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "Measurement",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": false
+        },
+        {
+          "Name": "Output",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": false
+        },
+        {
+          "Name": "Status",
+          "DataType": "Integer4",
+          "TagType": "Enumerated",
+          "Units": null,
+          "Writable": false
+        }
+      ]
+    },
+    "CustomController": {
+      "Name": "CustomController",
+      "Tags": [
+        {
+          "Name": "Input1",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "Input2",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "Input3",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "Output",
+          "DataType": "Real4",
+          "Type": "Normal",
+          "Units": null,
+          "Writable": false
+        }
+      ]
+    },
+    "WinderController": {
+      "Name": "WinderController",
+      "Tags": [
+        {
+          "Name": "Input1",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "Input2",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "Output",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": false
+        }
+      ]
+    },
+    "CutterController": {
+      "Name": "CutterController",
+      "Tags": [
+        {
+          "Name": "InputNumCores",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "Speed",
+          "DataType": "Real4",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": true
+        },
+        {
+          "Name": "NumCores",
+          "DataType": "Integer1",
+          "TagType": "Normal",
+          "Units": null,
+          "Writable": false
+        }
+      ]
+    }
+  }
+}

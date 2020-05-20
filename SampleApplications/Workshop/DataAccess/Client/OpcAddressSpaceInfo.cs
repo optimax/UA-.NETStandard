@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Windows.Forms;
 using Opc.Ua;
 using Opc.Ua.Client;
@@ -16,26 +17,29 @@ namespace DataAccessClient
 
         public string RootPath { get; set; } = "\\";
 
-        public List<OpcNodeInfo> Nodes { get; }
+        public List<OpcNodeInfo> RootNodes { get; }
+
+        public int NodeCount { get; set; }
 
         internal readonly Session session;
 
         public OpcAddressSpaceInfo(Session session)
         {
-            Nodes = new List<OpcNodeInfo>();
+            RootNodes = new List<OpcNodeInfo>();
             this.session = session;
         }
 
 
-        public OpcAddressSpaceInfo Populate(NodeId sourceId, string rootPath, Action progress = null)
+        public OpcAddressSpaceInfo Populate(NodeId sourceId, string rootPath, Action<int> progress = null)
         {
             RootPath = "\\" + rootPath;
-            PopulateBranch(null, sourceId, Nodes, progress);
+            NodeCount = 0;
+            PopulateBranch(null, sourceId, RootNodes, progress);
             return this;
         }
 
 
-        private void PopulateBranch(OpcNodeInfo parent, NodeId sourceId, List<OpcNodeInfo> nodes, Action progress)
+        private void PopulateBranch(OpcNodeInfo parent, NodeId sourceId, List<OpcNodeInfo> nodes, Action<int> progress)
         {
             nodes.Clear();
 
@@ -68,16 +72,14 @@ namespace DataAccessClient
             if (references == null || !references.Any())
                 return;
 
-
-
             // process results
             for (int i = 0; i < references.Count; i++)
             {
-                progress?.Invoke();
-
                 var target = references[i];
                 var childNode = new OpcNodeInfo(parent, target);
                 nodes.Add(childNode);
+                NodeCount++;
+                progress?.Invoke(NodeCount);
                 PopulateBranch(childNode, (NodeId)target.NodeId, childNode.Nodes, progress);
                 PopulateAttributes((NodeId)target.NodeId, childNode.Attributes);
             }

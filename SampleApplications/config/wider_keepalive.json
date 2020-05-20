@@ -1,0 +1,6 @@
+{
+  "ServerUri": "opc.tcp://d51ws08510x:4990/FactoryTalkLinxGateway",
+  "DumpStamp": "2020-05-15T14:59:24.5484044-05:00",
+  "RootPath": "\\FactoryTalkLinxGateway\\OPC\\Online\\Winder_KeepAlive",
+  "Nodes": []
+}

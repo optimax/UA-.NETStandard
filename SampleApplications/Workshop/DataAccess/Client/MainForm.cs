@@ -28,14 +28,13 @@
  * ======================================================================*/
 
 using System;
+using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
-using System.Windows.Forms;
 using System.IO;
-using System.Reflection;
-using System.Threading;
+using System.Text;
+using System.Windows.Forms;
 using DataAccessClient;
 using Newtonsoft.Json;
 using Opc.Ua;
@@ -52,7 +51,9 @@ namespace Quickstarts.DataAccessClient
     {
         private const string DEFAULT_OBJECTS_NAME = "Objects";
 
+
         #region Constructors
+
         /// <summary>
         /// Creates an empty form.
         /// </summary>
@@ -61,6 +62,7 @@ namespace Quickstarts.DataAccessClient
             InitializeComponent();
             this.Icon = ClientUtils.GetAppIcon();
         }
+
 
         /// <summary>
         /// Creates a form which uses the specified client configuration.
@@ -71,12 +73,16 @@ namespace Quickstarts.DataAccessClient
             InitializeComponent();
             this.Icon = ClientUtils.GetAppIcon();
             ConnectServerCTRL.Configuration = m_configuration = configuration;
-            ConnectServerCTRL.ServerUrl = "opc.tcp://localhost:62548/Quickstarts/DataAccessServer";
+
+            ConnectServerCTRL.SetAvailableUrls(new List<string> {
+                "opc.tcp://D51WS08510X:4990/FactoryTalkLinxGateway",
+                "opc.tcp://localhost:62548/Quickstarts/DataAccessServer"
+            });
+            ConnectServerCTRL.ServerUrl = "opc.tcp://D51WS08510X:4990/FactoryTalkLinxGateway";
 
             this.Text = m_configuration.ApplicationName;
             labelNodeName.Text = DEFAULT_OBJECTS_NAME;
 
-            
 
             // create the callback.
             m_MonitoredItem_Notification = new MonitoredItemNotificationEventHandler(MonitoredItem_Notification);
@@ -84,18 +90,25 @@ namespace Quickstarts.DataAccessClient
 
         #endregion
 
+
         #region Private Fields
+
         private ApplicationConfiguration m_configuration;
         private Session m_session;
         private bool m_connectedOnce;
         private Subscription m_subscription;
         private MonitoredItemNotificationEventHandler m_MonitoredItem_Notification;
+
         #endregion
+
 
         #region Private Methods
+
         #endregion
 
+
         #region Event Handlers
+
         /// <summary>
         /// Connects to a server.
         /// </summary>
@@ -110,6 +123,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Disconnects from the current session.
@@ -126,6 +140,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         /// <summary>
         /// Prompts the user to choose a server on another host.
         /// </summary>
@@ -140,6 +155,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Updates the application after connecting to or disconnecting from the server.
@@ -195,6 +211,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         /// <summary>
         /// Updates the application after a communicate error was detected.
         /// </summary>
@@ -211,6 +228,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Updates the application after reconnecting to the server.
@@ -236,6 +254,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         /// <summary>
         /// Cleans up when the main form closes.
         /// </summary>
@@ -243,9 +262,12 @@ namespace Quickstarts.DataAccessClient
         {
             ConnectServerCTRL.Disconnect();
         }
+
         #endregion
-        
+
+
         #region Private Methods
+
         /// <summary>
         /// Populates the branch in the tree view.
         /// </summary>
@@ -266,7 +288,7 @@ namespace Quickstarts.DataAccessClient
                 nodeToBrowse1.IncludeSubtypes = true;
                 nodeToBrowse1.NodeClassMask = (uint)(NodeClass.Object | NodeClass.Variable);
                 nodeToBrowse1.ResultMask = (uint)BrowseResultMask.All;
-                
+
                 // find all nodes organized by the node.
                 BrowseDescription nodeToBrowse2 = new BrowseDescription();
 
@@ -283,7 +305,7 @@ namespace Quickstarts.DataAccessClient
 
                 // fetch references from the server.
                 ReferenceDescriptionCollection references = FormUtils.Browse(m_session, nodesToBrowse, false);
-                
+
                 // process results.
                 for (int ii = 0; ii < references.Count; ii++)
                 {
@@ -304,6 +326,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Displays the attributes and properties in the attributes view.
@@ -430,7 +453,7 @@ namespace Quickstarts.DataAccessClient
                         }
 
                         // get the name of the property.
-                        name = Utils.Format("{0}", references[ii-startOfProperties]);
+                        name = Utils.Format("{0}", references[ii - startOfProperties]);
 
                         // display any unexpected error.
                         if (StatusCode.IsBad(results[ii].StatusCode))
@@ -474,6 +497,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         /// <summary>
         /// Converts a monitoring filter to text for display.
         /// </summary>
@@ -498,9 +522,12 @@ namespace Quickstarts.DataAccessClient
 
             return "None";
         }
+
         #endregion
 
+
         #region Event Handlers
+
         /// <summary>
         /// Handles the Click event of the Help_ContentsMI control.
         /// </summary>
@@ -510,13 +537,15 @@ namespace Quickstarts.DataAccessClient
         {
             try
             {
-                System.Diagnostics.Process.Start( Path.GetDirectoryName(Application.ExecutablePath) + "\\WebHelp\\daclientoverview.htm");
+                System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) +
+                                                 "\\WebHelp\\daclientoverview.htm");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Unable to launch help documentation. Error: " + ex.Message);
             }
         }
+
 
         /// <summary>
         /// Fetches the children for a node the first time the node is expanded in the tree view.
@@ -549,6 +578,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         /// <summary>
         /// Updates the display after a node is selected.
         /// </summary>
@@ -564,7 +594,9 @@ namespace Quickstarts.DataAccessClient
                     return;
                 }
 
-                labelNodeName.Text = e.Node.Text;
+
+                var nodeId = reference.NodeId;
+                labelNodeName.Text = nodeId.ToString(); // e.Node.Text;
 
                 // populate children.
                 PopulateBranch((NodeId)reference.NodeId, e.Node.Nodes);
@@ -574,6 +606,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Ensures the correct node is selected before displaying the context menu.
@@ -589,7 +622,8 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
-        
+
+
         /// <summary>
         /// Handles the Click event of the Browse_MonitorMI control.
         /// </summary>
@@ -598,7 +632,7 @@ namespace Quickstarts.DataAccessClient
         private void Browse_MonitorMI_Click(object sender, EventArgs e)
         {
             try
-            {  
+            {
                 // check if operation is currently allowed.
                 if (m_session == null || BrowseNodesTV.SelectedNode == null)
                 {
@@ -618,7 +652,7 @@ namespace Quickstarts.DataAccessClient
                 m_subscription.ApplyChanges();
 
                 MonitoredItem monitoredItem = (MonitoredItem)item.Tag;
-                                
+
                 if (ServiceResult.IsBad(monitoredItem.Status.Error))
                 {
                     item.SubItems[8].Text = monitoredItem.Status.Error.StatusCode.ToString();
@@ -628,7 +662,7 @@ namespace Quickstarts.DataAccessClient
                 item.SubItems[1].Text = monitoredItem.MonitoringMode.ToString();
                 item.SubItems[2].Text = monitoredItem.SamplingInterval.ToString();
                 item.SubItems[3].Text = DeadbandFilterToText(monitoredItem.Filter);
-                
+
                 MonitoredItemsLV.Columns[0].Width = -2;
                 MonitoredItemsLV.Columns[1].Width = -2;
                 MonitoredItemsLV.Columns[8].Width = -2;
@@ -638,6 +672,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Creates the monitored item.
@@ -695,9 +730,10 @@ namespace Quickstarts.DataAccessClient
             {
                 item.SubItems[8].Text = monitoredItem.Status.Error.StatusCode.ToString();
             }
-            
+
             return item;
         }
+
 
         /// <summary>
         /// Prompts the use to write the value of a varible.
@@ -727,7 +763,8 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
-        
+
+
         /// <summary>
         /// Handles the Click event of the Browse_ReadHistoryMI control.
         /// </summary>
@@ -759,6 +796,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         /// <summary>
         /// Updates the display with a new value for a monitored variable. 
         /// </summary>
@@ -766,7 +804,8 @@ namespace Quickstarts.DataAccessClient
         {
             if (this.InvokeRequired)
             {
-                this.BeginInvoke(new MonitoredItemNotificationEventHandler(MonitoredItem_Notification), monitoredItem, e);
+                this.BeginInvoke(new MonitoredItemNotificationEventHandler(MonitoredItem_Notification), monitoredItem,
+                    e);
                 return;
             }
 
@@ -788,13 +827,15 @@ namespace Quickstarts.DataAccessClient
 
                 item.SubItems[5].Text = Utils.Format("{0}", notification.Value.WrappedValue);
                 item.SubItems[6].Text = Utils.Format("{0}", notification.Value.StatusCode);
-                item.SubItems[7].Text = Utils.Format("{0:HH:mm:ss.fff}", notification.Value.SourceTimestamp.ToLocalTime());
+                item.SubItems[7].Text =
+                    Utils.Format("{0:HH:mm:ss.fff}", notification.Value.SourceTimestamp.ToLocalTime());
             }
             catch (Exception exception)
             {
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Changes the monitoring mode for the currently selected monitored items.
@@ -861,6 +902,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Changes the sampling interval for the currently selected monitored items.
@@ -931,6 +973,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Changes the deadband for the currently selected monitored items.
@@ -1026,6 +1069,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         /// <summary>
         /// Handles the Click event of the Monitoring_DeleteMI control.
         /// </summary>
@@ -1094,6 +1138,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         private void BrowsingMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Browse_MonitorMI.Enabled = true;
@@ -1119,6 +1164,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         private void Monitoring_WriteMI_Click(object sender, EventArgs e)
         {
             try
@@ -1142,6 +1188,7 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         /// <summary>
         /// Creates monitored items from a saved list of node ids.
         /// </summary>
@@ -1155,6 +1202,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         /// <summary>
         /// Saves the current monitored items.
@@ -1170,12 +1218,12 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
+
         /// <summary>
         /// Sets the locale to use.
         /// </summary>
         private void Server_SetLocaleMI_Click(object sender, EventArgs e)
         {
-
             try
             {
                 if (m_session == null)
@@ -1190,7 +1238,7 @@ namespace Quickstarts.DataAccessClient
                     return;
                 }
 
-                ConnectServerCTRL.PreferredLocales = new string[] { locale };
+                ConnectServerCTRL.PreferredLocales = new string[] {locale};
                 m_session.ChangePreferredLocales(new StringCollection(ConnectServerCTRL.PreferredLocales));
             }
             catch (Exception exception)
@@ -1198,6 +1246,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
+
 
         private void Server_SetUserMI_Click(object sender, EventArgs e)
         {
@@ -1209,7 +1258,7 @@ namespace Quickstarts.DataAccessClient
                 ClientUtils.HandleException(this.Text, exception);
             }
         }
-        #endregion
+
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1219,9 +1268,41 @@ namespace Quickstarts.DataAccessClient
             //}
         }
 
+
+        private void labelServerName_MouseClick(object sender, MouseEventArgs e)
+        {
+            BrowseNodesTV.SelectedNode = null;
+            labelNodeName.Text = DEFAULT_OBJECTS_NAME;
+            if (m_session != null)
+                PopulateBranch(ObjectIds.ObjectsFolder, BrowseNodesTV.Nodes);
+        }
+
+
+        private void ConnectServerCTRL_Load(object sender, EventArgs e)
+        {
+        }
+
+        #endregion
+
+
+        #region Saving Address Space Info
+
+        private bool alreadySaving;
+
+
         private void saveAddressSpaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveAddressSpaceObjects(ObjectIds.ObjectsFolder);
+            var (filterIndex, fileName) = ShowSaveFileDialog();
+
+            switch (filterIndex)
+            {
+                case 1:
+                    SaveAddressSpaceAsJson(ObjectIds.ObjectsFolder, "", fileName);
+                    break;
+                case 2:
+                    SaveAddressSpaceAsList(null, "", fileName);
+                    break;
+            }
         }
 
 
@@ -1233,32 +1314,68 @@ namespace Quickstarts.DataAccessClient
             {
                 return;
             }
+
             var nodeId = (NodeId)reference.NodeId;
-            SaveAddressSpaceObjects(nodeId, treeNode.FullPath);
-        }
-
-
-        private bool alreadySaving;
-        private void SaveAddressSpaceObjects(NodeId nodeId, string path = "")
-        {
             if (nodeId == null || alreadySaving)
                 return;
 
+            var (filterIndex, fileName) = ShowSaveFileDialog();
+            switch (filterIndex)
+            {
+                case 1:
+                    SaveAddressSpaceAsJson(nodeId, treeNode.FullPath, fileName);
+                    break;
+                case 2:
+                    SaveAddressSpaceAsList(treeNode, treeNode.FullPath, fileName);
+                    break;
+            }
+        }
+
+
+        private (int, string) ShowSaveFileDialog()
+        {
             var dlg = new SaveFileDialog {
                 DefaultExt = ".json",
-                Filter = "JSON Files (*.json)|*.json|All files|*",
+                Filter = "JSON Files (*.json)|*.json|List of Children (*.csv)|*.csv",
                 AddExtension = true,
-                Title = "Save Address Space Objects As JSON",
+                Title = "Save Address Space Objects As",
                 OverwritePrompt = true,
             };
+
             var serverUrl = ConnectServerCTRL.ServerUrl.Substring(10);
-            dlg.FileName = Path.ChangeExtension(serverUrl.Replace("/", "-")
-                .Replace(":", "-"), ".json");
+            dlg.FileName = serverUrl.Replace("/", "-")
+                .Replace(":", "-");
 
             if (dlg.ShowDialog() != DialogResult.OK)
-                return;
+                return (-1, null);
+            return (dlg.FilterIndex, dlg.FileName);
+        }
 
-            var fileName = dlg.FileName;
+
+        private void SaveAddressSpaceObjects(NodeId nodeId, string nodePath, string fileName)
+        {
+            SaveAddressSpaceAsJson(nodeId, nodePath, fileName);
+        }
+
+
+        private void SaveAddressSpaceAsList(TreeNode node, string nodePath, string fileName)
+        {
+            void ProcessTreeNodes(IList nodesList, StringBuilder sb)
+            {
+                if (nodesList == null || nodesList.Count == 0)
+                    return;
+
+                foreach (TreeNode treeNode in nodesList)
+                {
+                    var reference = treeNode.Tag as ReferenceDescription;
+                    if (reference == null)
+                        continue;
+                    sb.AppendLine($"{reference.DisplayName},{reference.NodeId.ToString()},{treeNode.FullPath}");
+                    ProcessTreeNodes(treeNode.Nodes, sb);
+                }
+            }
+
+            IList treeNodes = node == null ? BrowseNodesTV.Nodes : node.Nodes;
 
             var oldCursor = Cursor.Current;
             saveProgressBar.Visible = true;
@@ -1267,8 +1384,38 @@ namespace Quickstarts.DataAccessClient
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
+
+                var sb = new StringBuilder();
+                sb.AppendLine($"DisplayName,OPCNodeId,NodePath");
+                ProcessTreeNodes(treeNodes, sb);
+                File.WriteAllText(fileName, sb.ToString());
+
+                StatusBar.Text = $"Address space nodes saved to {fileName}";
+            }
+            catch (Exception ex)
+            {
+                ClientUtils.HandleException(this.Text, ex);
+            }
+            finally
+            {
+                saveProgressBar.Visible = false;
+                Cursor.Current = oldCursor;
+                alreadySaving = false;
+            }
+        }
+
+
+        private void SaveAddressSpaceAsJson(NodeId nodeId, string path, string fileName)
+        {
+            var oldCursor = Cursor.Current;
+            saveProgressBar.Visible = true;
+            alreadySaving = true;
+            Application.DoEvents();
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
                 var space = new OpcAddressSpaceInfo(m_session)
-                    .Populate(nodeId, path, () => Application.DoEvents());
+                    .Populate(nodeId, path, (o) => Application.DoEvents());
 
 
                 var txt = JsonConvert.SerializeObject(space, Formatting.Indented);
@@ -1288,13 +1435,6 @@ namespace Quickstarts.DataAccessClient
             }
         }
 
-        private void labelServerName_MouseClick(object sender, MouseEventArgs e)
-        {
-            BrowseNodesTV.SelectedNode = null;
-            labelNodeName.Text = DEFAULT_OBJECTS_NAME;
-            if (m_session != null) 
-                PopulateBranch(ObjectIds.ObjectsFolder, BrowseNodesTV.Nodes);
-
-        }
+        #endregion
     }
 }

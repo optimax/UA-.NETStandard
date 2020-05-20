@@ -28,7 +28,9 @@
  * ======================================================================*/
 
 using System;
+using System.Linq;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Opc.Ua;
 using Opc.Ua.Client;
 using Opc.Ua.Server;
@@ -93,6 +95,19 @@ namespace Quickstarts
         /// </summary>
         public ServerForm(ApplicationInstance application) : base(application)
         {
+            var itemShowCertRejected = new ToolStripMenuItem("&Rejected", null, (sender, e) => {
+                
+            });
+
+            var certMenuItem = new ToolStripMenuItem {Name = "certMenuItem", Text = "&Certificates"};
+            certMenuItem.Enabled = false; //not implemented yet
+            certMenuItem.DropDownItems.Add(itemShowCertRejected);
+
+            var menuStrip1 = this.Controls.Find("menuStrip1", true)[0] as MenuStrip;
+            menuStrip1.Items.Insert(1, certMenuItem);
+
+            
+
         }
     }
 }
