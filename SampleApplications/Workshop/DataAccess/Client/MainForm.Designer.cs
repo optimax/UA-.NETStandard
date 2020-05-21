@@ -338,7 +338,7 @@ namespace Quickstarts.DataAccessClient
             // 
             this.BrowseNodesTV.ContextMenuStrip = this.BrowsingMenu;
             this.BrowseNodesTV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BrowseNodesTV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BrowseNodesTV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BrowseNodesTV.HideSelection = false;
             this.BrowseNodesTV.Indent = 20;
             this.BrowseNodesTV.Location = new System.Drawing.Point(0, 27);
@@ -429,7 +429,7 @@ namespace Quickstarts.DataAccessClient
             this.AttributeDataTypeCH,
             this.AttributeValueCH});
             this.AttributesLV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AttributesLV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttributesLV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AttributesLV.FullRowSelect = true;
             this.AttributesLV.HideSelection = false;
             this.AttributesLV.Location = new System.Drawing.Point(0, 27);
@@ -492,7 +492,7 @@ namespace Quickstarts.DataAccessClient
             this.LastOperationStatusCH});
             this.MonitoredItemsLV.ContextMenuStrip = this.MonitoringMenu;
             this.MonitoredItemsLV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MonitoredItemsLV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonitoredItemsLV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonitoredItemsLV.FullRowSelect = true;
             this.MonitoredItemsLV.HideSelection = false;
             this.MonitoredItemsLV.Location = new System.Drawing.Point(0, 0);
@@ -741,7 +741,6 @@ namespace Quickstarts.DataAccessClient
             this.ConnectServerCTRL.ReconnectStarting += new System.EventHandler(this.Server_ReconnectStarting);
             this.ConnectServerCTRL.ReconnectComplete += new System.EventHandler(this.Server_ReconnectComplete);
             this.ConnectServerCTRL.ConnectComplete += new System.EventHandler(this.Server_ConnectComplete);
-            this.ConnectServerCTRL.Load += new System.EventHandler(this.ConnectServerCTRL_Load);
             // 
             // MainForm
             // 

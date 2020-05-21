@@ -190,7 +190,7 @@ namespace Quickstarts.DataAccessClient
                 }
 
                 // populate the browse view.
-                PopulateBranch(ObjectIds.ObjectsFolder, BrowseNodesTV.Nodes);
+                PopulateBranch(ObjectIds.RootFolder, BrowseNodesTV.Nodes); //ObjectIds.ObjectsFolder
 
                 BrowseNodesTV.Enabled = true;
                 MonitoredItemsLV.Enabled = true;
@@ -1278,9 +1278,7 @@ namespace Quickstarts.DataAccessClient
         }
 
 
-        private void ConnectServerCTRL_Load(object sender, EventArgs e)
-        {
-        }
+        
 
         #endregion
 
