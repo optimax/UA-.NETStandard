@@ -55,23 +55,23 @@ namespace Opc.Ua.Client.Controls
             InitializeComponent();
         }
 
-        private const int Attribute = 0;
-        private const int Property = 1;
-        private const int Variable = 2;
-        private const int Method = 3;
-        private const int Object = 4;
-        private const int OpenFolder = 5;
-        private const int ClosedFolder = 6;
-        private const int ObjectType = 7;
-        private const int View = 8;
-        private const int Reference = 9;
-        private const int NumberValue = 10;
-        private const int StringValue = 11;
-        private const int ByteStringValue = 12;
-        private const int StructureValue = 13;
-        private const int ArrayValue = 14;
-        private const int InputArgument = 15;
-        private const int OutputArgument = 16;
+        public const int Attribute = 0;
+        public const int Property = 1;
+        public const int Variable = 2;
+        public const int Method = 3;
+        public const int Object = 4;
+        public const int OpenFolder = 5;
+        public const int ClosedFolder = 6;
+        public const int ObjectType = 7;
+        public const int View = 8;
+        public const int Reference = 9;
+        public const int NumberValue = 10;
+        public const int StringValue = 11;
+        public const int ByteStringValue = 12;
+        public const int StructureValue = 13;
+        public const int ArrayValue = 14;
+        public const int InputArgument = 15;
+        public const int OutputArgument = 16;
         
         /// <summary>
         /// Returns an image index for the specified method argument.

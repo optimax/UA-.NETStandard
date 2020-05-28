@@ -518,8 +518,22 @@ namespace Quickstarts
                     nodesToBrowse = unprocessedOperations;
                 }
 
-                // return complete list.
-                return references;
+
+                var uniqueIds = new HashSet<string>();
+                var uniqueRefs = new ReferenceDescriptionCollection();
+
+                foreach (var reference in references)
+                {
+                    var id = reference.NodeId.ToString();
+                    if (uniqueIds.Contains(id))
+                        continue;
+                    uniqueRefs.Add(reference);
+                    uniqueIds.Add(id);
+                }
+
+                // return the unique list
+                return uniqueRefs;
+
             }
             catch (Exception exception)
             {

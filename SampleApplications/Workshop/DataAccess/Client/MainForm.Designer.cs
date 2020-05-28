@@ -58,6 +58,7 @@ namespace Quickstarts.DataAccessClient
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MenuBar = new System.Windows.Forms.MenuStrip();
             this.fILEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,14 +87,15 @@ namespace Quickstarts.DataAccessClient
             this.Browse_ReadHistoryMI = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelServer = new System.Windows.Forms.Panel();
-            this.labelServerName = new WinFormsControls.TransparentLabel();
+            this.boxBrowsePath = new System.Windows.Forms.TextBox();
             this.AttributesLV = new System.Windows.Forms.ListView();
             this.AttributeNameCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttributeDataTypeCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AttributeValueCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelObjects = new System.Windows.Forms.Panel();
-            this.labelNodeName = new WinFormsControls.TransparentLabel();
+            this.boxNodeName = new System.Windows.Forms.TextBox();
             this.MonitoredItemsLV = new System.Windows.Forms.ListView();
             this.MonitoredItemIdCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.VariableNameCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -126,7 +128,6 @@ namespace Quickstarts.DataAccessClient
             this.Monitoring_Deadband_Percentage_1MI = new System.Windows.Forms.ToolStripMenuItem();
             this.Monitoring_Deadband_Percentage_5MI = new System.Windows.Forms.ToolStripMenuItem();
             this.Monitoring_Deadband_Percentage_10MI = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ConnectServerCTRL = new Opc.Ua.Client.Controls.ConnectServerCtrl();
             this.MenuBar.SuspendLayout();
             this.StatusBar.SuspendLayout();
@@ -154,7 +155,7 @@ namespace Quickstarts.DataAccessClient
             this.HelpMI});
             this.MenuBar.Location = new System.Drawing.Point(0, 0);
             this.MenuBar.Name = "MenuBar";
-            this.MenuBar.Size = new System.Drawing.Size(1018, 24);
+            this.MenuBar.Size = new System.Drawing.Size(1063, 24);
             this.MenuBar.TabIndex = 1;
             this.MenuBar.Text = "menuStrip1";
             // 
@@ -282,9 +283,9 @@ namespace Quickstarts.DataAccessClient
             // 
             this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveProgressBar});
-            this.StatusBar.Location = new System.Drawing.Point(0, 651);
+            this.StatusBar.Location = new System.Drawing.Point(0, 654);
             this.StatusBar.Name = "StatusBar";
-            this.StatusBar.Size = new System.Drawing.Size(1018, 22);
+            this.StatusBar.Size = new System.Drawing.Size(1063, 22);
             this.StatusBar.TabIndex = 2;
             // 
             // saveProgressBar
@@ -309,8 +310,8 @@ namespace Quickstarts.DataAccessClient
             // MainPN.Panel2
             // 
             this.MainPN.Panel2.Controls.Add(this.MonitoredItemsLV);
-            this.MainPN.Size = new System.Drawing.Size(1018, 604);
-            this.MainPN.SplitterDistance = 415;
+            this.MainPN.Size = new System.Drawing.Size(1063, 607);
+            this.MainPN.SplitterDistance = 417;
             this.MainPN.TabIndex = 1;
             // 
             // TopPN
@@ -330,22 +331,26 @@ namespace Quickstarts.DataAccessClient
             this.TopPN.Panel2.Controls.Add(this.AttributesLV);
             this.TopPN.Panel2.Controls.Add(this.panelObjects);
             this.TopPN.Panel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TopPN.Size = new System.Drawing.Size(1018, 415);
-            this.TopPN.SplitterDistance = 450;
+            this.TopPN.Size = new System.Drawing.Size(1063, 417);
+            this.TopPN.SplitterDistance = 468;
             this.TopPN.TabIndex = 0;
             // 
             // BrowseNodesTV
             // 
             this.BrowseNodesTV.ContextMenuStrip = this.BrowsingMenu;
             this.BrowseNodesTV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BrowseNodesTV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BrowseNodesTV.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BrowseNodesTV.HideSelection = false;
+            this.BrowseNodesTV.ImageIndex = 0;
+            this.BrowseNodesTV.ImageList = this.imageList1;
             this.BrowseNodesTV.Indent = 20;
             this.BrowseNodesTV.Location = new System.Drawing.Point(0, 27);
             this.BrowseNodesTV.Name = "BrowseNodesTV";
-            this.BrowseNodesTV.Size = new System.Drawing.Size(450, 388);
+            this.BrowseNodesTV.SelectedImageIndex = 0;
+            this.BrowseNodesTV.Size = new System.Drawing.Size(468, 390);
             this.BrowseNodesTV.TabIndex = 0;
             this.BrowseNodesTV.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.BrowseNodesTV_BeforeExpand);
+            this.BrowseNodesTV.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.BrowseNodesTV_DrawNode);
             this.BrowseNodesTV.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.BrowseNodesTV_AfterSelect);
             this.BrowseNodesTV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BrowseNodesTV_MouseDown);
             // 
@@ -394,33 +399,57 @@ namespace Quickstarts.DataAccessClient
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "attribute");
+            this.imageList1.Images.SetKeyName(1, "property");
+            this.imageList1.Images.SetKeyName(2, "variable");
+            this.imageList1.Images.SetKeyName(3, "method");
+            this.imageList1.Images.SetKeyName(4, "object");
+            this.imageList1.Images.SetKeyName(5, "open_folder");
+            this.imageList1.Images.SetKeyName(6, "closed-folder");
+            this.imageList1.Images.SetKeyName(7, "object_type");
+            this.imageList1.Images.SetKeyName(8, "view");
+            this.imageList1.Images.SetKeyName(9, "reference");
+            this.imageList1.Images.SetKeyName(10, "number_value");
+            this.imageList1.Images.SetKeyName(11, "string_value");
+            this.imageList1.Images.SetKeyName(12, "byte_string_value");
+            this.imageList1.Images.SetKeyName(13, "structure_value");
+            this.imageList1.Images.SetKeyName(14, "array_value");
+            this.imageList1.Images.SetKeyName(15, "input_argument");
+            this.imageList1.Images.SetKeyName(16, "output_argument");
+            // 
             // panelServer
             // 
             this.panelServer.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panelServer.Controls.Add(this.labelServerName);
+            this.panelServer.Controls.Add(this.boxBrowsePath);
             this.panelServer.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelServer.Location = new System.Drawing.Point(0, 0);
             this.panelServer.Name = "panelServer";
-            this.panelServer.Size = new System.Drawing.Size(450, 27);
+            this.panelServer.Size = new System.Drawing.Size(468, 27);
             this.panelServer.TabIndex = 1;
             this.panelServer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelServerName_MouseClick);
             // 
-            // labelServerName
+            // boxBrowsePath
             // 
-            this.labelServerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelServerName.AutoSize = true;
-            this.labelServerName.BackColor = System.Drawing.Color.DarkGray;
-            this.labelServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelServerName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelServerName.Location = new System.Drawing.Point(3, 6);
-            this.labelServerName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.labelServerName.Name = "labelServerName";
-            this.labelServerName.Size = new System.Drawing.Size(53, 20);
-            this.labelServerName.TabIndex = 1;
-            this.labelServerName.TabStop = false;
-            this.labelServerName.Text = "Server";
-            this.labelServerName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.labelServerName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelServerName_MouseClick);
+            this.boxBrowsePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxBrowsePath.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.boxBrowsePath.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.boxBrowsePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxBrowsePath.ForeColor = System.Drawing.SystemColors.Info;
+            this.boxBrowsePath.Location = new System.Drawing.Point(5, 7);
+            this.boxBrowsePath.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.boxBrowsePath.Name = "boxBrowsePath";
+            this.boxBrowsePath.ReadOnly = true;
+            this.boxBrowsePath.Size = new System.Drawing.Size(469, 19);
+            this.boxBrowsePath.TabIndex = 2;
+            this.boxBrowsePath.TabStop = false;
+            this.boxBrowsePath.Text = "Server";
+            this.boxBrowsePath.WordWrap = false;
             // 
             // AttributesLV
             // 
@@ -429,12 +458,12 @@ namespace Quickstarts.DataAccessClient
             this.AttributeDataTypeCH,
             this.AttributeValueCH});
             this.AttributesLV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AttributesLV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttributesLV.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AttributesLV.FullRowSelect = true;
             this.AttributesLV.HideSelection = false;
             this.AttributesLV.Location = new System.Drawing.Point(0, 27);
             this.AttributesLV.Name = "AttributesLV";
-            this.AttributesLV.Size = new System.Drawing.Size(564, 388);
+            this.AttributesLV.Size = new System.Drawing.Size(591, 390);
             this.AttributesLV.TabIndex = 0;
             this.AttributesLV.UseCompatibleStateImageBehavior = false;
             this.AttributesLV.View = System.Windows.Forms.View.Details;
@@ -456,27 +485,32 @@ namespace Quickstarts.DataAccessClient
             // 
             // panelObjects
             // 
-            this.panelObjects.Controls.Add(this.labelNodeName);
+            this.panelObjects.Controls.Add(this.boxNodeName);
             this.panelObjects.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelObjects.Location = new System.Drawing.Point(0, 0);
             this.panelObjects.Margin = new System.Windows.Forms.Padding(0);
             this.panelObjects.Name = "panelObjects";
-            this.panelObjects.Size = new System.Drawing.Size(564, 27);
+            this.panelObjects.Size = new System.Drawing.Size(591, 27);
             this.panelObjects.TabIndex = 2;
             // 
-            // labelNodeName
+            // boxNodeName
             // 
-            this.labelNodeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelNodeName.AutoSize = true;
-            this.labelNodeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNodeName.Location = new System.Drawing.Point(0, 5);
-            this.labelNodeName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.labelNodeName.Name = "labelNodeName";
-            this.labelNodeName.Size = new System.Drawing.Size(61, 20);
-            this.labelNodeName.TabIndex = 0;
-            this.labelNodeName.TabStop = false;
-            this.labelNodeName.Text = "Objects";
-            this.labelNodeName.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.boxNodeName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxNodeName.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.boxNodeName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.boxNodeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxNodeName.ForeColor = System.Drawing.SystemColors.Info;
+            this.boxNodeName.Location = new System.Drawing.Point(5, 7);
+            this.boxNodeName.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.boxNodeName.Name = "boxNodeName";
+            this.boxNodeName.ReadOnly = true;
+            this.boxNodeName.Size = new System.Drawing.Size(588, 19);
+            this.boxNodeName.TabIndex = 1;
+            this.boxNodeName.TabStop = false;
+            this.boxNodeName.Text = "Objects";
+            this.boxNodeName.WordWrap = false;
             // 
             // MonitoredItemsLV
             // 
@@ -492,12 +526,12 @@ namespace Quickstarts.DataAccessClient
             this.LastOperationStatusCH});
             this.MonitoredItemsLV.ContextMenuStrip = this.MonitoringMenu;
             this.MonitoredItemsLV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MonitoredItemsLV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonitoredItemsLV.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonitoredItemsLV.FullRowSelect = true;
             this.MonitoredItemsLV.HideSelection = false;
             this.MonitoredItemsLV.Location = new System.Drawing.Point(0, 0);
             this.MonitoredItemsLV.Name = "MonitoredItemsLV";
-            this.MonitoredItemsLV.Size = new System.Drawing.Size(1018, 185);
+            this.MonitoredItemsLV.Size = new System.Drawing.Size(1063, 186);
             this.MonitoredItemsLV.TabIndex = 0;
             this.MonitoredItemsLV.UseCompatibleStateImageBehavior = false;
             this.MonitoredItemsLV.View = System.Windows.Forms.View.Details;
@@ -715,12 +749,6 @@ namespace Quickstarts.DataAccessClient
             this.Monitoring_Deadband_Percentage_10MI.Text = "10%";
             this.Monitoring_Deadband_Percentage_10MI.Click += new System.EventHandler(this.Monitoring_Deadband_Click);
             // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
             // ConnectServerCTRL
             // 
             this.ConnectServerCTRL.Configuration = null;
@@ -733,7 +761,7 @@ namespace Quickstarts.DataAccessClient
             this.ConnectServerCTRL.PreferredLocales = null;
             this.ConnectServerCTRL.ServerUrl = "";
             this.ConnectServerCTRL.SessionName = null;
-            this.ConnectServerCTRL.Size = new System.Drawing.Size(1018, 23);
+            this.ConnectServerCTRL.Size = new System.Drawing.Size(1063, 23);
             this.ConnectServerCTRL.StatusStrip = this.StatusBar;
             this.ConnectServerCTRL.TabIndex = 4;
             this.ConnectServerCTRL.UserIdentity = null;
@@ -746,7 +774,7 @@ namespace Quickstarts.DataAccessClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1018, 673);
+            this.ClientSize = new System.Drawing.Size(1063, 676);
             this.Controls.Add(this.MainPN);
             this.Controls.Add(this.StatusBar);
             this.Controls.Add(this.ConnectServerCTRL);
@@ -848,7 +876,7 @@ namespace Quickstarts.DataAccessClient
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripProgressBar saveProgressBar;
-        private WinFormsControls.TransparentLabel labelNodeName;
-        private WinFormsControls.TransparentLabel labelServerName;
+        private System.Windows.Forms.TextBox boxNodeName;
+        private System.Windows.Forms.TextBox boxBrowsePath;
     }
 }

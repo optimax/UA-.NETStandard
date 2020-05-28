@@ -31,6 +31,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -49,6 +50,7 @@ namespace Quickstarts.DataAccessClient
     /// </summary>
     public partial class MainForm : Form
     {
+        private const string DEFAULT_PATH_NAME = "Server";
         private const string DEFAULT_OBJECTS_NAME = "Objects";
 
 
@@ -81,8 +83,7 @@ namespace Quickstarts.DataAccessClient
             ConnectServerCTRL.ServerUrl = "opc.tcp://D51WS08510X:4990/FactoryTalkLinxGateway";
 
             this.Text = m_configuration.ApplicationName;
-            labelNodeName.Text = DEFAULT_OBJECTS_NAME;
-
+            boxNodeName.Text = DEFAULT_OBJECTS_NAME;
 
             // create the callback.
             m_MonitoredItem_Notification = new MonitoredItemNotificationEventHandler(MonitoredItem_Notification);
@@ -176,10 +177,10 @@ namespace Quickstarts.DataAccessClient
                     AttributesLV.Enabled = false;
                     saveAddressSpaceToolStripMenuItem.Enabled = false;
 
-                    panelServer.BackColor = labelServerName.BackColor = SystemColors.AppWorkspace;
-                    panelObjects.BackColor = labelNodeName.BackColor = SystemColors.AppWorkspace;
+                    panelServer.BackColor = boxBrowsePath.BackColor = SystemColors.AppWorkspace;
+                    panelObjects.BackColor = boxNodeName.BackColor = SystemColors.AppWorkspace;
 
-                    labelServerName.Text = "Server";
+                    boxBrowsePath.Text = DEFAULT_PATH_NAME;
                     return;
                 }
 
@@ -197,13 +198,13 @@ namespace Quickstarts.DataAccessClient
                 AttributesLV.Enabled = true;
                 saveAddressSpaceToolStripMenuItem.Enabled = true;
 
-                panelServer.BackColor = labelServerName.BackColor = Color.DarkGreen;
-                panelObjects.BackColor = labelNodeName.BackColor = Color.Black;
+                panelServer.BackColor = boxBrowsePath.BackColor = Color.DarkGreen;
+                panelObjects.BackColor = boxNodeName.BackColor = Color.Black;
 
                 var serverName = m_session.ConfiguredEndpoint.EndpointUrl.ToString();
                 if (serverName.StartsWith("opc-tcp://"))
                     serverName = serverName.Substring(10);
-                labelServerName.Text = serverName;
+                boxBrowsePath.Text = serverName;
             }
             catch (Exception exception)
             {
@@ -299,9 +300,23 @@ namespace Quickstarts.DataAccessClient
                 nodeToBrowse2.NodeClassMask = (uint)(NodeClass.Object | NodeClass.Variable);
                 nodeToBrowse2.ResultMask = (uint)BrowseResultMask.All;
 
+
+                // find all child nodes of the node.
+                BrowseDescription nodeToBrowse3 = new BrowseDescription();
+
+                nodeToBrowse3.NodeId = sourceId;
+                nodeToBrowse3.BrowseDirection = BrowseDirection.Forward;
+                nodeToBrowse3.ReferenceTypeId = ReferenceTypeIds.HasChild;
+                nodeToBrowse3.IncludeSubtypes = true;
+                nodeToBrowse3.NodeClassMask = (uint)(NodeClass.Object | NodeClass.Variable | NodeClass.Method);
+                nodeToBrowse3.ResultMask = (uint)BrowseResultMask.All;
+
+
+
                 BrowseDescriptionCollection nodesToBrowse = new BrowseDescriptionCollection();
                 nodesToBrowse.Add(nodeToBrowse1);
                 nodesToBrowse.Add(nodeToBrowse2);
+                nodesToBrowse.Add(nodeToBrowse3);
 
                 // fetch references from the server.
                 ReferenceDescriptionCollection references = FormUtils.Browse(m_session, nodesToBrowse, false);
@@ -312,9 +327,19 @@ namespace Quickstarts.DataAccessClient
                     ReferenceDescription target = references[ii];
 
                     // add node.
-                    TreeNode child = new TreeNode(Utils.Format($"{target}"));
+                    TreeNode child = new TreeNode($"{target.DisplayName}");
                     child.Tag = target;
                     child.Nodes.Add(new TreeNode());
+
+                    child.ImageIndex =
+                        ClientUtils.GetImageIndex(m_session, target.NodeClass, target.TypeDefinition, false);
+                    child.SelectedImageIndex = child.ImageIndex;
+
+                    if (child.ImageIndex == ClientUtils.Method)
+                    {
+                        child.Text = $"{child.Text}()";
+                    }
+
                     nodes.Add(child);
                 }
 
@@ -440,6 +465,12 @@ namespace Quickstarts.DataAccessClient
                             }
 
                             value = Utils.Format("{0}", results[ii].Value);
+
+
+                            if (name == "NodeClass")
+                            {
+                                value = $"{value} ({(NodeClass)results[ii].Value})";
+                            }
                         }
                     }
 
@@ -596,10 +627,13 @@ namespace Quickstarts.DataAccessClient
 
 
                 var nodeId = reference.NodeId;
-                labelNodeName.Text = nodeId.ToString(); // e.Node.Text;
+                boxNodeName.Text = nodeId.ToString(); // e.Node.Text;
 
                 // populate children.
                 PopulateBranch((NodeId)reference.NodeId, e.Node.Nodes);
+
+                boxBrowsePath.Text = e.Node.FullPath;
+
             }
             catch (Exception exception)
             {
@@ -658,14 +692,12 @@ namespace Quickstarts.DataAccessClient
                     item.SubItems[8].Text = monitoredItem.Status.Error.StatusCode.ToString();
                 }
 
-                item.SubItems.Add(monitoredItem.DisplayName);
-                item.SubItems[1].Text = monitoredItem.MonitoringMode.ToString();
-                item.SubItems[2].Text = monitoredItem.SamplingInterval.ToString();
-                item.SubItems[3].Text = DeadbandFilterToText(monitoredItem.Filter);
+                //item.SubItems.Add(monitoredItem.DisplayName);
+                //item.SubItems[2].Text = monitoredItem.MonitoringMode.ToString();
+                //item.SubItems[3].Text = monitoredItem.SamplingInterval.ToString();
+                //item.SubItems[4].Text = DeadbandFilterToText(monitoredItem.Filter);
 
-                MonitoredItemsLV.Columns[0].Width = -2;
-                MonitoredItemsLV.Columns[1].Width = -2;
-                MonitoredItemsLV.Columns[8].Width = -2;
+                
             }
             catch (Exception exception)
             {
@@ -708,7 +740,7 @@ namespace Quickstarts.DataAccessClient
 
             monitoredItem.Notification += m_MonitoredItem_Notification;
 
-            m_subscription.AddItem(monitoredItem);
+            
 
             // add the attribute name/value to the list view.
             ListViewItem item = new ListViewItem(monitoredItem.ClientHandle.ToString());
@@ -726,6 +758,14 @@ namespace Quickstarts.DataAccessClient
             item.Tag = monitoredItem;
             MonitoredItemsLV.Items.Add(item);
 
+            
+
+            MonitoredItemsLV.Columns[0].Width = -2;
+            MonitoredItemsLV.Columns[1].Width = -2;
+            MonitoredItemsLV.Columns[8].Width = -2;
+
+            
+            m_subscription.AddItem(monitoredItem);
             if (ServiceResult.IsBad(monitoredItem.Status.Error))
             {
                 item.SubItems[8].Text = monitoredItem.Status.Error.StatusCode.ToString();
@@ -1272,7 +1312,7 @@ namespace Quickstarts.DataAccessClient
         private void labelServerName_MouseClick(object sender, MouseEventArgs e)
         {
             BrowseNodesTV.SelectedNode = null;
-            labelNodeName.Text = DEFAULT_OBJECTS_NAME;
+            boxNodeName.Text = DEFAULT_OBJECTS_NAME;
             if (m_session != null)
                 PopulateBranch(ObjectIds.ObjectsFolder, BrowseNodesTV.Nodes);
         }
@@ -1434,5 +1474,10 @@ namespace Quickstarts.DataAccessClient
         }
 
         #endregion
+
+        private void BrowseNodesTV_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+
+        }
     }
 }
