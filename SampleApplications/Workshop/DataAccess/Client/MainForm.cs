@@ -76,11 +76,17 @@ namespace Quickstarts.DataAccessClient
             this.Icon = ClientUtils.GetAppIcon();
             ConnectServerCTRL.Configuration = m_configuration = configuration;
 
-            ConnectServerCTRL.SetAvailableUrls(new List<string> {
+
+
+            var availableUrls = new List<string> {
                 "opc.tcp://D51WS08510X:4990/FactoryTalkLinxGateway",
                 "opc.tcp://localhost:62548/Quickstarts/DataAccessServer"
-            });
-            ConnectServerCTRL.ServerUrl = "opc.tcp://D51WS08510X:4990/FactoryTalkLinxGateway";
+            };
+
+            ConnectServerCTRL.SetAvailableUrls(availableUrls);
+
+            if (availableUrls.Any())
+                ConnectServerCTRL.ServerUrl = availableUrls[0];
 
             this.Text = m_configuration.ApplicationName;
             boxNodeName.Text = DEFAULT_OBJECTS_NAME;
