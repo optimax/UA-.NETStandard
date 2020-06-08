@@ -309,9 +309,9 @@ namespace Quickstarts.DataAccessServer
 
             switch (tag.DataType)
             {
-                case UnderlyingSystemDataType.Integer1: { variable.DataType = DataTypes.SByte;  break; }
-                case UnderlyingSystemDataType.Integer2: { variable.DataType = DataTypes.Int16;  break; }
-                case UnderlyingSystemDataType.Integer4: { variable.DataType = DataTypes.Int32;  break; }
+                case UnderlyingSystemDataType.Int8: { variable.DataType = DataTypes.SByte;  break; }
+                case UnderlyingSystemDataType.Int16: { variable.DataType = DataTypes.Int16;  break; }
+                case UnderlyingSystemDataType.Int32: { variable.DataType = DataTypes.Int32;  break; }
                 case UnderlyingSystemDataType.Real4:    { variable.DataType = DataTypes.Float;  break; }
                 case UnderlyingSystemDataType.String:   { variable.DataType = DataTypes.String; break; }
             }

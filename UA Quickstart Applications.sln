@@ -121,8 +121,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{289A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreConsoleServer", "SampleApplications\Samples\NetCoreConsoleServer\NetCoreConsoleServer.csproj", "{EADA8B04-FF25-43A0-BA1C-7BD7161734AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalOPCServer.Console", "MinimalOPCServer.Console\MinimalOPCServer.Console.csproj", "{1859A395-C23C-46E3-B71F-EAD5F0AE4EF0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -281,10 +279,6 @@ Global
 		{EADA8B04-FF25-43A0-BA1C-7BD7161734AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EADA8B04-FF25-43A0-BA1C-7BD7161734AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EADA8B04-FF25-43A0-BA1C-7BD7161734AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1859A395-C23C-46E3-B71F-EAD5F0AE4EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1859A395-C23C-46E3-B71F-EAD5F0AE4EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1859A395-C23C-46E3-B71F-EAD5F0AE4EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1859A395-C23C-46E3-B71F-EAD5F0AE4EF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

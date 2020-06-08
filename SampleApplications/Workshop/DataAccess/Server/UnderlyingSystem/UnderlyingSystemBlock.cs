@@ -153,9 +153,9 @@ namespace Quickstarts.DataAccessServer
             // set an initial value.
             switch (tag.DataType)
             {
-                case UnderlyingSystemDataType.Integer1: { tag.Value = (sbyte)0; break; }
-                case UnderlyingSystemDataType.Integer2: { tag.Value = (short)0; break; }
-                case UnderlyingSystemDataType.Integer4: { tag.Value = (int)0; break; }
+                case UnderlyingSystemDataType.Int8: { tag.Value = (sbyte)0; break; }
+                case UnderlyingSystemDataType.Int16: { tag.Value = (short)0; break; }
+                case UnderlyingSystemDataType.Int32: { tag.Value = (int)0; break; }
                 case UnderlyingSystemDataType.Real4: { tag.Value = (float)0; break; }
                 case UnderlyingSystemDataType.String: { tag.Value = String.Empty; break; }
             }
@@ -227,19 +227,19 @@ namespace Quickstarts.DataAccessServer
                 {
                     switch (tag.DataType)
                     {
-                        case UnderlyingSystemDataType.Integer1:
+                        case UnderlyingSystemDataType.Int8:
                         {
                             tag.Value = (sbyte)value;
                             break;
                         }
 
-                        case UnderlyingSystemDataType.Integer2:
+                        case UnderlyingSystemDataType.Int16:
                         {
                             tag.Value = (short)value;
                             break;
                         }
 
-                        case UnderlyingSystemDataType.Integer4:
+                        case UnderlyingSystemDataType.Int32:
                         {
                             tag.Value = (int)value;
                             break;
@@ -429,7 +429,7 @@ namespace Quickstarts.DataAccessServer
             // cast value to correct type or generate a random value.
             switch (tag.DataType)
             {
-                case UnderlyingSystemDataType.Integer1:
+                case UnderlyingSystemDataType.Int8:
                 {
                     if (value == -1)
                     {
@@ -443,7 +443,7 @@ namespace Quickstarts.DataAccessServer
                     break;
                 }
 
-                case UnderlyingSystemDataType.Integer2:
+                case UnderlyingSystemDataType.Int16:
                 {
                     if (value == -1)
                     {
@@ -457,7 +457,7 @@ namespace Quickstarts.DataAccessServer
                     break;
                 }
 
-                case UnderlyingSystemDataType.Integer4:
+                case UnderlyingSystemDataType.Int32:
                 {
                     if (value == -1)
                     {

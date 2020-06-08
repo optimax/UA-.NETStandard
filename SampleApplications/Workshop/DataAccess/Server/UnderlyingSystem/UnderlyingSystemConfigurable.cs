@@ -28,23 +28,6 @@ namespace Quickstarts.DataAccessServer
             if (!File.Exists(configFileName))
                 throw new Exception($"Configuration file '{configFileName}' does not exist.");
 
-            //var conf = new UnderlyingSystemConfig {
-            //    BlockTypes = new Dictionary<string, BlockType> {
-            //        {"First", new BlockType {Name="FirstType",Tags = new List<BlockTag> {
-            //            new BlockTag{Name="Tag1",DataType="Data1"}}
-            //        }},
-            //        {"Second", new BlockType{Name="SecondType",Tags = new List<BlockTag> {
-            //            new BlockTag{Name="Tag2a",DataType="Data2a"},
-            //            new BlockTag{Name="Tag2b",DataType="Data2b"},
-            //        }}},
-            //        {"Third", new BlockType{Name="ThirdType",Tags = new List<BlockTag> {
-            //            new BlockTag{Name="Tag3",DataType="Data3"}
-            //        }}},
-            //        {"Fourth", new BlockType{Name="FourthType",Tags = new List<BlockTag> {
-            //            new BlockTag{Name="Tag4",DataType="Data4"}
-            //        }}},
-            //    }
-            //};
             //var ser = JsonConvert.SerializeObject(conf,Formatting.Indented);
             //File.WriteAllText(@"C:\temp\serialization.json",ser);
             //var des = File.ReadAllText(@"C:\temp\serialization.json");
@@ -120,14 +103,10 @@ namespace Quickstarts.DataAccessServer
         /// <returns>The list of segments found. Null if the segment path does not exist.</returns>
         public IList<UnderlyingSystemSegment> FindSegments(string segmentPath)
         {
+            segmentPath = segmentPath ?? String.Empty;
+
             lock (m_lock)
             {
-                // check for invalid path.
-                if (String.IsNullOrEmpty(segmentPath))
-                {
-                    segmentPath = String.Empty;
-                }
-
                 Dictionary<string, UnderlyingSystemSegment> segments = new Dictionary<string, UnderlyingSystemSegment>();
 
                 // find all block paths that start with the specified segment.
@@ -156,7 +135,7 @@ namespace Quickstarts.DataAccessServer
                     // extract segment name.
                     int index = blockPath.IndexOf('/');
 
-                    if (index != -1)
+                    if (index >= 0)
                     {
                         string segmentName = blockPath.Substring(0, index);
 
@@ -250,37 +229,36 @@ namespace Quickstarts.DataAccessServer
         }
 
 
+        
+        //private static string SegmentNameFromPath(string segmentPath)
+        //{
+        //    string segmentName = segmentPath;
+        //    int index = segmentPath.LastIndexOf('/');
+        //    if (index != -1)
+        //        segmentName = segmentName.Substring(index + 1);
+        //    if (string.IsNullOrEmpty(segmentName))
+        //        return null;
+        //    return segmentName;
+        //}
 
 
-        private static string SegmentNameFromPath(string segmentPath)
-        {
-            string segmentName = segmentPath;
-            int index = segmentPath.LastIndexOf('/');
-            if (index != -1)
-                segmentName = segmentName.Substring(index + 1);
-            if (string.IsNullOrEmpty(segmentName))
-                return null;
-            return segmentName;
-        }
+        //private static UnderlyingSystemSegment CreateSegment(string segmentPath, string name)
+        //{
+        //    var segmentName = name;
+        //    string segmentId = segmentName;
+        //    if (!String.IsNullOrEmpty(segmentPath))
+        //    {
+        //        segmentId = segmentPath;
+        //        segmentId += "/";
+        //        segmentId += segmentName;
+        //    }
 
-
-        private static UnderlyingSystemSegment CreateSegment(string segmentPath, string name)
-        {
-            var segmentName = name;
-            string segmentId = segmentName;
-            if (!String.IsNullOrEmpty(segmentPath))
-            {
-                segmentId = segmentPath;
-                segmentId += "/";
-                segmentId += segmentName;
-            }
-
-            var segment = new UnderlyingSystemSegment {Id = "", Name = "", SegmentType = null,};
-            segment.Id = segmentId;
-            segment.Name = segmentName;
-            segment.SegmentType = null;
-            return segment;
-        }
+        //    var segment = new UnderlyingSystemSegment {Id = "", Name = "", SegmentType = null,};
+        //    segment.Id = segmentId;
+        //    segment.Name = segmentName;
+        //    segment.SegmentType = null;
+        //    return segment;
+        //}
 
 
         /// <summary>
@@ -501,50 +479,7 @@ namespace Quickstarts.DataAccessServer
             return block;
         }
 
-
-        private UnderlyingSystemTagType ParseUnderlyingTagType(string tagTagType)
-        {
-            if (!Enum.TryParse<UnderlyingSystemTagType>(tagTagType, out var dataType))
-                return UnderlyingSystemTagType.Normal;
-            return dataType;
-        }
-
-
-        private UnderlyingSystemDataType ParseUnderlyingDataType(string tagDataType)
-        {
-            if (!Enum.TryParse<UnderlyingSystemDataType>(tagDataType, out var dataType))
-                return UnderlyingSystemDataType.Undefined;
-            return dataType;
-        }
-
-
-        private string LookupBlockTypeName(string blockId)
-        {
-            string blockType = null;
-            int length = blockId.Length;
-
-            for (int ii = 0; ii < BlockDatabase.Count; ii++)
-            {
-                blockType = BlockDatabase[ii];
-
-                if (length >= blockType.Length || blockType[length] != '/')
-                {
-                    continue;
-                }
-
-                if (blockType.StartsWith(blockId))
-                {
-                    blockType = blockType.Substring(length + 1);
-                    break;
-                }
-
-                blockType = null;
-            }
-
-            return blockType;
-        }
-
-
+        
         /// <summary>
         /// Finds the segments for block.
         /// </summary>
@@ -607,6 +542,54 @@ namespace Quickstarts.DataAccessServer
                 return segments;
             }
         }
+
+        #endregion
+
+        #region Helpers
+
+
+        private UnderlyingSystemTagType ParseUnderlyingTagType(string tagTagType)
+        {
+            if (!Enum.TryParse<UnderlyingSystemTagType>(tagTagType, out var dataType))
+                return UnderlyingSystemTagType.Normal;
+            return dataType;
+        }
+
+
+        private UnderlyingSystemDataType ParseUnderlyingDataType(string tagDataType)
+        {
+            if (!Enum.TryParse<UnderlyingSystemDataType>(tagDataType, out var dataType))
+                return UnderlyingSystemDataType.Undefined;
+            return dataType;
+        }
+
+
+        private string LookupBlockTypeName(string blockId)
+        {
+            string blockType = null;
+            int length = blockId.Length;
+
+            for (int ii = 0; ii < BlockDatabase.Count; ii++)
+            {
+                blockType = BlockDatabase[ii];
+
+                if (length >= blockType.Length || blockType[length] != '/')
+                {
+                    continue;
+                }
+
+                if (blockType.StartsWith(blockId))
+                {
+                    blockType = blockType.Substring(length + 1);
+                    break;
+                }
+
+                blockType = null;
+            }
+
+            return blockType;
+        }
+
 
         #endregion
 

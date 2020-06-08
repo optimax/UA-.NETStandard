@@ -45,17 +45,17 @@ namespace Quickstarts.DataAccessServer
         /// <summary>
         /// A 1-byte integer value.
         /// </summary>
-        Integer1 = 1,
+        Int8 = 1,
 
         /// <summary>
         /// A 2-byte integer value.
         /// </summary>
-        Integer2 = 2,
+        Int16 = 2,
 
         /// <summary>
         /// A 4-byte integer value.
         /// </summary>
-        Integer4 = 3,
+        Int32 = 3,
 
         /// <summary>
         /// A 4-byte floating point value.
@@ -65,6 +65,14 @@ namespace Quickstarts.DataAccessServer
         /// <summary>
         /// A string value.
         /// </summary>
-        String = 5
+        String = 5,
+
+
+
+        /// <summary>
+        /// A boolean value.
+        /// </summary>
+        Boolean = 6,
+
     }
 }

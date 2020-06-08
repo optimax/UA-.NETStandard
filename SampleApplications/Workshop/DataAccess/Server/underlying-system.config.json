@@ -1,6 +1,7 @@
 {
   // Paths
   "Segments": [
+    "FactoryTalkLinxGateway/OPC/Online/MIS/From",
     "Factory/East/Boiler1/Pipe1001",
     "Factory/East/Boiler1/Drum1002",
     "Factory/East/Boiler1/Pipe1002",
@@ -38,6 +39,7 @@
     "GBP/Arkansas/CoreCutter"
   ],
 
+
   //BlockTypeName/BlockTypeDefinition
   "Blocks": [
     "Pipe1001/FlowSensor",
@@ -53,11 +55,32 @@
     "LC2001/Controller",
     "CC2001/CustomController",
     "SlitterWinder/WinderController",
-    "CoreCutter/CutterController"
+    "CoreCutter/CutterController",
+    "MIS/From"
   ],
+
 
   // Collections of Tags
   "BlockTypes": {
+    "From": {
+      "Name": "From",
+      "Tags": [
+        {
+          "Name": "HeartBeat",
+          "DataType": "Int16",
+          "TagType": "Digital",
+          "Writable": false
+        },
+        {
+          "Name": "New_Message",
+          "DataType": "Int16",
+          "TagType": "Digital",
+          "Units": null,
+          "Writable": false
+        }
+      ]
+    },
+
     "FlowSensor": {
       "Name": "FlowSensor",
       "Tags": [
@@ -70,7 +93,7 @@
         },
         {
           "Name": "Online",
-          "DataType": "Integer1",
+          "DataType": "Int16",
           "TagType": "Digital",
           "Units": null,
           "Writable": false
@@ -89,7 +112,7 @@
         },
         {
           "Name": "Online",
-          "DataType": "Integer1",
+          "DataType": "Int8",
           "TagType": "Digital",
           "Units": null,
           "Writable": false
@@ -122,7 +145,7 @@
         },
         {
           "Name": "Status",
-          "DataType": "Integer4",
+          "DataType": "Int32",
           "TagType": "Enumerated",
           "Units": null,
           "Writable": false
@@ -207,7 +230,7 @@
         },
         {
           "Name": "NumCores",
-          "DataType": "Integer1",
+          "DataType": "Int8",
           "TagType": "Normal",
           "Units": null,
           "Writable": false

@@ -39,6 +39,7 @@ namespace Quickstarts.DataAccessServer
     /// <summary>
     /// An object that provides access to the underlying system.
     /// </summary>
+    [Obsolete("Use UnderlyingSystemConfigurable class instead.")]
     public class UnderlyingSystem : IUnderlyingSystem
     {
         #region Constructors
@@ -86,79 +87,83 @@ namespace Quickstarts.DataAccessServer
         #endregion
 
         #region Public Members
-        /// <summary>
-        /// A database which stores all known block paths.
-        /// </summary>
-        /// <remarks>
-        /// These are hardcoded for an example but the real data could come from a DB,
-        /// a file or any other system accessed with a non-UA API.
-        /// 
-        /// The name of the block is the final path element.
-        /// The same block can have many paths.
-        /// Each preceding element is a segment.
-        /// </remarks>
-        private string[] s_BlockPathDatabase = new string[]
-        {
-            "Factory/East/Boiler1/Pipe1001",  
-            "Factory/East/Boiler1/Drum1002",     
-            "Factory/East/Boiler1/Pipe1002", 
-            "Factory/East/Boiler1/FC1001",
-            "Factory/East/Boiler1/LC1001",
-            "Factory/East/Boiler1/CC1001",
-            "Factory/West/Boiler2/Pipe2001",  
-            "Factory/West/Boiler2/Drum2002",     
-            "Factory/West/Boiler2/Pipe2002", 
-            "Factory/West/Boiler2/FC2001",
-            "Factory/West/Boiler2/LC2001",
-            "Factory/West/Boiler2/CC2001",
-            "Assets/Sensors/Flow/Pipe1001",  
-            "Assets/Sensors/Level/Drum1002",     
-            "Assets/Sensors/Flow/Pipe1002", 
-            "Assets/Controllers/Flow/FC1001",
-            "Assets/Controllers/Level/LC1001",
-            "Assets/Controllers/Custom/CC1001",
-            "Assets/Sensors/Flow/Pipe2001",  
-            "Assets/Sensors/Level/Drum2002",     
-            "Assets/Sensors/Flow/Pipe2002", 
-            "Assets/Controllers/Flow/FC2001",
-            "Assets/Controllers/Level/LC2001",
-            "Assets/Controllers/Custom/CC2001",
-            "TestData/Static/FC1001",
-            "TestData/Static/LC1001",
-            "TestData/Static/CC1001",
-            "TestData/Static/FC2001",
-            "TestData/Static/LC2001",
-            "TestData/Static/CC2001",
+        ///// <summary>
+        ///// A database which stores all known block paths.
+        ///// </summary>
+        ///// <remarks>
+        ///// These are hardcoded for an example but the real data could come from a DB,
+        ///// a file or any other system accessed with a non-UA API.
+        ///// 
+        ///// The name of the block is the final path element.
+        ///// The same block can have many paths.
+        ///// Each preceding element is a segment.
+        ///// </remarks>
+        //private string[] s_BlockPathDatabase = new string[]
+        //{
+        //    "Factory/East/Boiler1/Pipe1001",  
+        //    "Factory/East/Boiler1/Drum1002",     
+        //    "Factory/East/Boiler1/Pipe1002", 
+        //    "Factory/East/Boiler1/FC1001",
+        //    "Factory/East/Boiler1/LC1001",
+        //    "Factory/East/Boiler1/CC1001",
+        //    "Factory/West/Boiler2/Pipe2001",  
+        //    "Factory/West/Boiler2/Drum2002",     
+        //    "Factory/West/Boiler2/Pipe2002", 
+        //    "Factory/West/Boiler2/FC2001",
+        //    "Factory/West/Boiler2/LC2001",
+        //    "Factory/West/Boiler2/CC2001",
+        //    "Assets/Sensors/Flow/Pipe1001",  
+        //    "Assets/Sensors/Level/Drum1002",     
+        //    "Assets/Sensors/Flow/Pipe1002", 
+        //    "Assets/Controllers/Flow/FC1001",
+        //    "Assets/Controllers/Level/LC1001",
+        //    "Assets/Controllers/Custom/CC1001",
+        //    "Assets/Sensors/Flow/Pipe2001",  
+        //    "Assets/Sensors/Level/Drum2002",     
+        //    "Assets/Sensors/Flow/Pipe2002", 
+        //    "Assets/Controllers/Flow/FC2001",
+        //    "Assets/Controllers/Level/LC2001",
+        //    "Assets/Controllers/Custom/CC2001",
+        //    "TestData/Static/FC1001",
+        //    "TestData/Static/LC1001",
+        //    "TestData/Static/CC1001",
+        //    "TestData/Static/FC2001",
+        //    "TestData/Static/LC2001",
+        //    "TestData/Static/CC2001",
 
-            "GBP/GreenBay/Winder",
-        };
+        //    "GBP/GreenBay/Winder",
+        //};
 
-        /// <summary>
-        /// A database which stores all known blocks.
-        /// </summary>
-        /// <remarks>
-        /// These are hardcoded for an example but the real data could come from a DB,
-        /// a file or any other system accessed with a non-UA API.
-        /// 
-        /// The name of the block is the first element.
-        /// The type of block is the second element.
-        /// </remarks>
-        private string[] s_BlockDatabase = new string[]
-        {
-            "Pipe1001/FlowSensor",  
-            "Drum1002/LevelSensor",  
-            "Pipe1002/FlowSensor",  
-            "Pipe2001/FlowSensor",  
-            "Drum2002/LevelSensor",  
-            "Pipe2002/FlowSensor",  
-            "FC1001/Controller",  
-            "LC1001/Controller",  
-            "CC1001/CustomController",  
-            "FC2001/Controller",  
-            "LC2001/Controller",  
-            "CC2001/CustomController",
-            "Winder/Controller",
-        };
+        ///// <summary>
+        ///// A database which stores all known blocks.
+        ///// </summary>
+        ///// <remarks>
+        ///// These are hardcoded for an example but the real data could come from a DB,
+        ///// a file or any other system accessed with a non-UA API.
+        ///// 
+        ///// The name of the block is the first element.
+        ///// The type of block is the second element.
+        ///// </remarks>
+        //private string[] s_BlockDatabase = new string[]
+        //{
+        //    "Pipe1001/FlowSensor",  
+        //    "Drum1002/LevelSensor",  
+        //    "Pipe1002/FlowSensor",  
+        //    "Pipe2001/FlowSensor",  
+        //    "Drum2002/LevelSensor",  
+        //    "Pipe2002/FlowSensor",  
+        //    "FC1001/Controller",  
+        //    "LC1001/Controller",  
+        //    "CC1001/CustomController",  
+        //    "FC2001/Controller",  
+        //    "LC2001/Controller",  
+        //    "CC2001/CustomController",
+        //    "Winder/Controller",
+        //};
+
+
+        private string[] s_BlockPathDatabase;
+        private string[] s_BlockDatabase;
 
 
         /// <summary>
@@ -468,14 +473,14 @@ namespace Quickstarts.DataAccessServer
                     case "FlowSensor":
                     {
                         block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog, "liters/sec", false);
-                        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital, null, false);
+                        block.CreateTag("Online", UnderlyingSystemDataType.Int8, UnderlyingSystemTagType.Digital, null, false);
                         break;
                     }
 
                     case "LevelSensor":
                     {
                         block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Analog, "liters", false);
-                        block.CreateTag("Online", UnderlyingSystemDataType.Integer1, UnderlyingSystemTagType.Digital, null, false);
+                        block.CreateTag("Online", UnderlyingSystemDataType.Int8, UnderlyingSystemTagType.Digital, null, false);
                         break;
                     }
 
@@ -484,7 +489,7 @@ namespace Quickstarts.DataAccessServer
                         block.CreateTag("SetPoint", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, true);
                         block.CreateTag("Measurement", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, false);
                         block.CreateTag("Output", UnderlyingSystemDataType.Real4, UnderlyingSystemTagType.Normal, null, false);
-                        block.CreateTag("Status", UnderlyingSystemDataType.Integer4, UnderlyingSystemTagType.Enumerated, null, false);
+                        block.CreateTag("Status", UnderlyingSystemDataType.Int32, UnderlyingSystemTagType.Enumerated, null, false);
                         break;
                     }
 
