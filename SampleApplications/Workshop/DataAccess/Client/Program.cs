@@ -28,8 +28,8 @@
  * ======================================================================*/
 
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using DataAccessClient;
 using Opc.Ua;
 using Opc.Ua.Client.Controls;
 using Opc.Ua.Configuration;
@@ -51,6 +51,7 @@ namespace Quickstarts.DataAccessClient
             ApplicationInstance.MessageDlg = new ApplicationMessageDlg();
             ApplicationInstance application = new ApplicationInstance();
             application.ApplicationType   = ApplicationType.Client;
+            application.ConfigurationType = typeof(ClientApplicationConfiguration);
             application.ConfigSectionName = "DataAccessClient";
 
             try
@@ -63,12 +64,13 @@ namespace Quickstarts.DataAccessClient
 
                 // load the application configuration.
                 application.LoadApplicationConfiguration(false).Wait();
+                //application.SaveApplicationConfiguration();
 
                 // check the application certificate.
                 application.CheckApplicationInstanceCertificate(false, 0).Wait();
 
                 // run the application interactively.
-                Application.Run(new MainForm(application.ApplicationConfiguration));
+                Application.Run(new MainForm((ClientApplicationConfiguration)application.ApplicationConfiguration));
             }
             catch (Exception e)
             {

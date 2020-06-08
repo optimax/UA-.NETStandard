@@ -70,7 +70,7 @@ namespace Quickstarts.DataAccessClient
         /// Creates a form which uses the specified client configuration.
         /// </summary>
         /// <param name="configuration">The configuration to use.</param>
-        public MainForm(ApplicationConfiguration configuration)
+        public MainForm(ClientApplicationConfiguration configuration)
         {
             InitializeComponent();
             this.Icon = ClientUtils.GetAppIcon();

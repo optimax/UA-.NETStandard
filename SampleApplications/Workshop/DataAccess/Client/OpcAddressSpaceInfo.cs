@@ -36,7 +36,7 @@ namespace DataAccessClient
             return this;
         }
 
-
+        // Duplicates what's in MainForm
         public void PopulateBranch(OpcNodeInfo parent, NodeId sourceId, List<OpcNodeInfo> nodes, Action<int> progress)
         {
             nodes.Clear();

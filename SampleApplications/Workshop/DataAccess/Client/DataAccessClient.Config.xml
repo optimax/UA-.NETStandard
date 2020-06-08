@@ -8,8 +8,11 @@
   <ApplicationUri>urn:localhost:UA:DataAccessClient</ApplicationUri>
   <ProductUri>http://opcfoundation.org/UA/DataAccessClient</ProductUri>
   <ApplicationType>Client_1</ApplicationType>
+  <ApplicationSubtitle>Subtitle</ApplicationSubtitle>
   
+    <!-- Environment.GetFolderPath(...CommonApplicationData) -->
   <SecurityConfiguration>
+
       <!-- Where the application instance certificate is stored (MachineDefault) -->
     <ApplicationCertificate>
       <StoreType>Directory</StoreType>
