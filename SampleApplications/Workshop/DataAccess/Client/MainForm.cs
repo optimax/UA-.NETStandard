@@ -199,7 +199,10 @@ namespace Quickstarts.DataAccessClient
                     m_connectedOnce = true;
                 }
 
+
                 // populate the browse view.
+                var info = new OpcAddressSpaceInfo(m_session);
+
                 PopulateBranch(ObjectIds.RootFolder, BrowseNodesTV.Nodes); //ObjectIds.ObjectsFolder
 
                 BrowseNodesTV.Enabled = true;
@@ -328,13 +331,12 @@ namespace Quickstarts.DataAccessClient
                 nodesToBrowse.Add(nodeToBrowse3);
 
                 // fetch references from the server.
-                ReferenceDescriptionCollection references = FormUtils.Browse(m_session, nodesToBrowse, false);
+                var references = FormUtils.Browse(m_session, nodesToBrowse, false);
 
                 // process results.
-                for (int ii = 0; ii < references.Count; ii++)
+                foreach (var target in references)
+                    //for (int ii = 0; ii < references.Count; ii++)
                 {
-                    ReferenceDescription target = references[ii];
-
                     // add node.
                     TreeNode child = new TreeNode($"{target.DisplayName}");
                     child.Tag = target;

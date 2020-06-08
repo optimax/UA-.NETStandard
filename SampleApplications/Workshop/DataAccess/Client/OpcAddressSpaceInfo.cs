@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
-using System.Windows.Forms;
 using Opc.Ua;
 using Opc.Ua.Client;
 using Quickstarts;
@@ -39,7 +37,7 @@ namespace DataAccessClient
         }
 
 
-        private void PopulateBranch(OpcNodeInfo parent, NodeId sourceId, List<OpcNodeInfo> nodes, Action<int> progress)
+        public void PopulateBranch(OpcNodeInfo parent, NodeId sourceId, List<OpcNodeInfo> nodes, Action<int> progress)
         {
             nodes.Clear();
 
@@ -67,7 +65,8 @@ namespace DataAccessClient
             nodesToBrowse.Add(nodeToBrowse2);
 
             // fetch references from the server
-            ReferenceDescriptionCollection references = FormUtils.Browse(session, nodesToBrowse, false);
+            var references = FormUtils.Browse(session, nodesToBrowse, false)
+                .OrderBy( d => d.DisplayName).ToList();
 
             if (references == null || !references.Any())
                 return;

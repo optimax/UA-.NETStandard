@@ -34,7 +34,6 @@ using System.Threading.Tasks;
 using Mono.Options;
 using Opc.Ua;
 using Opc.Ua.Configuration;
-using Opc.Ua.Sample;
 using Opc.Ua.Server;
 
 namespace NetCoreConsoleServer

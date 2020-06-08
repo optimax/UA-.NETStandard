@@ -30,6 +30,7 @@
 using System;
 using System.Text;
 using System.Collections.Generic;
+using System.Linq;
 using Opc.Ua;
 using Opc.Ua.Client;
 
@@ -461,7 +462,7 @@ namespace Quickstarts
                         }
 
                         // save results.
-                        references.AddRange(results[ii].References);
+                        references.AddRange(results[ii].References.OrderBy(d => d.DisplayName.Text));
 
                         // check for continuation point.
                         if (results[ii].ContinuationPoint != null)
