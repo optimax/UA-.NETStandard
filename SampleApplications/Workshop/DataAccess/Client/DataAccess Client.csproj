@@ -142,6 +142,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataAccessClient.Urls.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DataAccessClient.Config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

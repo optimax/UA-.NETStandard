@@ -28,8 +28,11 @@
  * ======================================================================*/
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using DataAccessClient;
+using Newtonsoft.Json;
 using Opc.Ua;
 using Opc.Ua.Client.Controls;
 using Opc.Ua.Configuration;
@@ -64,13 +67,14 @@ namespace Quickstarts.DataAccessClient
 
                 // load the application configuration.
                 application.LoadApplicationConfiguration(false).Wait();
-                //application.SaveApplicationConfiguration();
+
+                var clientAppConfig = application.ApplicationConfiguration as ClientApplicationConfiguration;
 
                 // check the application certificate.
                 application.CheckApplicationInstanceCertificate(false, 0).Wait();
 
                 // run the application interactively.
-                Application.Run(new MainForm((ClientApplicationConfiguration)application.ApplicationConfiguration));
+                Application.Run(new MainForm(clientAppConfig));
             }
             catch (Exception e)
             {
@@ -80,12 +84,15 @@ namespace Quickstarts.DataAccessClient
         }
     }
 
-    /// <summary>
-    /// The <b>DataAccessClient</b> namespace contains classes which implement a UA Data Access Client.
-    /// </summary>
-    /// <exclude/>
-    [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class NamespaceDoc
-    {
-    }
+
+
+
+    ///// <summary>
+    ///// The <b>DataAccessClient</b> namespace contains classes which implement a UA Data Access Client.
+    ///// </summary>
+    ///// <exclude/>
+    //[System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    //public class NamespaceDoc
+    //{
+    //}
 }

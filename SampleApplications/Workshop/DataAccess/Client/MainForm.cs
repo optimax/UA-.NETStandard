@@ -31,6 +31,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -52,7 +53,6 @@ namespace Quickstarts.DataAccessClient
     {
         private const string DEFAULT_PATH_NAME = "Server";
         private const string DEFAULT_OBJECTS_NAME = "Objects";
-
 
         #region Constructors
 
@@ -76,17 +76,18 @@ namespace Quickstarts.DataAccessClient
             this.Icon = ClientUtils.GetAppIcon();
             ConnectServerCTRL.Configuration = m_configuration = configuration;
 
+            LoadClientConfiguration(m_configuration);
 
-
-            var availableUrls = new List<string> {
-                "opc.tcp://D51WS08510X:4990/FactoryTalkLinxGateway",
-                "opc.tcp://localhost:62548/Quickstarts/DataAccessServer"
-            };
-
-            ConnectServerCTRL.SetAvailableUrls(availableUrls);
-
+            var availableUrls = configuration.RemoteUrls;
             if (availableUrls.Any())
-                ConnectServerCTRL.ServerUrl = availableUrls[0];
+            {
+                ConnectServerCTRL.SetAvailableUrls(availableUrls);
+                if (String.IsNullOrEmpty(configuration.LastRemoteUrl))
+                    configuration.LastRemoteUrl = availableUrls[0];
+                ConnectServerCTRL.ServerUrl = configuration.LastRemoteUrl;
+            }
+
+            SaveClientConfiguration(m_configuration);
 
             this.Text = m_configuration.ApplicationName;
             boxNodeName.Text = DEFAULT_OBJECTS_NAME;
@@ -100,7 +101,7 @@ namespace Quickstarts.DataAccessClient
 
         #region Private Fields
 
-        private ApplicationConfiguration m_configuration;
+        private ClientApplicationConfiguration m_configuration;
         private Session m_session;
         private bool m_connectedOnce;
         private Subscription m_subscription;
@@ -109,7 +110,34 @@ namespace Quickstarts.DataAccessClient
         #endregion
 
 
-        #region Private Methods
+        #region Configuration
+
+        public static void LoadClientConfiguration(ClientApplicationConfiguration config)
+        {
+            var fileName = ApplicationConfiguration.GetFilePathFromAppConfig("DataAccessClient");
+            var folderName = Path.GetDirectoryName(fileName);
+
+            var urlFileName = Path.Combine(folderName ?? "", "DataAccessClient.Urls.json");
+            if (!File.Exists(urlFileName))
+            {
+                config.RemoteUrls = new List<string>();
+                return;
+            }
+
+            var json = File.ReadAllText(urlFileName);
+            config.RemoteUrls = JsonConvert.DeserializeObject<List<string>>(json);
+        }
+
+
+        public static void SaveClientConfiguration(ClientApplicationConfiguration config)
+        {
+            var fileName = ApplicationConfiguration.GetFilePathFromAppConfig("DataAccessClient");
+            var folderName = Path.GetDirectoryName(fileName);
+            var outFileName = Path.Combine(folderName ?? "", "DataAccessClient.Config.json");
+            var newJson = JsonConvert.SerializeObject(config, Formatting.Indented);
+            File.WriteAllText(outFileName, newJson);
+        }
+
 
         #endregion
 
@@ -579,8 +607,8 @@ namespace Quickstarts.DataAccessClient
         {
             try
             {
-                System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) +
-                                                 "\\WebHelp\\daclientoverview.htm");
+                Process.Start(Path.GetDirectoryName(Application.ExecutablePath) +
+                              "\\WebHelp\\daclientoverview.htm");
             }
             catch (Exception ex)
             {
@@ -1190,7 +1218,7 @@ namespace Quickstarts.DataAccessClient
         }
 
 
-        private void BrowsingMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        private void BrowsingMenu_Opening(object sender, CancelEventArgs e)
         {
             Browse_MonitorMI.Enabled = true;
             Browse_ReadHistoryMI.Enabled = true;
