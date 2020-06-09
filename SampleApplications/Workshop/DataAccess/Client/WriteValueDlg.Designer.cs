@@ -67,7 +67,7 @@ namespace Quickstarts.DataAccessClient
             // 
             this.CancelBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelBTN.Location = new System.Drawing.Point(305, 36);
+            this.CancelBTN.Location = new System.Drawing.Point(93, 35);
             this.CancelBTN.Name = "CancelBTN";
             this.CancelBTN.Size = new System.Drawing.Size(75, 23);
             this.CancelBTN.TabIndex = 5;
@@ -96,18 +96,21 @@ namespace Quickstarts.DataAccessClient
             // 
             // ValueTB
             // 
-            this.ValueTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ValueTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ValueTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ValueTB.Location = new System.Drawing.Point(52, 6);
             this.ValueTB.Name = "ValueTB";
-            this.ValueTB.Size = new System.Drawing.Size(328, 20);
+            this.ValueTB.Size = new System.Drawing.Size(328, 21);
             this.ValueTB.TabIndex = 1;
             // 
             // WriteValueDlg
             // 
+            this.AcceptButton = this.OkBTN;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 71);
+            this.CancelButton = this.CancelBTN;
+            this.ClientSize = new System.Drawing.Size(392, 68);
             this.Controls.Add(this.ValueTB);
             this.Controls.Add(this.ValueLB);
             this.Controls.Add(this.OkBTN);

@@ -37,7 +37,7 @@ namespace DataAccessClient
         }
 
         // Duplicates what's in MainForm
-        public void PopulateBranch(OpcNodeInfo parent, NodeId sourceId, List<OpcNodeInfo> nodes, Action<int> progress)
+        public void PopulateBranch(OpcNodeInfo parent, NodeId sourceId, List<OpcNodeInfo> nodes, Action<int> progress = null)
         {
             nodes.Clear();
 
@@ -66,7 +66,7 @@ namespace DataAccessClient
 
             // fetch references from the server
             var references = FormUtils.Browse(session, nodesToBrowse, false)
-                .OrderBy( d => d.DisplayName).ToList();
+                .OrderBy( d => d.DisplayName.Text).ToList();
 
             if (references == null || !references.Any())
                 return;

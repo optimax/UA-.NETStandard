@@ -231,7 +231,7 @@ namespace Quickstarts.DataAccessClient
                 // populate the browse view.
                 var info = new OpcAddressSpaceInfo(m_session);
 
-                PopulateBranch(ObjectIds.RootFolder, BrowseNodesTV.Nodes); //ObjectIds.ObjectsFolder
+                PopulateBranch(ObjectIds.RootFolder, BrowseNodesTV.Nodes, true); //ObjectIds.ObjectsFolder
 
                 BrowseNodesTV.Enabled = true;
                 MonitoredItemsLV.Enabled = true;
@@ -313,58 +313,72 @@ namespace Quickstarts.DataAccessClient
         /// Populates the branch in the tree view.
         /// </summary>
         /// <param name="sourceId">The NodeId of the Node to browse.</param>
-        /// <param name="nodes">The node collect to populate.</param>
-        private void PopulateBranch(NodeId sourceId, TreeNodeCollection nodes)
+        /// <param name="treeNodes">The node collect to populate.</param>
+        private void PopulateBranch(NodeId sourceId, TreeNodeCollection treeNodes, bool displayAttributes)
         {
+            //var info = new OpcAddressSpaceInfo(m_session);
+            //var nodes = new List<OpcNodeInfo>();
+            //info.PopulateBranch(null, sourceId, nodes);
+
             try
             {
-                nodes.Clear();
+                treeNodes.Clear();
+
 
                 // find all of the components of the node.
                 BrowseDescription nodeToBrowse1 = new BrowseDescription();
 
                 nodeToBrowse1.NodeId = sourceId;
                 nodeToBrowse1.BrowseDirection = BrowseDirection.Forward;
-                nodeToBrowse1.ReferenceTypeId = ReferenceTypeIds.Aggregates;
+                nodeToBrowse1.ReferenceTypeId = null; //ReferenceTypeIds.Aggregates;
                 nodeToBrowse1.IncludeSubtypes = true;
-                nodeToBrowse1.NodeClassMask = (uint)(NodeClass.Object | NodeClass.Variable);
+                nodeToBrowse1.NodeClassMask = 0; //(uint)(NodeClass.Object | NodeClass.Variable);
                 nodeToBrowse1.ResultMask = (uint)BrowseResultMask.All;
 
-                // find all nodes organized by the node.
-                BrowseDescription nodeToBrowse2 = new BrowseDescription();
+                //// find all nodes organized by the node.
+                //BrowseDescription nodeToBrowse2 = new BrowseDescription();
 
-                nodeToBrowse2.NodeId = sourceId;
-                nodeToBrowse2.BrowseDirection = BrowseDirection.Forward;
-                nodeToBrowse2.ReferenceTypeId = ReferenceTypeIds.Organizes;
-                nodeToBrowse2.IncludeSubtypes = true;
-                nodeToBrowse2.NodeClassMask = (uint)(NodeClass.Object | NodeClass.Variable);
-                nodeToBrowse2.ResultMask = (uint)BrowseResultMask.All;
+                //nodeToBrowse2.NodeId = sourceId;
+                //nodeToBrowse2.BrowseDirection = BrowseDirection.Forward;
+                //nodeToBrowse2.ReferenceTypeId = ReferenceTypeIds.Organizes;
+                //nodeToBrowse2.IncludeSubtypes = true;
+                //nodeToBrowse2.NodeClassMask = 0; //(uint)(NodeClass.Object | NodeClass.Variable);
+                //nodeToBrowse2.ResultMask = (uint)BrowseResultMask.All;
 
 
-                // find all child nodes of the node.
-                BrowseDescription nodeToBrowse3 = new BrowseDescription();
+                //// find all child nodes of the node.
+                //BrowseDescription nodeToBrowse3 = new BrowseDescription();
 
-                nodeToBrowse3.NodeId = sourceId;
-                nodeToBrowse3.BrowseDirection = BrowseDirection.Forward;
-                nodeToBrowse3.ReferenceTypeId = ReferenceTypeIds.HasChild;
-                nodeToBrowse3.IncludeSubtypes = true;
-                nodeToBrowse3.NodeClassMask = (uint)(NodeClass.Object | NodeClass.Variable | NodeClass.Method);
-                nodeToBrowse3.ResultMask = (uint)BrowseResultMask.All;
+                //nodeToBrowse3.NodeId = sourceId;
+                //nodeToBrowse3.BrowseDirection = BrowseDirection.Forward;
+                //nodeToBrowse3.ReferenceTypeId = ReferenceTypeIds.HasChild;
+                //nodeToBrowse3.IncludeSubtypes = true;
+                //nodeToBrowse3.NodeClassMask = 0; //(uint)(NodeClass.Object | NodeClass.Variable | NodeClass.Method);
+                //nodeToBrowse3.ResultMask = (uint)BrowseResultMask.All;
 
 
 
                 BrowseDescriptionCollection nodesToBrowse = new BrowseDescriptionCollection();
                 nodesToBrowse.Add(nodeToBrowse1);
-                nodesToBrowse.Add(nodeToBrowse2);
-                nodesToBrowse.Add(nodeToBrowse3);
+                //nodesToBrowse.Add(nodeToBrowse2);
+                //nodesToBrowse.Add(nodeToBrowse3);
 
                 // fetch references from the server.
-                var references = FormUtils.Browse(m_session, nodesToBrowse, false);
+                var nodes = FormUtils.Browse(m_session, nodesToBrowse, false);
 
                 // process results.
-                foreach (var target in references)
-                    //for (int ii = 0; ii < references.Count; ii++)
+                foreach (var target in nodes)
                 {
+                    var refTypeId = target.ReferenceTypeId;
+                    if (refTypeId == ReferenceTypeIds.HasTypeDefinition)
+                        continue;
+
+                    
+                    //var nodeType = target.TypeDefinition;
+                    //if (nodeType == ClientUtils.ObjectType)
+                    //    continue;
+
+
                     // add node.
                     TreeNode child = new TreeNode($"{target.DisplayName}");
                     child.Tag = target;
@@ -379,11 +393,12 @@ namespace Quickstarts.DataAccessClient
                         child.Text = $"{child.Text}()";
                     }
 
-                    nodes.Add(child);
+                    treeNodes.Add(child);
                 }
 
                 // update the attributes display.
-                DisplayAttributes(sourceId);
+                if (displayAttributes)
+                    DisplayAttributes(sourceId);
             }
             catch (Exception exception)
             {
@@ -640,7 +655,7 @@ namespace Quickstarts.DataAccessClient
                 }
 
                 // populate children.
-                PopulateBranch((NodeId)reference.NodeId, e.Node.Nodes);
+                PopulateBranch((NodeId)reference.NodeId, e.Node.Nodes, true);
             }
             catch (Exception exception)
             {
@@ -669,10 +684,9 @@ namespace Quickstarts.DataAccessClient
                 boxNodeName.Text = nodeId.ToString(); // e.Node.Text;
 
                 // populate children.
-                PopulateBranch((NodeId)reference.NodeId, e.Node.Nodes);
+                PopulateBranch((NodeId)reference.NodeId, e.Node.Nodes, true);
 
                 boxBrowsePath.Text = e.Node.FullPath;
-
             }
             catch (Exception exception)
             {
@@ -836,6 +850,11 @@ namespace Quickstarts.DataAccessClient
                 }
 
                 new WriteValueDlg().ShowDialog(m_session, (NodeId)reference.NodeId, Attributes.Value);
+
+
+                DisplayAttributes((NodeId)reference.NodeId);
+
+
             }
             catch (Exception exception)
             {
@@ -1353,7 +1372,7 @@ namespace Quickstarts.DataAccessClient
             BrowseNodesTV.SelectedNode = null;
             boxNodeName.Text = DEFAULT_OBJECTS_NAME;
             if (m_session != null)
-                PopulateBranch(ObjectIds.ObjectsFolder, BrowseNodesTV.Nodes);
+                PopulateBranch(ObjectIds.ObjectsFolder, BrowseNodesTV.Nodes, true);
         }
 
 
@@ -1429,11 +1448,6 @@ namespace Quickstarts.DataAccessClient
         }
 
 
-        private void SaveAddressSpaceObjects(NodeId nodeId, string nodePath, string fileName)
-        {
-            SaveAddressSpaceAsJson(nodeId, nodePath, fileName);
-        }
-
 
         private void SaveAddressSpaceAsList(TreeNode node, string nodePath, string fileName)
         {
@@ -1448,6 +1462,8 @@ namespace Quickstarts.DataAccessClient
                     if (reference == null)
                         continue;
                     sb.AppendLine($"{reference.DisplayName},{reference.NodeId.ToString()},{treeNode.FullPath}");
+
+                    PopulateBranch((NodeId)reference.NodeId, treeNode.Nodes, false);
                     ProcessTreeNodes(treeNode.Nodes, sb);
                 }
             }
